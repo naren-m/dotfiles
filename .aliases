@@ -64,7 +64,7 @@
 
 #  Python3 virtual environment
     export WORKON_HOME=~/.virtualenvs
-    source /usr/local/bin/virtualenvwrapper.sh
+    src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
 
 #  Utils for cd 
     alias wpy='cd /Users/$USER/Documents/work_script'
