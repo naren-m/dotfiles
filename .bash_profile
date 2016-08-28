@@ -1,5 +1,3 @@
-. `brew --prefix`/etc/profile.d/z.sh
-
 # General Aliases
 if [ -f ~/.aliases ]; then
     . ~/.aliases

@@ -1,6 +1,3 @@
-# Z 
-. `brew --prefix`/etc/profile.d/z.sh
-
 source $HOME/.aliases
 source $HOME/.aliases_work
 
