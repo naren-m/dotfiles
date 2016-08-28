@@ -2,7 +2,7 @@ source $HOME/.aliases
 source $HOME/.aliases_work
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/nmudivar/.oh-my-zsh
+export ZSH=/Users/$USER/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -90,7 +90,7 @@ autoload -U compinit && compinit
 #
 # Example aliases
 alias zshconfig="vi ~/.zshrc"
-alias ohmyzsh="vi ~/.oh-my-zsh"
+alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 
 # For syntax highlighting.
 source /Users/$USER/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
