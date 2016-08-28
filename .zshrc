@@ -2,6 +2,7 @@
 . `brew --prefix`/etc/profile.d/z.sh
 
 source $HOME/.aliases
+source $HOME/.aliases_work
 
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/nmudivar/.oh-my-zsh
