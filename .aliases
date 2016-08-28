@@ -28,8 +28,8 @@
 #   Google project aliasses
 #   ------------------------------------------------------------
 
-    # export GOOGLE_APPLICATION_CREDENTIALS=/Users/nmudivar/GDrive/python_code/personal/google_vision_api/Bill\ reader-3be8f5feedd5.json
-    alias export_speech_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/nmudivar/GDrive/python_code/personal/google_credentials/Home_assistant-a3e1f38abac0.json'
+    # export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_vision_api/Bill\ reader-3be8f5feedd5.json
+    alias export_speech_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_credentials/Home_assistant-a3e1f38abac0.json'
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
@@ -67,14 +67,14 @@
     source /usr/local/bin/virtualenvwrapper.sh
 
 #  Utils for cd 
-    alias wpy='cd /Users/nmudivar/Documents/work_script'
-    alias ppy='cd /Users/nmudivar/GDrive/python_code/personal'
-    alias pyutils='cd /Users/nmudivar/GDrive/python_code/personal/utils'
-    alias dwnlds='cd /Users/nmudivar/Downloads'
-    alias desk='cd /Users/nmudivar/Desktop'
-    alias docs='cd /Users/nmudivar/Documents'
-    alias gdrive='cd /Users/nmudivar/GDrive/'
-    books () { cd /Users/nmudivar/GDrive/Books; open -a Finder ./; } 
+    alias wpy='cd /Users/$USER/Documents/work_script'
+    alias ppy='cd /Users/$USER/GDrive/python_code/personal'
+    alias pyutils='cd /Users/$USER/GDrive/python_code/personal/utils'
+    alias dwnlds='cd /Users/$USER/Downloads'
+    alias desk='cd /Users/$USER/Desktop'
+    alias docs='cd /Users/$USER/Documents'
+    alias gdrive='cd /Users/$USER/GDrive/'
+    books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; } 
 
     alias ..='cd ../'                           # Go back 1 directory level
     alias .2='cd ../../'                        # Go back 2 directory levels
@@ -99,8 +99,8 @@
     alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # Aliases for cleanup s
-    alias clean_folder='python /Users/nmudivar/GDrive/python_code/personal/sys_utils/clean_folder.py'
-    alias image_rename='python /Users/nmudivar/GDrive/python_code/personal/sys_utils/image_rename.py'
+    alias clean_folder='python /Users/$USER/GDrive/python_code/personal/sys_utils/clean_folder.py'
+    alias image_rename='python /Users/$USER/GDrive/python_code/personal/sys_utils/image_rename.py'
 
 # Utils for ssh to servers
     alias raspi='ssh pi@raspberrypi.local' # password for uwer:pi is raspberry
@@ -280,5 +280,5 @@ EOT
 
 # Torch installation
 # http://torch.ch/docs/getting-started.html
-    torch_setup () {  . /Users/nmudivar/torch/install/bin/torch-activate; }
+    torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
 
