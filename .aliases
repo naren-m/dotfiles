@@ -46,9 +46,10 @@
     alias show_options='shopt'                  # Show_options: display bash options settings
     alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
     alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
-    alias grep='/usr/bin/grep --color=always -n'
+    alias grep='grep --color=always -n'
     alias q='exit'
     alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+    alias h='history'
 
     mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
     trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
@@ -105,6 +106,13 @@
 # Utils for ssh to servers
     alias raspi='ssh pi@raspberrypi.local' # password for uwer:pi is raspberry
     narenuday () {  ssh narenuday@10.0.1.14; }
+
+# Delete entry from ssh known hosts
+     ckh ()
+     {
+         sed -e "$1d" /users/$USER/.ssh/known_hosts > /dev/null
+         sed -i.bak -e "$1d" /users/$USER/.ssh/known_hosts > /dev/null
+      }
 
 #   lr:  Full Recursive Directory Listing
 #   ------------------------------------------
