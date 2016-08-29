@@ -2,7 +2,7 @@ source $HOME/.aliases
 source $HOME/.aliases_work
 
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/$USER/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -55,7 +55,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-completions)
+plugins=(git )
 
 # User configuration
 
@@ -93,4 +93,4 @@ alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 
 # For syntax highlighting.
-source /Users/$USER/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
