@@ -41,6 +41,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
 if has("cscope")
 
-    so ~/cscope_plugin.vim
+    so ~/.vim/bundle/cscope_plugin.vim
 
 endif
