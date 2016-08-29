@@ -290,3 +290,5 @@ EOT
 # http://torch.ch/docs/getting-started.html
     torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
 
+# setup z for quick navigation through folders
+    . ~/dotfiles/z/z.sh
