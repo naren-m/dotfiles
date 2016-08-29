@@ -1,6 +1,5 @@
 filetype plugin indent on
 syntax on
-set laststatus=2  " Always display the status line
 
 if has("gui_running")
   vmap <C-S-x> "+x 
@@ -30,12 +29,18 @@ execute pathogen#infect()
 " CtrlP for fuzzy file search
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-
-set laststatus=2
+" set laststatus=2  " Always display the status line
+"
 "" Nerdcommenter setup
 " Add spaces after comment delimiters by default
-let g:NERDSpaceDelims = 1
+" let g:NERDSpaceDelims = 1
+" let g:AutoPairsFlyMode = 1
 
 " Add your own custom formats or override the defaults
-let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
+if has("cscope")
+
+    so ~/cscope_plugin.vim
+
+endif
