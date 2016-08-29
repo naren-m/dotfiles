@@ -12,6 +12,13 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.o
 
 
 function doIt() {
+        cp ~/.bash_profile ~/.bash_profile.orig 2>/dev/null
+        cp ~/.bashrc ~/.bashrc.orig 2>/dev/null
+        cp ~/.vimrc ~/.vimrc.orig 2>/dev/null
+        cp ~/.zshrc ~/.zshrc.orig 2>/dev/null
+
+        cp -r ~/.vim/ ~/.vim.orig 2>/dev/null
+
 	rsync --exclude ".git/" \
 		--exclude ".DS_Store" \
 		--exclude "bootstrap.sh" \
