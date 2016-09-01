@@ -13,6 +13,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/dotfiles/.o
 echo "Cloning z for quick navigation through folders"
 git clone https://github.com/rupa/z.git ~/dotfiles/z
 
+echo "Cloning nerdTree for vim"
+git clone https://github.com/scrooloose/nerdtree ~/dotfiles/.vim/bundle/nerdtree
+
 function doIt() {
 #        cp ~/.bash_profile ~/.bash_profile.orig 2>/dev/null
 #        cp ~/.bashrc ~/.bashrc.orig 2>/dev/null

@@ -26,6 +26,9 @@ nnoremap <C-l> <C-w>l
 " Setting up and starting pathogen
 execute pathogen#infect()
 
+" Nerd tree toggle
+map <C-n> :NERDTreeToggle<CR>
+
 " CtrlP for fuzzy file search
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
@@ -40,7 +43,5 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 " let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
 
 if has("cscope")
-
     so ~/.vim/bundle/cscope_plugin.vim
-
 endif
