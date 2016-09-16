@@ -41,7 +41,6 @@
     alias less='less -FSRXc'                    # Preferred 'less' implementation
     alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
     alias cls='clear && pwd && ls'              # c:            Clear terminal display
-    alias which='type -all'                     # which:        Find executables
     alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
     alias show_options='shopt'                  # Show_options: display bash options settings
     alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
