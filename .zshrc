@@ -12,7 +12,10 @@ export ZSH=~/.oh-my-zsh
 # dogenpunk    -> with OM
 # miloshadzic  -> ~|⇒
 # jonathan     -> line and time
-ZSH_THEME="random"
+# jbergantine  -> "➜  <DIR>"
+# wuffers      -> "{} <DIR>"
+# cloud        -> "☁  <DIR>"
+ZSH_THEME="cloud"
 
 
 # Uncomment the following line to use case-sensitive completion.
@@ -57,7 +60,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git )
+plugins=(git battery)
 
 # User configuration
 
