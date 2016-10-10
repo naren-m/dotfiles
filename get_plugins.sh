@@ -11,5 +11,9 @@ git clone git://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh
 echo "Cloning z for quick navigation through folders"
 git clone https://github.com/rupa/z.git ~/dotfiles/z
 
+# Vim plugins
+
 echo "Cloning nerdTree for vim"
 git clone https://github.com/scrooloose/nerdtree ~/dotfiles/.vim/bundle/nerdtree
+
+echo "Cloning vim-airline for vim"
