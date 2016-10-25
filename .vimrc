@@ -1,6 +1,7 @@
 filetype plugin indent on
 syntax on
 set nocompatible
+set encoding=utf-8
 
 " Vim Settings
 " Source https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/settings.vim
