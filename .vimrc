@@ -1,14 +1,33 @@
 filetype plugin indent on
 syntax on
 set nocompatible
-set encoding=utf-8
 
 " Vim Settings
 " Source https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/settings.vim
 
+" Copy to clipboard
+    set clipboard=unnamed
+" Make it obvious where 80 characters is
+    set textwidth=80
+    set colorcolumn=+1
+    let &colorcolumn=join(range(81,999),",")  "for having shadedline after 80
+    highlight ColorColumn ctermbg=235 guibg=#2c2d27
+    let &colorcolumn="80,".join(range(120,999),",")
+
+
 " Numbering settings
     set number
-    set relativenumber
+    " set relativenumber
+    "Toggle relative numbering, and set to absolute on loss of focus or insert mode
+    function! ToggleNumbersOn()
+        set nu!
+        set rnu
+    endfunction
+    function! ToggleRelativeOn()
+        set rnu!
+        set nu
+    endfunction
+    map <C-r> :call ToggleRelativeOn()<CR>
 
 " Indentation settings for using 4 spaces instead of tabs.
     set shiftwidth=4
@@ -20,6 +39,7 @@ set encoding=utf-8
         if v:version > 703 || v:version == 703 && has('patch541')
           set formatoptions+=j            " remove comment leader when joining comment lines
         endif
+
 " Bell settings
     if exists('&belloff')
       set belloff=all                     " never ring the bell for any reason
@@ -28,7 +48,7 @@ set encoding=utf-8
 " Show whitespaces settings
     set list                              " show whitespace
     set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-    set listchars+=tab:▷┅                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
+    set listchars+=tab:➝\                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
                                           " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
     set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
     set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
@@ -98,6 +118,23 @@ set encoding=utf-8
 " Plugins
     " Setting up and starting pathogen
         execute pathogen#infect()
+
+    " Go plugin
+       " vim-go
+       let g:go_fmt_command = "goimports"
+       let g:go_autodetect_gopath = 1
+       let g:go_list_type = "quickfix"
+
+       let g:go_highlight_types = 1
+       let g:go_highlight_fields = 1
+       let g:go_highlight_functions = 1
+       let g:go_highlight_methods = 1
+       let g:go_highlight_extra_types = 1
+       let g:go_highlight_generate_tags = 1
+
+       " Open :GoDeclsDir with ctrl-g
+       nmap <C-g> :GoDeclsDir<cr>
+       imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
     " Nerd tree toggle
         map <C-n> :NERDTreeToggle<CR>
