@@ -14,14 +14,10 @@
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
-
-#   Change Prompt
-#   ------------------------------------------------------------
-#   export PS1="________________________________________________________________________________\n| \h @ \w \n| => "
-#   export PS1="\u:\w \n$ "
-
-#   Set Paths
-#   ------------------------------------------------------------
+# Export paths
+    export GOPATH=~/go
+    export GOBIN=~/go/bin
+    export WORKON_HOME=~/.virtualenvs
     export PATH="$PATH:/usr/local/bin/"
     export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
@@ -29,7 +25,7 @@
 #   ------------------------------------------------------------
 
     # export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_vision_api/Bill\ reader-3be8f5feedd5.json
-    alias export_speech_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_credentials/Home_assistant-a3e1f38abac0.json'
+    alias google_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_credentials/Home_assistant-a3e1f38abac0.json'
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
@@ -59,12 +55,15 @@
     alias chr='open http://www.google.com/'
     alias inbox='open -a Safari https://inbox.google.com'
 
+
 # Utils for python
     alias ipy='ipython notebook'
 
-#  Python3 virtual environment
-    export WORKON_HOME=~/.virtualenvs
-    src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
+
+# Sourcing Envs
+
+    #  Python3 virtual environment
+        src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
 
 #  Utils for cd 
     alias wpy='cd /Users/$USER/Documents/work_script'
@@ -74,6 +73,8 @@
     alias desk='cd /Users/$USER/Desktop'
     alias docs='cd /Users/$USER/Documents'
     alias gdrive='cd /Users/$USER/GDrive/'
+    alias proj='cd /Users/$USER/Projects/'
+    alias cdgo="cd $GOPATH"                              # Go Home
     books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; } 
 
     alias ..='cd ../'                           # Go back 1 directory level
@@ -284,6 +285,16 @@ EOT
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
     httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
+
+#   ---------------------------------------
+#   8. Docker
+#   ---------------------------------------
+    alias drmall='docker rm $(docker ps -a -q)'    # Remove all containers
+    alias drmiall='docker rmi $(docker images -q)' # Remove all docker images
+    alias drm="docker rm"                          # Docker rm container
+    alias drmi="docker rmi"                        # Dcoker rm image
+    alias dps='docker ps -a'                       # Show all running containers
+    alias di='docker images'                       # show all socker images
 
 # Torch installation
 # http://torch.ch/docs/getting-started.html
