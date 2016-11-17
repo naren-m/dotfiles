@@ -15,8 +15,7 @@ export ZSH=~/.oh-my-zsh
 # jbergantine  -> "➜  <DIR>"
 # wuffers      -> "{} <DIR>"
 # cloud        -> "☁  <DIR>"
-ZSH_THEME="cloud"
-
+ZSH_THEME="jbergantine"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -60,7 +59,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git battery)
+plugins=(git battery docker zsh-autosuggestions vagrant)
 
 # User configuration
 
@@ -98,4 +97,4 @@ alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 
 # For syntax highlighting.
-# source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

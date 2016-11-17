@@ -115,6 +115,10 @@ set nocompatible
     nnoremap <C-h> <C-w>h
     nnoremap <C-l> <C-w>l
 
+" Cycle between buffers
+    nnoremap <Tab> :bnext<CR>
+    nnoremap <S-Tab> :bprevious<CR>
+
 " Plugins
     " Setting up and starting pathogen
         execute pathogen#infect()
