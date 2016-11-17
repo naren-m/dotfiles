@@ -2,6 +2,8 @@ filetype plugin indent on
 syntax on
 set nocompatible
 
+colorscheme monokai
+
 " Vim Settings
 " Source https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/settings.vim
 
