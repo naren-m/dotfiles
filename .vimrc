@@ -2,7 +2,7 @@ filetype plugin indent on
 syntax on
 set nocompatible
 
-colorscheme monokai
+" colorscheme monokai
 
 " Vim Settings
 " Source https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/settings.vim
@@ -15,7 +15,6 @@ colorscheme monokai
     let &colorcolumn=join(range(81,999),",")  "for having shadedline after 80
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
     let &colorcolumn="80,".join(range(120,999),",")
-
 
 " Numbering settings
     set number
@@ -55,6 +54,8 @@ colorscheme monokai
     set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
     set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
     set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
+    hi NonText ctermfg=red guifg=gray
+
 
 " Linebreak settings
     if has('linebreak')
