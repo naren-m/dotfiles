@@ -25,7 +25,7 @@
 #   ------------------------------------------------------------
 
     # export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_vision_api/Bill\ reader-3be8f5feedd5.json
-    alias google_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_credentials/Home_assistant-a3e1f38abac0.json'
+    alias google_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google/google_credentials/Home_assistant-a3e1f38abac0.json'
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
@@ -45,6 +45,7 @@
     alias q='exit'
     alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
     alias h='history'
+    alias git_repo='git config --get remote.origin.url'
 
     mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
     trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
@@ -260,7 +261,16 @@ EOT
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
     alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
+#
+#   cleanupIcon:  Recursively delete Icon$'\r' files
+#   -------------------------------------------------------------------
+    alias cleanupIcon="find . -name Icon$'\r' -ls -delete"
+    alias countIcon="find . -name Icon$'\r' -ls | wc -l"
 
+#   cleanupDS:  Recursively delete .DS_Store files
+#   -------------------------------------------------------------------
+    alias cleanup= cleanupDS && cleanupIcon
+#
 #   finderShowHidden:   Show hidden files in Finder
 #   finderHideHidden:   Hide hidden files in Finder
 #   -------------------------------------------------------------------
