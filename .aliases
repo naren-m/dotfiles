@@ -60,7 +60,7 @@
 # Utils for python
     alias ipy='ipython notebook'
 
-
+alias python='python2.7'
 # Sourcing Envs
 
     #  Python3 virtual environment
@@ -257,39 +257,9 @@ EOT
 #   ---------------------------------------
 #   7.  SYSTEMS OPERATIONS & INFORMATION
 #   ---------------------------------------
-
-#   cleanupDS:  Recursively delete .DS_Store files
-#   -------------------------------------------------------------------
-    alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
-#
-#   cleanupIcon:  Recursively delete Icon$'\r' files
-#   -------------------------------------------------------------------
-    alias cleanupIcon="find . -name Icon$'\r' -ls -delete"
-    alias countIcon="find . -name Icon$'\r' -ls | wc -l"
-
-#   cleanupDS:  Recursively delete .DS_Store files
-#   -------------------------------------------------------------------
-    alias cleanup= cleanupDS && cleanupIcon
-#
-#   finderShowHidden:   Show hidden files in Finder
-#   finderHideHidden:   Hide hidden files in Finder
-#   -------------------------------------------------------------------
-    alias finderShowHidden='defaults write com.apple.finder ShowAllFiles TRUE'
-    alias finderHideHidden='defaults write com.apple.finder ShowAllFiles FALSE'
-
-#   hide_icons:     Hides desktop icons; Bug: Double finger tap does not work with the setup
-#   show_icons:     Shows desktop icons
-#   -------------------------------------------------------------------
-    alias hide_icons='defaults write com.apple.finder CreateDesktop false; killall Finder'
-    alias show_icons='defaults write com.apple.finder CreateDesktop true; killall Finder'
-
-#   cleanupLS:  Clean up LaunchServices to remove duplicates in the "Open With" menu
-#   -----------------------------------------------------------------------------------
-    alias cleanupLS="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
-
-#    screensaverDesktop: Run a screensaver on the Desktop
-#   -----------------------------------------------------------------------------------
-    alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
+if [ -f ~/.aliases_mac ]; then
+     source  ~/.aliases_mac
+fi
 
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
