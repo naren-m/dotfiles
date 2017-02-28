@@ -60,7 +60,6 @@
 # Utils for python
     alias ipy='ipython notebook'
 
-alias python='python2.7'
 # Sourcing Envs
 
     #  Python3 virtual environment
