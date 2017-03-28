@@ -17,5 +17,3 @@ git clone https://github.com/rupa/z.git ~/dotfiles/z
 
 echo "Cloning nerdTree for vim"
 git clone https://github.com/scrooloose/nerdtree ~/dotfiles/.vim/bundle/nerdtree
-
-echo "Cloning vim-airline for vim"
