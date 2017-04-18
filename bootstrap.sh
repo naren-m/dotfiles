@@ -33,3 +33,6 @@ else
 	fi;
 fi;
 unset doIt;
+
+echo "Setting up the theme"
+ln -s ~/dotfiles/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
