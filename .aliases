@@ -282,3 +282,14 @@ fi
 
 # setup z for quick navigation through folders
     . ~/dotfiles/z/z.sh
+
+
+# Note Taking
+    note() { cd ~/Documents/Notes; vi "$*" }
+    nls()  { ls -c ~/Documents/Notes | egrep -i "$*" }
+    cnote() { cat ~/Documents/Notes/"$*" }
+
+# Todo
+    todo() { cd ~/Documents/Todos; vi "$*.me" }
+    tls()  { ls -c ~/Documents/Todos | egrep -i "$*" }
+    ctodo() { cat ~/Documents/Todos/"$*" }
