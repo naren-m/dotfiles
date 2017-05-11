@@ -19,6 +19,8 @@ function doIt() {
 		--exclude ".aliases_work" \
 		--exclude "README.md" \
 		--exclude "z" \
+		--exclude "zsh-autosuggestions" \
+		--exclude "zsh_themes" \
 		-avh --no-perms . ~;
 	source ~/.bash_profile;
 }
@@ -36,3 +38,6 @@ unset doIt;
 
 echo "Setting up the theme"
 ln -s ~/dotfiles/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
+
+echo "Copying zsh-autosuggestions (fish-like) "
+cp -r zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/
