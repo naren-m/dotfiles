@@ -9,7 +9,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 echo "Cloning z for quick navigation through folders"
 git clone https://github.com/rupa/z.git ~/dotfiles/z
 
-# Vim plugins
+echo "Cloning zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
 
+# Vim plugins
 echo "Cloning nerdTree for vim"
 git clone https://github.com/scrooloose/nerdtree ~/dotfiles/.vim/bundle/nerdtree

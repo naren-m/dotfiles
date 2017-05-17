@@ -99,7 +99,7 @@ set nocompatible
             return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
         endf
 
-        set foldtext=CustomFoldText()
+        " set foldtext=CustomFoldText()
 
 " For GUI
     if has("gui_running")
