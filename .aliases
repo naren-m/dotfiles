@@ -280,16 +280,18 @@ fi
 # http://torch.ch/docs/getting-started.html
     torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
 
-# setup z for quick navigation through folders
-    . ~/dotfiles/z/z.sh
 
 
 # Note Taking
-    note() { cd ~/Documents/Notes; vi "$*" }
-    nls()  { ls -c ~/Documents/Notes | egrep -i "$*" }
-    cnote() { cat ~/Documents/Notes/"$*" }
+    note()   { vi  ~/Documents/Notes/"$*".me ;}
+    n()      { mdv ~/Documents/Notes/"$*".me ;}
+    nls()    { ls -c ~/Documents/Notes | egrep -i "$*" ;}
+    gonote() { cd ~/Documents/Notes/ ;}
 
 # Todo
-    todo() { cd ~/Documents/Todos; vi "$*.me" }
-    tls()  { ls -c ~/Documents/Todos | egrep -i "$*" }
-    ctodo() { cat ~/Documents/Todos/"$*" }
+    todo() { cd ~/Documents/Todos; vi "$*.me" ;}
+    tls()  { ls -c ~/Documents/Todos | egrep -i "$*".me ;}
+    ctodo() { mdv ~/Documents/Todos/"$*".me; }
+
+# setup z for quick navigation through folders
+    . ~/dotfiles/z/z.sh
