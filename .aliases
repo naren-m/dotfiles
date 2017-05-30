@@ -260,6 +260,9 @@ if [ -f ~/.aliases_mac ]; then
      source  ~/.aliases_mac
 fi
 
+# setup z for quick navigation through folders
+    . ~/dotfiles/z/z.sh
+
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
@@ -276,11 +279,9 @@ fi
     alias dps='docker ps -a'                       # Show all running containers
     alias di='docker images'                       # show all socker images
 
-# Torch installation
-# http://torch.ch/docs/getting-started.html
-    torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
-
-
+#   ---------------------------------------
+#   9. Note and Todo setup
+#   ---------------------------------------
 
 # Note Taking
     note()   { vi  ~/Documents/Notes/"$*".me ;}
@@ -293,5 +294,10 @@ fi
     tls()  { ls -c ~/Documents/Todos | egrep -i "$*".me ;}
     ctodo() { mdv ~/Documents/Todos/"$*".me; }
 
-# setup z for quick navigation through folders
-    . ~/dotfiles/z/z.sh
+#   ---------------------------------------
+#   10. DeepLearning setup
+#   ---------------------------------------
+#
+   source ~/.source_dl
+   dl_actv() { source activate dl; }
+   dl_deactv() { source deactivate dl; }
