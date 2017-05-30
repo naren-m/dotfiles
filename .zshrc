@@ -1,6 +1,8 @@
 source $HOME/.aliases
 source $HOME/.aliases_work
 
+# export PATH="/Users/nmudivar/miniconda2/bin:$PATH"
+export PATH="$PATH:/Users/nmudivar/miniconda3/bin"
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -15,8 +17,7 @@ export ZSH=~/.oh-my-zsh
 # jbergantine  -> "➜  <DIR>"
 # wuffers      -> "{} <DIR>"
 # cloud        -> "☁  <DIR>"
-# ZSH_THEME="jbergantine"
-ZSH_THEME="naren"
+ZSH_THEME="jbergantine"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -99,3 +100,17 @@ alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 
 # For syntax highlighting.
 source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+
+# iTerm tab title setup
+# Make sure you have below two setups in iterm
+# 1- deselect all the options for window and tab titles in the
+#     iterm->preferences->appearance section
+# 2- set Profiles > Terminal > Terminal Emulation > Terminal may set
+#     tab/window title
+export DISABLE_AUTO_TITLE="true"
+
+setTabTitle () {
+    echo -ne "\e]1;$*\a";
+}
+
