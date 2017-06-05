@@ -2,6 +2,7 @@ filetype plugin indent on
 syntax on
 set nocompatible
 
+" colorscheme dark2
 " colorscheme monokai
 
 " Vim Settings
@@ -14,7 +15,7 @@ set nocompatible
     set colorcolumn=+1
     let &colorcolumn=join(range(81,999),",")  "for having shadedline after 80
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
-    let &colorcolumn="80,".join(range(120,999),",")
+    let &colorcolumn="80,".join(range(999,999),",")
 
 " Numbering settings
     set number
@@ -99,7 +100,7 @@ set nocompatible
             return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
         endf
 
-        " set foldtext=CustomFoldText()
+        set foldtext=CustomFoldText()
 
 " For GUI
     if has("gui_running")
