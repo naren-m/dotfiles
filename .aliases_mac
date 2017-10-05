@@ -30,6 +30,5 @@
 #    screensaverDesktop: Run a screensaver on the Desktop
 #   -----------------------------------------------------------------------------------
     alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/                  ⤷ ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
-
-# iterm shell integration
-    test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+    alias vim='/usr/local/Cellar/vim/8.0.0627/bin/vim'
+    alias vi=vim
