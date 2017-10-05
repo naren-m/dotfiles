@@ -44,6 +44,8 @@
     alias grep='grep --color=always -n'
     alias q='exit'
     alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+    alias tailDT='tail -f ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
+    alias showDT='ccat  ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
     alias h='history'
     alias git_repo='git config --get remote.origin.url'
 
@@ -65,7 +67,7 @@
     #  Python3 virtual environment
         src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
 
-#  Utils for cd 
+#  Utils for cd
     alias wpy='cd /Users/$USER/Documents/work_script'
     alias ppy='cd /Users/$USER/GDrive/python_code/personal'
     alias pyutils='cd /Users/$USER/GDrive/python_code/personal/utils'
@@ -75,7 +77,7 @@
     alias gdrive='cd /Users/$USER/GDrive/'
     alias proj='cd /Users/$USER/Projects/'
     alias cdgo="cd $GOPATH"                              # Go Home
-    books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; } 
+    books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; }
 
     alias ..='cd ../'                           # Go back 1 directory level
     alias .2='cd ../../'                        # Go back 2 directory levels
@@ -260,9 +262,6 @@ if [ -f ~/.aliases_mac ]; then
      source  ~/.aliases_mac
 fi
 
-# setup z for quick navigation through folders
-    . ~/dotfiles/z/z.sh
-
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
     httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
@@ -271,16 +270,24 @@ fi
 #   ---------------------------------------
 #   8. Docker
 #   ---------------------------------------
-    alias drmall='docker rm $(docker ps -a -q)'    # Remove all containers
+    alias di='docker images'                       # show all docker images
+    alias drmi="docker rmi"                        # Dcoker rm image
     alias drmiall='docker rmi $(docker images -q)' # Remove all docker images
     alias drminone='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")' # Remove all docker images
     alias drm="docker rm"                          # Docker rm container
-    alias drmi="docker rmi"                        # Dcoker rm image
-    alias dps='docker ps -a'                       # Show all running containers
-    alias di='docker images'                       # show all socker images
+    alias drmall='docker rm $(docker ps -a -q)'    # Remove all containers
+    alias drmexi='docker rm $(docker ps -a -q -f status=exited)'    # Remove exited containers
+    alias dps='docker ps'                       # Show all running containers
+    alias dpsexi='docker ps -a  -f status=exited' # show all exited containers
+    alias dpsrun='docker ps -a  -f status=running' # show all running containers
+
+# Torch installation
+# http://torch.ch/docs/getting-started.html
+    torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
+
 
 #   ---------------------------------------
-#   9. Note and Todo setup
+#   8. Note taking and todo utils
 #   ---------------------------------------
 
 # Note Taking
@@ -295,9 +302,13 @@ fi
     ctodo() { mdv ~/Documents/Todos/"$*".me; }
 
 #   ---------------------------------------
-#   10. DeepLearning setup
+#   9. ag utils
 #   ---------------------------------------
-#
-   source ~/.source_dl
-   dl_actv() { source activate dl; }
-   dl_deactv() { source deactivate dl; }
+    replace() { ag -swl "$1" | xargs perl -pi.bak -e "s/$1/$2/g" }
+
+#   ---------------------------------------
+#   10. Code view utils
+#   ---------------------------------------
+    cview() { pygmentize -g "$1" }
+# setup z for quick navigation through folders
+    . ~/dotfiles/z/z.sh
