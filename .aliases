@@ -1,16 +1,3 @@
-#  ---------------------------------------------------------------------------
-#
-#  Sections:
-#  1.   Environment Configuration
-#  2.   Make Terminal Better (remapping defaults and adding functionality)
-#  3.   File and Folder Management
-#  4.   Searching
-#  5.   Process Management
-#  6.   Networking
-#  7.   System Operations & Information
-#
-#  ---------------------------------------------------------------------------
-
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
@@ -21,51 +8,44 @@
     export PATH="$PATH:/usr/local/bin/"
     export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
 
-#   Google project aliasses
+#   Google project aliases
 #   ------------------------------------------------------------
-
-    # export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google_vision_api/Bill\ reader-3be8f5feedd5.json
     alias google_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google/google_credentials/Home_assistant-a3e1f38abac0.json'
 
 #   -----------------------------
 #   2.  MAKE TERMINAL BETTER
 #   -----------------------------
-    alias cp='cp -iv'                           # Preferred 'cp' implementation
-    alias mv='mv -iv'                           # Preferred 'mv' implementation
-    alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-    alias ll='ls -FGlAhp'                       # Preferred 'ls' implementation
-    alias less='less -FSRXc'                    # Preferred 'less' implementation
-    alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finder
-    alias cls='clear && pwd && ls'              # c:            Clear terminal display
-    alias path='echo -e ${PATH//:/\\n}'         # path:         Echo all executable Paths
-    alias show_options='shopt'                  # Show_options: display bash options settings
-    alias fix_stty='stty sane'                  # fix_stty:     Restore terminal settings when screwed up
-    alias cic='set completion-ignore-case On'   # cic:          Make tab-completion case-insensitive
+    alias cp='cp -iv'                                   # Preferred 'cp' implementation
+    alias mv='mv -iv'                                   # Preferred 'mv' implementation
+    alias mkdir='mkdir -pv'                             # Preferred 'mkdir' implementation
+    alias ll='ls -FGlAhp'                               # Preferred 'ls' implementation
+    alias less='less -FSRXc'                            # Preferred 'less' implementation
+    alias show_options='shopt'                          # show_options: Display bash options settings
+    alias fix_stty='stty sane'                          # fix_stty: Restore terminal settings when screwed up
+
+    alias cls='clear && pwd && ls'                      # cls: Clear terminal display and ls
+    alias path='echo -e ${PATH//:/\\n}'                 # path: Echo all executable Paths
+    alias cic='set completion-ignore-case On'           # cic: Make tab-completion case-insensitive
+    alias DT='tee ~/Desktop/terminalOut.txt'            # DT: Pipe content to file on Desktop
+    alias tailDT='tail -f ~/Desktop/terminalOut.txt'    # tailDT: tail on DT'ed file
+    alias showDT='ccat  ~/Desktop/terminalOut.txt'      # showDT: cat on DT'ed file
+
+    alias git_repo='git config --get remote.origin.url'
     alias grep='grep --color=always -n'
     alias q='exit'
-    alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
-    alias tailDT='tail -f ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
-    alias showDT='ccat  ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
     alias h='history'
-    alias git_repo='git config --get remote.origin.url'
-
-    mcd () { mkdir -p "$1" && cd "$1"; }        # mcd:          Makes new Dir and jumps inside
-    trash () { command mv "$@" ~/.Trash ; }     # trash:        Moves a file to the MacOS trash
-    ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-
-# Aliases for browser
-    alias safari='open -a Safari'
-    alias chr='open http://www.google.com/'
-    alias inbox='open -a Safari https://inbox.google.com'
-
 
 # Utils for python
     alias ipy='ipython notebook'
 
 # Sourcing Envs
+-------------------------
+# Anaconda environment
+    exp_conda2() { export PATH="$PATH:/Users/nmudivar/miniconda2/bin" }
+    exp_conda3() { export PATH="$PATH:/Users/nmudivar/miniconda3/bin" }
 
-    #  Python3 virtual environment
-        src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
+#  Python3 virtual environment
+    src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
 
 #  Utils for cd
     alias wpy='cd /Users/$USER/Documents/work_script'
@@ -76,41 +56,36 @@
     alias docs='cd /Users/$USER/Documents'
     alias gdrive='cd /Users/$USER/GDrive/'
     alias proj='cd /Users/$USER/Projects/'
-    alias cdgo="cd $GOPATH"                              # Go Home
-    books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; }
 
     alias ..='cd ../'                           # Go back 1 directory level
     alias .2='cd ../../'                        # Go back 2 directory levels
     alias .3='cd ../../../'                     # Go back 3 directory levels
     alias .4='cd ../../../../'                  # Go back 4 directory levels
-    alias .5='cd ../../../../../'               # Go back 5 directory levels
     alias cd..='cd ../'                         # Go back 1 directory level (for fast typers)
-    alias .6='cd ../../../../../../'            # Go back 6 directory levels
     alias ~="cd ~"                              # Go Home
+
+    mcd () { mkdir -p "$1" && cd "$1"; }        # mcd: Makes new Dir and jumps inside
     cd() { builtin cd "$@"; pwd; }              # Always show pwd upon 'cd'
     cdbn () {
-	COUNTER=0
-	while [ $COUNTER -lt "$*" ]; do
-		cd ..
-		let COUNTER=COUNTER+1
-	done
-	echo "Backed $@ folders"
+        COUNTER=0
+        while [ $COUNTER -lt "$*" ]; do
+            cd ..
+            let COUNTER=COUNTER+1
+        done
+        echo "Backed $@ folders"
     }
+    books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; }
 
-# Aliases for editor
-    alias edit='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
-    alias sublime='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
 # Aliases for cleanup s
     alias clean_folder='python /Users/$USER/GDrive/python_code/personal/sys_utils/clean_folder.py'
     alias image_rename='python /Users/$USER/GDrive/python_code/personal/sys_utils/image_rename.py'
 
 # Utils for ssh to servers
-    alias raspi='ssh pi@raspberrypi.local' # password for uwer:pi is raspberry
+    alias raspi='ssh pi@raspberrypi.local' # password for user:pi is raspberry
     narenuday () {  ssh narenuday@10.0.1.14; }
 
-# Delete entry from ssh known hosts
-     ckh ()
+     ckh ()    # ckh: Clear Know Hosts, delete entry from ssh known hosts
      {
          sed -e "$1d" /users/$USER/.ssh/known_hosts > /dev/null
          sed -i.bak -e "$1d" /users/$USER/.ssh/known_hosts > /dev/null
@@ -120,36 +95,24 @@
 #   ------------------------------------------
     alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
-#   showa: to remind yourself of an alias (given some part of it)
-#   ------------------------------------------------------------
-    showa () { /usr/bin/grep --color=always -i -a1 $@ ~/.aliases | grep -v '^\s*$' ; }
-    shals () { cat ~/.aliases | grep -w 'alias' ; }
+# show and list aliases
+    showa ()    # showa: to remind yourself of an alias (given some part of it)
+    {
+        /usr/bin/grep --color=always -i -a1 $@ ~/.aliases | grep -v '^\s*$' ;
+    }
+    ls_alias () # ls_alias: list all aliases
+    {
+        cat ~/.aliases | grep -w 'alias' ;
+        cat ~/.aliases | grep -w '()' ;
+    }
 
 
 #   -------------------------------
 #   3.  FILE AND FOLDER MANAGEMENT
 #   -------------------------------
 
-    zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
-    alias nf='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
-
-#   cdf:  'Cd's to frontmost window of MacOS Finder
-#   ------------------------------------------------------
-    cdf () {
-        currFolderPath=$( /usr/bin/osascript <<EOT
-            tell application "Finder"
-                try
-            set currFolder to (folder of the front window as alias)
-                on error
-            set currFolder to (path to desktop folder as alias)
-                end try
-                POSIX path of currFolder
-            end tell
-EOT
-        )
-        echo "cd to \"$currFolderPath\""
-        cd "$currFolderPath"
-    }
+    zipf () { zip -r "$1".zip "$1" ; }    # zipf:       To create a ZIP archive of a folder
+    alias nf='echo $(ls -1 | wc -l)'      # numFiles:   Count of non-hidden files in current dir
 
 #   extract:  Extract most know archives with one command
 #   ---------------------------------------------------------
@@ -184,11 +147,6 @@ EOT
     ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
     ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
 
-#   spotlight: Search for a file using MacOS Spotlight's metadata
-#   -----------------------------------------------------------
-    spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
-
-
 #   ---------------------------
 #   5.  PROCESS MANAGEMENT
 #   ---------------------------
@@ -215,9 +173,6 @@ EOT
     alias topForever='top -l 9999999 -s 10 -o cpu'
 
 #   ttop:  Recommended 'top' invocation to minimize resources
-#   ------------------------------------------------------------
-#       Taken from this macosxhints article
-#       http://www.macosxhints.com/article.php?story=20060816123853639
 #   ------------------------------------------------------------
     alias ttop="top -R -F -s 10 -o rsize"
 
@@ -254,36 +209,15 @@ EOT
         echo
     }
 
-
 #   ---------------------------------------
-#   7.  SYSTEMS OPERATIONS & INFORMATION
+#   7.  Sourcing aliases
 #   ---------------------------------------
 if [ -f ~/.aliases_mac ]; then
      source  ~/.aliases_mac
 fi
 
-#   httpDebug:  Download a web page and show info on what took time
-#   -------------------------------------------------------------------
-    httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
-    httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
-
-#   ---------------------------------------
-#   8. Docker
-#   ---------------------------------------
-    alias di='docker images'                       # show all docker images
-    alias drmi="docker rmi"                        # Dcoker rm image
-    alias drmiall='docker rmi $(docker images -q)' # Remove all docker images
-    alias drminone='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")' # Remove all docker images
-    alias drm="docker rm"                          # Docker rm container
-    alias drmall='docker rm $(docker ps -a -q)'    # Remove all containers
-    alias drmexi='docker rm $(docker ps -a -q -f status=exited)'    # Remove exited containers
-    alias dps='docker ps'                       # Show all running containers
-    alias dpsexi='docker ps -a  -f status=exited' # show all exited containers
-    alias dpsrun='docker ps -a  -f status=running' # show all running containers
-
-# Torch installation
-# http://torch.ch/docs/getting-started.html
-    torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
+source ~/.docker_aliases
+source ~/.aliases_work
 
 
 #   ---------------------------------------
@@ -310,5 +244,17 @@ fi
 #   10. Code view utils
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
-# setup z for quick navigation through folders
-    . ~/dotfiles/z/z.sh
+
+# iTerm tab title setup
+# Make sure you have below two setups in iterm
+# 1- deselect all the options for window and tab titles in the
+#     iterm->preferences->appearance section
+# 2- set Profiles > Terminal > Terminal Emulation > Terminal may set
+#     tab/window title
+export DISABLE_AUTO_TITLE="true"
+
+# Setting default tab name to CWD
+echo -ne "\e]1;${PWD##*/}\a";
+setTabTitle () {
+    echo -ne "\e]1;$*\a";
+}

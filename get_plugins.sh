@@ -12,6 +12,10 @@ git clone https://github.com/rupa/z.git ~/dotfiles/z
 echo "Cloning zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-autosuggestions.git
 
+
+echo "Cloning fast-syntax-highlighting"
+git clone https://github.com/zdharma/fast-syntax-highlighting.git  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
+
 # Vim plugins
-echo "Cloning nerdTree for vim"
-git clone https://github.com/scrooloose/nerdtree ~/dotfiles/.vim/bundle/nerdtree
+# echo "Cloning nerdTree for vim"
+# git clone https://github.com/scrooloose/nerdtree ~/dotfiles/.vim/bundle/nerdtree

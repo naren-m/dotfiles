@@ -1,8 +1,4 @@
-source $HOME/.aliases
-source $HOME/.aliases_work
-
-# export PATH="/Users/nmudivar/miniconda2/bin:$PATH"
-export PATH="$PATH:/Users/nmudivar/miniconda3/bin"
+source ~/.aliases
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -36,10 +32,10 @@ ZSH_THEME="jbergantine"
 # DISABLE_LS_COLORS="true"
 
 # Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
+# ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -54,14 +50,11 @@ COMPLETION_WAITING_DOTS="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm/dd/yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git battery docker zsh-autosuggestions vagrant)
+plugins=(git docker zsh-autosuggestions fast-syntax-highlighting)
 
 # User configuration
 
@@ -71,20 +64,6 @@ plugins=(git battery docker zsh-autosuggestions vagrant)
 source $ZSH/oh-my-zsh.sh
 
 autoload -U compinit && compinit
-
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -99,18 +78,7 @@ alias zshconfig="vi ~/.zshrc"
 alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 
 # For syntax highlighting.
-source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-
-# iTerm tab title setup
-# Make sure you have below two setups in iterm
-# 1- deselect all the options for window and tab titles in the
-#     iterm->preferences->appearance section
-# 2- set Profiles > Terminal > Terminal Emulation > Terminal may set
-#     tab/window title
-export DISABLE_AUTO_TITLE="true"
-
-setTabTitle () {
-    echo -ne "\e]1;$*\a";
-}
-
+# setup z for quick navigation through folders
+    . ~/dotfiles/z/z.sh
