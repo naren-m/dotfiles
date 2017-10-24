@@ -5,10 +5,17 @@ git pull origin master;
 source get_plugins.sh
 
 function doIt() {
+	# Backing up original files to backup folder in dotfiles
 	cp ~/.bash_profile $PWD/backup/.bash_profile.orig 2>/dev/null
 	cp ~/.bashrc $PWD/backup/.bashrc.orig 2>/dev/null
 	cp ~/.vimrc $PWD/backup/.vimrc.orig 2>/dev/null
 	cp ~/.zshrc $PWD/backup/.zshrc.orig 2>/dev/null
+	cp ~/.aliases $PWD/backup/.aliases.orig 2>/dev/null
+	cp ~/.aliases_work $PWD/backup/.aliases_work.orig 2>/dev/null
+	cp ~/.aliases_mac $PWD/backup/.aliases_mac.orig 2>/dev/null
+	cp ~/.docker_aliases $PWD/backup/.docker_aliases.orig 2>/dev/null
+	cp ~/.deep_learning $PWD/backup/.deep_learning.orig 2>/dev/null
+
 	cp -r ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
 
 	# Create links for alias/sourcing files
