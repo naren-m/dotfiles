@@ -212,13 +212,10 @@
 #   ---------------------------------------
 #   7.  Sourcing aliases
 #   ---------------------------------------
-if [ -f ~/.aliases_mac ]; then
-     source  ~/.aliases_mac
-fi
-
-source ~/.docker_aliases
+source  ~/.aliases_mac
 source ~/.aliases_work
-
+source ~/.aliases_docker
+source ~/.aliases_kubectl
 
 #   ---------------------------------------
 #   8. Note taking and todo utils

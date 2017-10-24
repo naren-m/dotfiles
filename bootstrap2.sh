@@ -10,12 +10,14 @@ function doIt() {
 	mv ~/.bashrc $PWD/backup/.bashrc.orig 2>/dev/null
 	mv ~/.vimrc $PWD/backup/.vimrc.orig 2>/dev/null
 	mv ~/.zshrc $PWD/backup/.zshrc.orig 2>/dev/null
+
 	mv ~/.aliases $PWD/backup/.aliases.orig 2>/dev/null
 	mv ~/.aliases_work $PWD/backup/.aliases_work.orig 2>/dev/null
 	mv ~/.aliases_mac $PWD/backup/.aliases_mac.orig 2>/dev/null
-	mv ~/.docker_aliases $PWD/backup/.docker_aliases.orig 2>/dev/null
-	mv ~/.deep_learning $PWD/backup/.deep_learning.orig 2>/dev/null
+	mv ~/.aliases_docker $PWD/backup/.aliases_docker.orig 2>/dev/null
+	mv ~/.aliases_kubectl $PWD/backup/.aliases_kubectl.orig 2>/dev/null
 
+	mv ~/.deep_learning $PWD/backup/.deep_learning.orig 2>/dev/null
 	mv ~/.tmux.conf $PWD/backup/.tmux.conf.orig 2>/dev/null
 	mv -r ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
 
@@ -24,7 +26,8 @@ function doIt() {
 	ln -s $PWD/.aliases ~/.aliases
 	ln -s $PWD/.aliases_work ~/.aliases_work
 	ln -s $PWD/.aliases_mac ~/.aliases_mac
-	ln -s $PWD/.docker_aliases ~/.docker_aliases
+	ln -s $PWD/.aliases_docker ~/.aliases_docker
+	ln -s $PWD/.aliases_kubectl ~/.aliases_kubectl
 
 	ln -s $PWD/.deep_learning ~/.deep_learning
 
