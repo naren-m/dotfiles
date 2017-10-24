@@ -39,7 +39,7 @@
     alias ipy='ipython notebook'
 
 # Sourcing Envs
--------------------------
+# -------------------------
 # Anaconda environment
     exp_conda2() { export PATH="$PATH:/Users/nmudivar/miniconda2/bin" }
     exp_conda3() { export PATH="$PATH:/Users/nmudivar/miniconda3/bin" }
@@ -251,7 +251,6 @@ source ~/.aliases_work
 #     iterm->preferences->appearance section
 # 2- set Profiles > Terminal > Terminal Emulation > Terminal may set
 #     tab/window title
-export DISABLE_AUTO_TITLE="true"
 
 # Setting default tab name to CWD
 echo -ne "\e]1;${PWD##*/}\a";

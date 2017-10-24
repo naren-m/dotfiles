@@ -1,10 +1,10 @@
 # General Aliases
 if [ -f ~/.aliases ]; then
-    . ~/.aliases
+    source ~/.aliases
 fi
 
 # Aliases for work
 if [ -f ~/.aliases_work ]; then
-    . ~/.aliases_work
+    source ~/.aliases_work
 fi
 

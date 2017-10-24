@@ -10,7 +10,7 @@ echo "Cloning z for quick navigation through folders"
 git clone https://github.com/rupa/z.git ~/dotfiles/z
 
 echo "Cloning zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 
 echo "Cloning fast-syntax-highlighting"
