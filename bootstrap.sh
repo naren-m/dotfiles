@@ -36,8 +36,8 @@ else
 fi;
 unset doIt;
 
-echo "Setting up the theme"
-ln -s ~/dotfiles/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
+# echo "Setting up the theme"
+# ln -s ~/dotfiles/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
 
 # echo "Copying zsh-autosuggestions (fish-like) "
 # cp -r zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/
