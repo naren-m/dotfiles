@@ -23,7 +23,7 @@ alias k=kubectl
 # Get commands
 alias kg='kubectl get'
 alias kgp='kubectl get pods'
-alias kgps='kubectl get pods -n kube-system
+alias kgps='kubectl get pods -n kube-system'
 alias kgs="kubectl get svc"
 alias ke='kubectl exec'
 alias kgns='kubectl get namespaces'
@@ -36,5 +36,5 @@ alias ksc='kubectl config set-context "$(kubectl config current-context)"'
 alias kns='ksc --namespace'
 
 # Networking
-alias kpf='kubectl port-forward '
+alias kpf='kubectl port-forward'
 alias kp='kubectl proxy'
