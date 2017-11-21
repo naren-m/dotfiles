@@ -1,0 +1,18 @@
+" Linebreak settings
+    if has('linebreak')
+      set linebreak                       " wrap long lines at characters in 'breakat'
+      set breakindent                     " indent wrapped lines to match start
+        if exists('&breakindentopt')
+          set breakindentopt=shift:2      " emphasize broken lines by indenting them
+        endif
+
+        let &showbreak='⤷ '               " ARROW POINTING DOWNWARDS THEN CURVING RIGHTWARDS (U+2937, UTF-8: E2 A4 B7)
+    endif
+
+
+
+" Cycle between buffers
+    nnoremap <Tab> :bnext<CR>
+    nnoremap <S-Tab> :bprevious<CR>
+
+let g:autosave = 1
