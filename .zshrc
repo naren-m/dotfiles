@@ -13,7 +13,7 @@ export ZSH=~/.oh-my-zsh
 # jbergantine  -> "➜  <DIR>"
 # wuffers      -> "{} <DIR>"
 # cloud        -> "☁  <DIR>"
-ZSH_THEME="jbergantine"
+ZSH_THEME="naren"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
