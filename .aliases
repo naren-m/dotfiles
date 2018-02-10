@@ -4,7 +4,7 @@
 # Export paths
     export WORKON_HOME=~/.virtualenvs
     export PATH="$PATH:/usr/local/bin/"
-# Go paths    
+# Go paths
     export GOPATH=~/go
     export GOBIN=$GOPATH/bin
 
@@ -212,22 +212,22 @@
 #   ---------------------------------------
 #   7.  Sourcing aliases
 #   ---------------------------------------
-    if [ -f "~/.aliases_work" ]
+    if [ -f ~/.aliases_work ]
     then
         source ~/.aliases_work
     fi
 
-    if [ -f "~/.aliases_kubectl" ]
+    if [ -f ~/.aliases_kubectl ]
     then
         source ~/.aliases_kubectl
     fi
 
-    if [ -f "~/.aliases_docker" ]
+    if [ -f ~/.aliases_docker ]
     then
         source ~/.aliases_docker
     fi
 
-    if [ -f "~/.aliases_mac" ]
+    if [ -f ~/.aliases_mac ]
     then
         source ~/.aliases_mac
     fi

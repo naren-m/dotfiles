@@ -21,7 +21,7 @@ gentags() {
     ctags -R .
 }
 
-if [ -f "~/.aliases_cisco" ]
+if [ -f ~/.aliases_cisco ]
 then
         source ~/.aliases_cisco
 fi
