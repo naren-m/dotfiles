@@ -54,6 +54,8 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+# zsh-autosuggestions is not working on work pc
 plugins=(git fast-syntax-highlighting tmux)
 
 # User configuration
