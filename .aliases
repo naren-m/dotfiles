@@ -41,8 +41,8 @@
 # Sourcing Envs
 # -------------------------
 # Anaconda environment
-    exp_conda2() { export PATH="$PATH:/Users/nmudivar/miniconda2/bin" }
-    exp_conda3() { export PATH="$PATH:/Users/nmudivar/miniconda3/bin" }
+    exp_conda2() { export PATH="$PATH:$HOME/miniconda2/bin" }
+    exp_conda3() { export PATH="$PATH:$HOME/miniconda3/bin" }
 
 #  Python3 virtual environment
     src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
@@ -217,19 +217,19 @@
         source ~/.aliases_work
     fi
 
-    if [ -f "~/.aliases_work" ]
-    then
-        source ~/.aliases_cisco
-    fi
-
-    if [ -f "~/.aliases_work" ]
+    if [ -f "~/.aliases_kubectl" ]
     then
         source ~/.aliases_kubectl
     fi
 
-    if [ -f "~/.aliases_work" ]
+    if [ -f "~/.aliases_docker" ]
     then
         source ~/.aliases_docker
+    fi
+
+    if [ -f "~/.aliases_mac" ]
+    then
+        source ~/.aliases_mac
     fi
 
 #   ---------------------------------------
