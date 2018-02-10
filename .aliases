@@ -2,11 +2,11 @@
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
 # Export paths
-    export GOPATH=~/go
-    export GOBIN=~/go/bin
     export WORKON_HOME=~/.virtualenvs
     export PATH="$PATH:/usr/local/bin/"
-    export PATH="/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin:$PATH"
+# Go paths    
+    export GOPATH=~/go
+    export GOBIN=$GOPATH/bin
 
 #   Google project aliases
 #   ------------------------------------------------------------
@@ -41,8 +41,8 @@
 # Sourcing Envs
 # -------------------------
 # Anaconda environment
-    exp_conda2() { export PATH="$PATH:/Users/nmudivar/miniconda2/bin" }
-    exp_conda3() { export PATH="$PATH:/Users/nmudivar/miniconda3/bin" }
+    exp_conda2() { export PATH="$PATH:$HOME/miniconda2/bin" }
+    exp_conda3() { export PATH="$PATH:$HOME/miniconda3/bin" }
 
 #  Python3 virtual environment
     src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
@@ -212,10 +212,25 @@
 #   ---------------------------------------
 #   7.  Sourcing aliases
 #   ---------------------------------------
-source  ~/.aliases_mac
-source ~/.aliases_work
-source ~/.aliases_docker
-source ~/.aliases_kubectl
+    if [ -f "~/.aliases_work" ]
+    then
+        source ~/.aliases_work
+    fi
+
+    if [ -f "~/.aliases_kubectl" ]
+    then
+        source ~/.aliases_kubectl
+    fi
+
+    if [ -f "~/.aliases_docker" ]
+    then
+        source ~/.aliases_docker
+    fi
+
+    if [ -f "~/.aliases_mac" ]
+    then
+        source ~/.aliases_mac
+    fi
 
 #   ---------------------------------------
 #   8. Note taking and todo utils
@@ -251,6 +266,5 @@ source ~/.aliases_kubectl
 
 # Setting default tab name to CWD
 echo -ne "\e]1;${PWD##*/}\a";
-setTabTitle () {
-    echo -ne "\e]1;$*\a";
-}
+setTabTitle () { echo -ne "\e]1;$*\a"; }
+
