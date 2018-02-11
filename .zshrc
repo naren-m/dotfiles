@@ -54,7 +54,9 @@ HIST_STAMPS="mm/dd/yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git docker zsh-autosuggestions fast-syntax-highlighting tmux)
+
+# zsh-autosuggestions not working on centos 6.0
+plugins=(git zsh-autosuggestions fast-syntax-highlighting tmux)
 
 # User configuration
 
@@ -87,3 +89,5 @@ alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 setbadge() {
   printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
