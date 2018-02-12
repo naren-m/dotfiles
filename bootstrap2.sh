@@ -38,7 +38,7 @@ function doIt() {
 	# mv -r zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/
 
 	# echo "Setting up the theme"
-	# ln -s $PWD/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
+	ln -s $PWD/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
 
 	# source ~/.zshrc;
 }
