@@ -41,8 +41,8 @@
 # Sourcing Envs
 # -------------------------
 # Anaconda environment
-    exp_conda2() { export PATH="$PATH:$HOME/miniconda2/bin" }
-    exp_conda3() { export PATH="$PATH:$HOME/miniconda3/bin" }
+    exp_conda2() { export PATH="$HOME/anaconda2/bin$PATH" ;}
+    exp_conda3() { export PATH="$HOME/anaconda3/bin:$PATH"; }
 
 #  Python3 virtual environment
     src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
@@ -212,6 +212,15 @@
 #   ---------------------------------------
 #   7.  Sourcing aliases
 #   ---------------------------------------
+    unameOut="$(uname -s)"
+    case "${unameOut}" in
+        Linux*)     machine=Linux;;
+        Darwin*)    machine=Mac;;
+        CYGWIN*)    machine=Cygwin;;
+        MINGW*)     machine=MinGw;;
+        *)          machine="UNKNOWN:${unameOut}"
+    esac
+
     if [ -f ~/.aliases_work ]
     then
         source ~/.aliases_work
@@ -227,7 +236,7 @@
         source ~/.aliases_docker
     fi
 
-    if [ -f ~/.aliases_mac ]
+    if [[ ${machine} == "Mac" ]]
     then
         source ~/.aliases_mac
     fi
