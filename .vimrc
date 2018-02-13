@@ -2,11 +2,11 @@ filetype plugin indent on
 syntax on
 set nocompatible
 
-" colorscheme dark2
-" colorscheme monokai
-
 " Vim Settings
 " Source https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/settings.vim
+
+set background=dark
+colorscheme hybrid
 
 " Copy to clipboard
     set clipboard=unnamed
@@ -36,11 +36,6 @@ set nocompatible
     set softtabstop=4
     set expandtab
     set autoindent                        " the same indent as the line you're currently on. 
-    " Formatting settings
-        set formatoptions+=n              " smart auto-indenting inside numbered lists
-        if v:version > 703 || v:version == 703 && has('patch541')
-          set formatoptions+=j            " remove comment leader when joining comment lines
-        endif
 
 " Bell settings
     if exists('&belloff')
@@ -61,7 +56,7 @@ set nocompatible
 " Linebreak settings
     if has('linebreak')
       set linebreak                       " wrap long lines at characters in 'breakat'
-      set breakindent                     " indent wrapped lines to match start
+      " set breakindent                     " indent wrapped lines to match start
         if exists('&breakindentopt')
           set breakindentopt=shift:2      " emphasize broken lines by indenting them
         endif
@@ -79,28 +74,6 @@ set nocompatible
     endif
     " Custom folding
     " Source http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
-        fu! CustomFoldText()
-            "get first non-blank line
-            let fs = v:foldstart
-            while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
-            endwhile
-            if fs > v:foldend
-                let line = getline(v:foldstart)
-            else
-                let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
-            endif
-
-            let w = winwidth(0) - &foldcolumn - (&number ? 8 : 0)
-            let foldSize = 1 + v:foldend - v:foldstart
-            let foldSizeStr = " " . foldSize . " lines "
-            let foldLevelStr = repeat("+--", v:foldlevel)
-            let lineCount = line("$")
-            let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
-            let expansionString = repeat(".", w - strwidth(foldSizeStr.line.foldLevelStr.foldPercentage))
-            return line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-        endf
-
-        set foldtext=CustomFoldText()
 
 " For GUI
     if has("gui_running")
@@ -109,53 +82,133 @@ set nocompatible
       imap <C-S-v> <Esc>"+gP
     endif
 
+
+
 " Mappings
-" Toggle fold at current position.
-    nnoremap <s-tab> za
+    " Toggle fold at current position.
+        nnoremap <s-tab> za
 
-" Quicker window movement
-    nnoremap <C-j> <C-w>j
-    nnoremap <C-k> <C-w>k
-    nnoremap <C-h> <C-w>h
-    nnoremap <C-l> <C-w>l
+    " Quicker window movement
+        nnoremap <C-j> <C-w>j
+        nnoremap <C-k> <C-w>k
+        nnoremap <C-h> <C-w>h
+        nnoremap <C-l> <C-w>l
 
-" Cycle between buffers
-    nnoremap <Tab> :bnext<CR>
-    nnoremap <S-Tab> :bprevious<CR>
+    " Cycle between buffers
+        nnoremap <Tab> :bnext<CR>
+        nnoremap <S-Tab> :bprevious<CR>
+
+    " Remapping leader
+    let g:mapleader=','
+    let g:maplocalleader = '-'
+    "    let mapleader=","
+
+    " Window Splitting
+        nmap <silent> <leader>hs :split<CR>
+        nmap <silent> <leader>vs :vsplit<CR>
+        nmap <silent> <leader>sc :close<CR>
 
 " Plugins
-    " Setting up and starting pathogen
-        execute pathogen#infect()
+    " Vim-plug
+    call plug#begin('~/.vim/plugged')
+
+    Plug 'junegunn/vim-easy-align'
+    Plug 'honza/vim-snippets'
+    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+    Plug 'fatih/vim-go', { 'tag': '*' }
+    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    Plug 'junegunn/fzf.vim'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'majutsushi/tagbar'
+    Plug 'tpope/vim-commentary'
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'rking/ag.vim'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+
+    call plug#end()
+
+    " Mappings
+    "
+    " vim-easy-align
+        " Start interactive EasyAlign in visual mode (e.g. vipga)
+        xmap ga <Plug>(EasyAlign)
+
+        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+        nmap ga <Plug>(EasyAlign)
 
     " Go plugin
        " vim-go
-       let g:go_fmt_command = "goimports"
-       let g:go_autodetect_gopath = 1
-       let g:go_list_type = "quickfix"
-
-       let g:go_highlight_types = 1
-       let g:go_highlight_fields = 1
-       let g:go_highlight_functions = 1
-       let g:go_highlight_methods = 1
-       let g:go_highlight_extra_types = 1
+       let g:go_fmt_command             = "goimports"
+       let g:go_autodetect_gopath       = 1
+       let g:go_list_type               = "quickfix"
+       let g:go_highlight_types         = 1
+       let g:go_highlight_fields        = 1
+       let g:go_highlight_functions     = 1
+       let g:go_highlight_methods       = 1
+       let g:go_highlight_extra_types   = 1
        let g:go_highlight_generate_tags = 1
 
-       " Open :GoDeclsDir with ctrl-g
+       " " Open :GoDeclsDir with ctrl-g
        nmap <C-g> :GoDeclsDir<cr>
        imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
+    " Ag.vim
+       let g:ag_prg="/users/nmudivar/software/bin/ag --column"
+       nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
+
+
+    " fzf.vim
+        function! s:buflist()
+          redir => ls
+          silent ls
+          redir END
+          return split(ls, '\n')
+        endfunction
+
+        function! s:bufopen(e)
+          execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+        endfunction
+
+        nnoremap <C-p>      : Files<cr>
+        nnoremap <leader>f  : Files<cr>
+        nnoremap <leader>h  : History<cr>
+        nnoremap <leader>bt : BTags<cr>
+        nnoremap <leader>tt : Tags<cr>
+        nnoremap <leader>l  : BLines<cr>
+        nnoremap <leader>b  : Buffers<cr>
+        nnoremap <leader>c  : Colors<cr>
+
     " Nerd tree toggle
-        map <C-n> :NERDTreeToggle<CR>
+        nnoremap <leader>nn :NERDTreeToggle<CR>
+        nnoremap \ :NERDTreeToggle<CR>
+        nnoremap <leader>nf :NERDTreeFind<CR>
+        let g:NERDTreeShowBookmarks=1
+        let g:NERDTreeChDirMode=2 " Change the NERDTree directory to the root
+        let g:NERDTreeHijackNetrw=0
+
+    " Commentary.vim
+        let g:commentary_map_backslash = 0
+        nmap <Leader>ci <Plug>CommentaryLine
+        xmap <Leader>ci <Plug>Commentary
+
+        nmap <Leader>/ <Plug>CommentaryLine
+        xmap <Leader>/ <Plug>Commentary
 
     " CtrlP for fuzzy file search
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+
+    " Tagbar
+        nmap <leader>t :TagbarToggle<CR>
+        nmap <leader>tf :TagbarOpen fj<CR>
 
     " Vim-airline
         set laststatus=2
         set ttimeoutlen=10
         let g:airline#extensions#tabline#enabled = 1
-        "let g:airline_theme = 'powerlineish'
-        let g:airline_theme='simple'
+        " let g:airline_theme = 'powerlineish'
+        " let g:airline_theme='simple'
         let g:airline#extensions#hunks#enabled=0
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts = 1
@@ -173,5 +226,5 @@ set nocompatible
 
     " Cscope
         if has("cscope")
-            so ~/.vim/bundle/cscope_plugin.vim
+            source ~/.vim/bundle/cscope_plugin.vim
         endif
