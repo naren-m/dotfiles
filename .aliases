@@ -1,12 +1,13 @@
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
-# Export paths
-    export WORKON_HOME=~/.virtualenvs
-    export PATH="$PATH:/usr/local/bin/"
 # Go paths
     export GOPATH=~/go
     export GOBIN=$GOPATH/bin
+
+# Export paths
+    export WORKON_HOME=~/.virtualenvs
+    export PATH="$PATH:/usr/local/bin/:$GOBIN"
 
 #   Google project aliases
 #   ------------------------------------------------------------
