@@ -23,13 +23,13 @@ function doIt() {
     
     # Create links for alias/sourcing files
     ln -s $PWD/zshrc ~/.zshrc
-    ln -s $PWD/aliases/.aliases ~/.aliases
-    ln -s $PWD/aliases/.aliases_work ~/.aliases_work
-    ln -s $PWD/aliases/.aliases_mac ~/.aliases_mac
-    ln -s $PWD/aliases/.aliases_docker ~/.aliases_docker
-    ln -s $PWD/aliases/.aliases_kubectl ~/.aliases_kubectl
+    ln -s $PWD/aliases/aliases ~/.aliases
+    ln -s $PWD/aliases/aliases_work ~/.aliases_work
+    ln -s $PWD/aliases/aliases_mac ~/.aliases_mac
+    ln -s $PWD/aliases/aliases_docker ~/.aliases_docker
+    ln -s $PWD/aliases/aliases_kubectl ~/.aliases_kubectl
     
-    ln -s $PWD/aliases/.deep_learning ~/.deep_learning
+    ln -s $PWD/aliases/deep_learning ~/.deep_learning
     
     ln -s $PWD/.bashrc ~/.bashrc
     ln -s $PWD/.bash_profile ~/.bash_profile
