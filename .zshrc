@@ -1,4 +1,3 @@
-source ~/.aliases
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -83,11 +82,13 @@ alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 # source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # setup z for quick navigation through folders
-    . ~/dotfiles/z/z.sh
+. ~/dotfiles/z/z.sh
 
 # zsh: Place this in .zshrc after "source /Users/georgen/.iterm2_shell_integration.zsh".
 setbadge() {
-  printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
+    printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
 }
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.aliases

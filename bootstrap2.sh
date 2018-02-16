@@ -35,9 +35,6 @@ function doIt() {
     ln -s $PWD/.bash_profile ~/.bash_profile
     ln -s $PWD/.tmux.conf ~/.tmux.conf
     
-    # mv -r zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/
-    
-    # echo "Setting up the theme"
     if [ ! -f ~/.oh-my-zsh/themes/naren.zsh-theme  ];
     then
         ln -s $PWD/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
