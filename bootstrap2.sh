@@ -22,7 +22,7 @@ function doIt() {
     mv -r ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
     
     # Create links for alias/sourcing files
-    ln -s $PWD/.zshrc ~/.zshrc
+    ln -s $PWD/zshrc ~/.zshrc
     ln -s $PWD/.aliases ~/.aliases
     ln -s $PWD/.aliases_work ~/.aliases_work
     ln -s $PWD/.aliases_mac ~/.aliases_mac
