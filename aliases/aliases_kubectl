@@ -1,0 +1,40 @@
+# References  https://github.com/b4b4r07/kubernetes-alias
+
+if [ $commands[kubectl] ]; then
+  source <(kubectl completion zsh)
+fi
+
+# List and select pod name with fzf (https://github.com/junegunn/fzf)
+# e.g.
+#   kubectl exec -it P sh
+#   kubectl delete pod P
+alias -g P='$(kubectl get pods | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+
+# Like P, global aliases about kubernetes resources
+alias -g POD='$(   kubectl get pods  | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+alias -g DEPLOY='$(kubectl get deploy| fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+alias -g RS='$(    kubectl get rs    | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+alias -g SVC='$(   kubectl get svc   | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+alias -g ING='$(   kubectl get ing   | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+
+# Utility
+alias k=kubectl
+
+# Get commands
+alias kg='kubectl get'
+alias kgp='kubectl get pods'
+alias kgps='kubectl get pods -n kube-system'
+alias kgs="kubectl get svc"
+alias ke='kubectl exec'
+alias kgns='kubectl get namespaces'
+alias kgall='kubectl get ingress,service,deployment,pod'
+alias kdp='kubectl describe pods'
+
+#Configuration commands
+alias kuc='kubectl config use-context'
+alias ksc='kubectl config set-context "$(kubectl config current-context)"'
+alias kns='ksc --namespace'
+
+# Networking
+alias kpf='kubectl port-forward'
+alias kp='kubectl proxy'
