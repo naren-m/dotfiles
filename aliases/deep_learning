@@ -1,0 +1,9 @@
+# CUDA setup
+
+export PATH=/usr/local/cuda-8.0/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64\
+${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+# Torch installation
+# http://torch.ch/docs/getting-started.html
+    torch_setup () {  . /Users/$USER/torch/install/bin/torch-activate; }
