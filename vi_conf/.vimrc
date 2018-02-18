@@ -151,6 +151,9 @@ colorscheme hybrid
     " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
     Plug 'tpope/vim-unimpaired'
 
+    " comment stuff out (via leader-/)
+    Plug 'tomtom/tcomment_vim'
+
     call plug#end()
 
     " Mappings
