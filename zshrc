@@ -55,7 +55,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 
 # zsh-autosuggestions not working on centos 6.0
-plugins=(git  fast-syntax-highlighting tmux)
+plugins=(git  zsh-autosuggestions  fast-syntax-highlighting tmux)
 
 # User configuration
 

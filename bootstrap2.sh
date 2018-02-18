@@ -19,7 +19,7 @@ function doIt() {
     
     mv ~/.deep_learning $PWD/backup/.deep_learning.orig 2>/dev/null
     mv ~/.tmux.conf $PWD/backup/.tmux.conf.orig 2>/dev/null
-    mv -r ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
+    mv ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
     
     # Create links for alias/sourcing files
     ln -s $PWD/zshrc ~/.zshrc
@@ -40,8 +40,11 @@ function doIt() {
         ln -s $PWD/zsh_themes/naren.zsh-theme ~/.oh-my-zsh/themes/naren.zsh-theme
     fi
     
+    # Vim setup
+    ln -s $PWD/vi_conf/.vimrc ~/.vimrc
+    cp -r $PWD/vi_conf/vim ~/.vim
     
-    # source ~/.zshrc;
+    
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
