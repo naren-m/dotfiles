@@ -35,7 +35,7 @@ colorscheme hybrid
     set shiftwidth=4
     set softtabstop=4
     set expandtab
-    set autoindent                        " the same indent as the line you're currently on. 
+    set autoindent                        " the same indent as the line you're currently on.
 
 " Bell settings
     if exists('&belloff')
@@ -126,6 +126,33 @@ colorscheme hybrid
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+
+    Plug 'dolio/vim-hybrid'
+    Plug 'morhetz/gruvbox'
+    Plug 'chriskempson/base16-vim'
+    Plug 'mhartington/oceanic-next'
+
+
+    " Functions to toggle the [Location List] and the [Quickfix List] windows.
+    Plug 'milkypostman/vim-togglelist'
+
+    " True Sublime Text style multiple selections for Vim
+    Plug 'terryma/vim-multiple-cursors'
+
+    " The ultimate undo history visualizer for VIM
+    Plug 'mbbill/undotree'
+
+    " enable repeating supported plugin maps with '.'
+    Plug 'tpope/vim-repeat'
+
+    " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+    Plug 'tpope/vim-sleuth'
+
+    " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
+    Plug 'tpope/vim-unimpaired'
+
+    " comment stuff out (via leader-/)
+    Plug 'tomtom/tcomment_vim'
 
     call plug#end()
 
