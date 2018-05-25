@@ -10,7 +10,7 @@ ubuntu_chat_app() { ssh -i /Users/nmudivar/Documents/ec2/ButterflyChatPair.pem u
         sed -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
         sed -i.bak -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
     }
-    vpn () {   open -a SofToken\ II; open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
+    vpn () {  open -a MobilePASS ; open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
     ads () { /Users/nmudivar/ads_connect.sh;}
 #  Cisco Stuff end
 
