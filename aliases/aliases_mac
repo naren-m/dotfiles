@@ -1,3 +1,6 @@
+exp_conda3 () {
+	export PATH="$HOME/miniconda3/bin:$PATH"
+}
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
     alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
@@ -30,7 +33,7 @@
 #    screensaverDesktop: Run a screensaver on the Desktop
 #   -----------------------------------------------------------------------------------
     alias screensaverDesktop='/System/Library/Frameworks/ScreenSaver.framework/Resources/                  ⤷ ScreenSaverEngine.app/Contents/MacOS/ScreenSaverEngine -background'
-    alias vim='/usr/local/Cellar/vim/8.0.0627/bin/vim'
+    # alias vim='/usr/local/Cellar/vim/8.0.0627/bin/vim'
     alias vi=vim
 
 
@@ -70,3 +73,10 @@ trash () { command mv "$@" ~/.Trash ; }     # trash: Moves a file to the MacOS t
 #   spotlight: Search for a file using MacOS Spotlight's metadata
 #   -----------------------------------------------------------
     spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+
+#   flutter
+export PATH=/Users/nmudivar/Desktop/flutter/bin:$PATH
+
+#   ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
