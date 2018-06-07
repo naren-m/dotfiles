@@ -77,3 +77,6 @@ trash () { command mv "$@" ~/.Trash ; }     # trash: Moves a file to the MacOS t
 #   flutter
 export PATH=/Users/nmudivar/Desktop/flutter/bin:$PATH
 
+#   ctags
+alias ctags="`brew --prefix`/bin/ctags"
+
