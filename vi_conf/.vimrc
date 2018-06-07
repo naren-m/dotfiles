@@ -154,6 +154,12 @@ colorscheme hybrid
     " comment stuff out (via leader-/)
     Plug 'tomtom/tcomment_vim'
 
+    " Show a diff via Vim sign column.
+    Plug 'mhinz/vim-signify'
+
+    " a Git wrapper so awesome, it should be illegal; :Gblame, etc
+    Plug 'tpope/vim-fugitive'
+
     call plug#end()
 
     " Mappings
@@ -202,8 +208,8 @@ colorscheme hybrid
         nnoremap <leader>f  : Files<cr>
         nnoremap <leader>h  : History<cr>
         nnoremap <leader>bt : BTags<cr>
+        nnoremap <leader>bl : BLines<cr>
         nnoremap <leader>tt : Tags<cr>
-        nnoremap <leader>l  : BLines<cr>
         nnoremap <leader>b  : Buffers<cr>
         nnoremap <leader>c  : Colors<cr>
 
