@@ -32,8 +32,12 @@ colorscheme hybrid
     map <C-r> :call ToggleRelativeOn()<CR>
 
 " Indentation settings for using 4 spaces instead of tabs.
+    " when indenting with '>', use 4 spaces width
     set shiftwidth=4
     set softtabstop=4
+    " show existing tab with 4 spaces width
+    set tabstop=4
+    " On pressing tab, insert 4 spaces
     set expandtab
     set autoindent                        " the same indent as the line you're currently on.
 
@@ -188,7 +192,7 @@ colorscheme hybrid
        imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
     " Ag.vim
-       let g:ag_prg="/users/nmudivar/software/bin/ag --column"
+       " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
 
