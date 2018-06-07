@@ -16,7 +16,7 @@ fi
 if [ ! -d z ]
 then
     echo "Cloning z"
-    git clone -b 'v1.11' https://github.com/rupa/z.git
+    git clone -b 'v1.11' https://github.com/naren-m/z.git
 fi
 
 if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]
