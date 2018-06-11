@@ -116,11 +116,10 @@ colorscheme hybrid
     " Vim-plug
     call plug#begin('~/.vim/plugged')
 
+    " Utility
     Plug 'junegunn/vim-easy-align'
     Plug 'honza/vim-snippets'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'fatih/vim-go', { 'tag': '*' }
-    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdcommenter'
@@ -130,7 +129,13 @@ colorscheme hybrid
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'gilsondev/searchtasks.vim'
 
+    " Language helpers
+    Plug 'fatih/vim-go', { 'tag': '*' }
+    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+    " Colors schemes
     Plug 'dolio/vim-hybrid'
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
