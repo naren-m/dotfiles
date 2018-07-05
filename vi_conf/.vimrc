@@ -32,8 +32,12 @@ colorscheme hybrid
     map <C-r> :call ToggleRelativeOn()<CR>
 
 " Indentation settings for using 4 spaces instead of tabs.
+    " when indenting with '>', use 4 spaces width
     set shiftwidth=4
     set softtabstop=4
+    " show existing tab with 4 spaces width
+    set tabstop=4
+    " On pressing tab, insert 4 spaces
     set expandtab
     set autoindent                        " the same indent as the line you're currently on.
 
@@ -112,11 +116,10 @@ colorscheme hybrid
     " Vim-plug
     call plug#begin('~/.vim/plugged')
 
+    " Utility
     Plug 'junegunn/vim-easy-align'
     Plug 'honza/vim-snippets'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'fatih/vim-go', { 'tag': '*' }
-    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdcommenter'
@@ -126,7 +129,13 @@ colorscheme hybrid
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'gilsondev/searchtasks.vim'
 
+    " Language helpers
+    Plug 'fatih/vim-go', { 'tag': '*' }
+    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+
+    " Colors schemes
     Plug 'dolio/vim-hybrid'
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
@@ -153,6 +162,12 @@ colorscheme hybrid
 
     " comment stuff out (via leader-/)
     Plug 'tomtom/tcomment_vim'
+
+    " Show a diff via Vim sign column.
+    Plug 'mhinz/vim-signify'
+
+    " a Git wrapper so awesome, it should be illegal; :Gblame, etc
+    Plug 'tpope/vim-fugitive'
 
     call plug#end()
 
@@ -202,8 +217,8 @@ colorscheme hybrid
         nnoremap <leader>f  : Files<cr>
         nnoremap <leader>h  : History<cr>
         nnoremap <leader>bt : BTags<cr>
+        nnoremap <leader>bl : BLines<cr>
         nnoremap <leader>tt : Tags<cr>
-        nnoremap <leader>l  : BLines<cr>
         nnoremap <leader>b  : Buffers<cr>
         nnoremap <leader>c  : Colors<cr>
 
