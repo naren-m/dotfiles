@@ -8,6 +8,21 @@ set nocompatible
 set background=dark
 colorscheme hybrid
 
+" Find files using find commad
+" :find test<tab>
+set path+=**
+
+" Display all matching files when we tab complete
+" :b lets you autocomplete any open buffer
+set wildmenu
+
+" Mappings.
+" write file on enter
+nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
+
+" Enable mouse
+    set mouse=a
+
 " Copy to clipboard
     set clipboard=unnamed
 " Make it obvious where 80 characters is
@@ -125,15 +140,20 @@ colorscheme hybrid
     Plug 'scrooloose/nerdcommenter'
     Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-commentary'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'gilsondev/searchtasks.vim'
+    " True Sublime Text style multiple selections for Vim
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'tpope/vim-abolish'
 
     " Language helpers
     Plug 'fatih/vim-go', { 'tag': '*' }
     Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+    Plug 'alvan/vim-closetag'
+
+    Plug 'jiangmiao/auto-pairs'
 
     " Colors schemes
     Plug 'dolio/vim-hybrid'
@@ -141,12 +161,9 @@ colorscheme hybrid
     Plug 'chriskempson/base16-vim'
     Plug 'mhartington/oceanic-next'
 
-
     " Functions to toggle the [Location List] and the [Quickfix List] windows.
     Plug 'milkypostman/vim-togglelist'
 
-    " True Sublime Text style multiple selections for Vim
-    Plug 'terryma/vim-multiple-cursors'
 
     " The ultimate undo history visualizer for VIM
     Plug 'mbbill/undotree'
@@ -265,6 +282,40 @@ colorscheme hybrid
             let g:airline_symbols.whitespace = 'Ξ'
             " let g:airline_section_b = '%{strftime("%c")}'
             " set ambiwidth=double "The statusline wraps
+
+    " Vim-closetag
+        " filenames like *.xml, *.html, *.xhtml, ...
+        " These are the file extensions where this plugin is enabled.
+        "
+        let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+        " filenames like *.xml, *.xhtml, ...
+        " This will make the list of non-closing tags self-closing in the specified files.
+        "
+        let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+        " filetypes like xml, html, xhtml, ...
+        " These are the file types where this plugin is enabled.
+        "
+        let g:closetag_filetypes = 'html,xhtml,phtml'
+
+        " filetypes like xml, xhtml, ...
+        " This will make the list of non-closing tags self-closing in the specified files.
+        "
+        let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+        " integer value [0|1]
+        " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+        "
+        let g:closetag_emptyTags_caseSensitive = 1
+
+        " Shortcut for closing tags, default is '>'
+        "
+        let g:closetag_shortcut = '>'
+
+        " Add > at current position without closing the current tag, default is ''
+        "
+        let g:closetag_close_shortcut = '<leader>>'
 
     " Cscope
         if has("cscope")
