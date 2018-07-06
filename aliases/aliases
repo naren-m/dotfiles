@@ -84,7 +84,7 @@
 
 # Utils for ssh to servers
     alias raspi='ssh pi@raspberrypi.local' # password for user:pi is raspberry
-    narenuday () {  ssh narenuday@10.0.1.14; }
+    narenuday () {  ssh narenuday@narenuday-pc.local; }
 
      ckh ()    # ckh: Clear Know Hosts, delete entry from ssh known hosts
      {
