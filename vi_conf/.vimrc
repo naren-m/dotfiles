@@ -18,7 +18,7 @@ set wildmenu
 
 " Mappings.
 " write file on enter
-nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
+" nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 
 " Enable mouse
     set mouse=a
@@ -161,30 +161,15 @@ nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
     Plug 'chriskempson/base16-vim'
     Plug 'mhartington/oceanic-next'
 
-    " Functions to toggle the [Location List] and the [Quickfix List] windows.
-    Plug 'milkypostman/vim-togglelist'
-
-
-    " The ultimate undo history visualizer for VIM
-    Plug 'mbbill/undotree'
-
-    " enable repeating supported plugin maps with '.'
-    Plug 'tpope/vim-repeat'
-
-    " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    Plug 'tpope/vim-sleuth'
-
-    " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
-    Plug 'tpope/vim-unimpaired'
-
-    " comment stuff out (via leader-/)
-    Plug 'tomtom/tcomment_vim'
-
-    " Show a diff via Vim sign column.
-    Plug 'mhinz/vim-signify'
-
-    " a Git wrapper so awesome, it should be illegal; :Gblame, etc
-    Plug 'tpope/vim-fugitive'
+    Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
+    Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
+    Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
+    Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+    Plug 'tpope/vim-unimpaired'           " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
+    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
+    Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
+    Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
 
     call plug#end()
 
