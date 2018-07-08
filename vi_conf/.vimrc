@@ -170,6 +170,7 @@ set wildmenu
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
+    Plug 'ervandew/supertab'
 
     call plug#end()
 
@@ -225,7 +226,6 @@ set wildmenu
         nnoremap <leader>c  : Colors<cr>
 
     " Nerd tree toggle
-        nnoremap <leader>nn :NERDTreeToggle<CR>
         nnoremap \ :NERDTreeToggle<CR>
         nnoremap <leader>nf :NERDTreeFind<CR>
         let g:NERDTreeShowBookmarks=1
