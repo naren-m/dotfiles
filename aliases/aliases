@@ -41,9 +41,6 @@
 
 # Sourcing Envs
 # -------------------------
-# Anaconda environment
-    exp_conda2() { export PATH="$HOME/anaconda2/bin$PATH" ;}
-    exp_conda3() { export PATH="$HOME/anaconda3/bin:$PATH"; }
 
 #  Python3 virtual environment
     src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
