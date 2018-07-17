@@ -170,10 +170,20 @@ set wildmenu
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
-    Plug 'ervandew/supertab'
+    " Plug 'ervandew/supertab'
+
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
 
     call plug#end()
 
+
+    let g:deoplete#enable_at_startup = 1
     " Mappings
     "
     " vim-easy-align
