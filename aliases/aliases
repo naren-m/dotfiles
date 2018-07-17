@@ -7,7 +7,7 @@
 
 # Export paths
     export WORKON_HOME=~/.virtualenvs
-    export PATH="$PATH:/usr/local/bin/:$GOBIN"
+    export PATH="/usr/local/bin/:$GOBIN:$PATH"
 
 #   Google project aliases
 #   ------------------------------------------------------------
