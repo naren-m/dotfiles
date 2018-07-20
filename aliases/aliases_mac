@@ -1,6 +1,7 @@
-exp_conda3 () {
-	export PATH="$HOME/miniconda3/bin:$PATH"
-}
+# Anaconda environment
+    exp_conda2() { export PATH="/anaconda2/bin:$PATH" ;}
+    exp_conda3() { export PATH="/anaconda3/bin:$PATH"; }
+
 #   cleanupDS:  Recursively delete .DS_Store files
 #   -------------------------------------------------------------------
     alias cleanupDS="find . -type f -name '*.DS_Store' -ls -delete"
@@ -80,3 +81,9 @@ export PATH=/Users/nmudivar/Desktop/flutter/bin:$PATH
 #   ctags
 alias ctags="`brew --prefix`/bin/ctags"
 
+# Source: https://gist.github.com/mischah/8149239
+# Move next only if `homebrew` is installed
+if command -v brew >/dev/null 2>&1; then
+	# Load rupa's z if installed
+	[ -f $(brew --prefix)/etc/profile.d/z.sh ] && source $(brew --prefix)/etc/profile.d/z.sh
+fi
