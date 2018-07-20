@@ -192,7 +192,7 @@ colorscheme hybrid
        imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
     " Ag.vim
-       " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
+       let g:ag_prg="/users/nmudivar/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
 
