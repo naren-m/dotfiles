@@ -7,7 +7,7 @@
 
 # Export paths
     export WORKON_HOME=~/.virtualenvs
-    export PATH="$PATH:/usr/local/bin/:$GOBIN"
+    export PATH="/usr/local/bin/:$GOBIN:$PATH"
 
 #   Google project aliases
 #   ------------------------------------------------------------
@@ -41,9 +41,6 @@
 
 # Sourcing Envs
 # -------------------------
-# Anaconda environment
-    exp_conda2() { export PATH="$HOME/anaconda2/bin$PATH" ;}
-    exp_conda3() { export PATH="$HOME/anaconda3/bin:$PATH"; }
 
 #  Python3 virtual environment
     src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
@@ -84,7 +81,7 @@
 
 # Utils for ssh to servers
     alias raspi='ssh pi@raspberrypi.local' # password for user:pi is raspberry
-    narenuday () {  ssh narenuday@10.0.1.14; }
+    narenuday () {  ssh narenuday@narenuday-pc.local; }
 
      ckh ()    # ckh: Clear Know Hosts, delete entry from ssh known hosts
      {
