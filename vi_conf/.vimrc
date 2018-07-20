@@ -8,6 +8,21 @@ set nocompatible
 set background=dark
 colorscheme hybrid
 
+" Find files using find commad
+" :find test<tab>
+set path+=**
+
+" Display all matching files when we tab complete
+" :b lets you autocomplete any open buffer
+set wildmenu
+
+" Mappings.
+" write file on enter
+" nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
+
+" Enable mouse
+    set mouse=a
+
 " Copy to clipboard
     set clipboard=unnamed
 " Make it obvious where 80 characters is
@@ -116,56 +131,59 @@ colorscheme hybrid
     " Vim-plug
     call plug#begin('~/.vim/plugged')
 
+    " Utility
     Plug 'junegunn/vim-easy-align'
     Plug 'honza/vim-snippets'
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'fatih/vim-go', { 'tag': '*' }
-    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdcommenter'
     Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-commentary'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+    Plug 'gilsondev/searchtasks.vim'
+    " True Sublime Text style multiple selections for Vim
+    Plug 'terryma/vim-multiple-cursors'
+    Plug 'tpope/vim-abolish'
 
+    " Language helpers
+    Plug 'fatih/vim-go', { 'tag': '*' }
+    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
+    Plug 'alvan/vim-closetag'
+
+    Plug 'jiangmiao/auto-pairs'
+
+    " Colors schemes
     Plug 'dolio/vim-hybrid'
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
     Plug 'mhartington/oceanic-next'
 
+    Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
+    Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
+    Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
+    Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+    Plug 'tpope/vim-unimpaired'           " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
+    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
+    Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
+    Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
+    " Plug 'ervandew/supertab'
 
-    " Functions to toggle the [Location List] and the [Quickfix List] windows.
-    Plug 'milkypostman/vim-togglelist'
-
-    " True Sublime Text style multiple selections for Vim
-    Plug 'terryma/vim-multiple-cursors'
-
-    " The ultimate undo history visualizer for VIM
-    Plug 'mbbill/undotree'
-
-    " enable repeating supported plugin maps with '.'
-    Plug 'tpope/vim-repeat'
-
-    " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    Plug 'tpope/vim-sleuth'
-
-    " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
-    Plug 'tpope/vim-unimpaired'
-
-    " comment stuff out (via leader-/)
-    Plug 'tomtom/tcomment_vim'
-
-    " Show a diff via Vim sign column.
-    Plug 'mhinz/vim-signify'
-
-    " a Git wrapper so awesome, it should be illegal; :Gblame, etc
-    Plug 'tpope/vim-fugitive'
+    if has('nvim')
+      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    else
+      Plug 'Shougo/deoplete.nvim'
+      Plug 'roxma/nvim-yarp'
+      Plug 'roxma/vim-hug-neovim-rpc'
+    endif
 
     call plug#end()
 
+
+    let g:deoplete#enable_at_startup = 1
     " Mappings
     "
     " vim-easy-align
@@ -218,7 +236,6 @@ colorscheme hybrid
         nnoremap <leader>c  : Colors<cr>
 
     " Nerd tree toggle
-        nnoremap <leader>nn :NERDTreeToggle<CR>
         nnoremap \ :NERDTreeToggle<CR>
         nnoremap <leader>nf :NERDTreeFind<CR>
         let g:NERDTreeShowBookmarks=1
@@ -260,6 +277,40 @@ colorscheme hybrid
             let g:airline_symbols.whitespace = 'Ξ'
             " let g:airline_section_b = '%{strftime("%c")}'
             " set ambiwidth=double "The statusline wraps
+
+    " Vim-closetag
+        " filenames like *.xml, *.html, *.xhtml, ...
+        " These are the file extensions where this plugin is enabled.
+        "
+        let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+
+        " filenames like *.xml, *.xhtml, ...
+        " This will make the list of non-closing tags self-closing in the specified files.
+        "
+        let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+
+        " filetypes like xml, html, xhtml, ...
+        " These are the file types where this plugin is enabled.
+        "
+        let g:closetag_filetypes = 'html,xhtml,phtml'
+
+        " filetypes like xml, xhtml, ...
+        " This will make the list of non-closing tags self-closing in the specified files.
+        "
+        let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+
+        " integer value [0|1]
+        " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
+        "
+        let g:closetag_emptyTags_caseSensitive = 1
+
+        " Shortcut for closing tags, default is '>'
+        "
+        let g:closetag_shortcut = '>'
+
+        " Add > at current position without closing the current tag, default is ''
+        "
+        let g:closetag_close_shortcut = '<leader>>'
 
     " Cscope
         if has("cscope")
