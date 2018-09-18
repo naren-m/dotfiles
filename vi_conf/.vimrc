@@ -30,6 +30,7 @@ set wildmenu
     set colorcolumn=+1
     let &colorcolumn=join(range(81,999),",")  "for having shadedline after 80
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
+    highlight LineNr ctermfg=grey
     let &colorcolumn="80,".join(range(999,999),",")
 
 " Numbering settings
@@ -143,16 +144,19 @@ set wildmenu
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'gilsondev/searchtasks.vim'
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'tpope/vim-abolish'
-
-    " Language helpers
-    Plug 'fatih/vim-go', { 'tag': '*' }
-    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
     Plug 'alvan/vim-closetag'
 
+    " Figure out how to use these
+    Plug 'tpope/vim-abolish'
+    Plug 'gilsondev/searchtasks.vim'
+    Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
+    Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
+
+    " Language helpers
+    " Plug 'fatih/vim-go', { 'tag': '*' }
+    " Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
     Plug 'jiangmiao/auto-pairs'
 
     " Colors schemes
@@ -162,8 +166,6 @@ set wildmenu
     Plug 'mhartington/oceanic-next'
 
     Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
-    Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
-    Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
     Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
     Plug 'tpope/vim-unimpaired'           " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
     Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
@@ -172,16 +174,29 @@ set wildmenu
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
     " Plug 'ervandew/supertab'
 
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
+    " Time tracking
+    Plug 'git-time-metric/gtm-vim-plugin'
+
+    " TODO: Add following plugins
+    " - https://github.com/tpope/vim-eunuch
+    " - https://github.com/tpope/vim-surround
+    " - https://github.com/w0rp/ale
+    " - https://github.com/mhinz/vim-startify
+    " - https://github.com/garbas/vim-snipmate
+    " - https://github.com/xolox/vim-notes
+
+    " Code auto complete. Not working Fix this. Till then using Ctrl+n
+    " if has('nvim')
+    "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    " else
+    "   Plug 'Shougo/deoplete.nvim'
+    "   Plug 'roxma/nvim-yarp'
+    "   Plug 'roxma/vim-hug-neovim-rpc'
+    " endif
 
     call plug#end()
 
+    let g:gtm_plugin_status_enabled = 1
 
     let g:deoplete#enable_at_startup = 1
     " Mappings
@@ -266,16 +281,16 @@ set wildmenu
         let g:airline#extensions#hunks#enabled=0
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts = 1
-        if !exists('g:airline_symbols')
-          let g:airline_symbols = {}
-        endif
-        " Symbols
-            let g:airline_symbols.space = "\ua0"
-            let g:airline_symbols.linenr = '¶'
-            let g:airline_symbols.branch = '⎇'
-            let g:airline_symbols.paste = 'Þ'
-            let g:airline_symbols.whitespace = 'Ξ'
-            " let g:airline_section_b = '%{strftime("%c")}'
+        "if !exists('g:airline_symbols')
+        "  let g:airline_symbols = {}
+        "endif
+        "" Symbols
+        "    let g:airline_symbols.space = '\ua0'
+        "    let g:airline_symbols.linenr = '¶'
+        "    let g:airline_symbols.branch = '⎇'
+        "    let g:airline_symbols.paste = 'Þ'
+        "    let g:airline_symbols.whitespace = 'Ξ'
+        "    let g:airline_section_b = '%{strftime("%c")}'
             " set ambiwidth=double "The statusline wraps
 
     " Vim-closetag
