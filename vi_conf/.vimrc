@@ -138,15 +138,15 @@ set wildmenu
     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'majutsushi/tagbar'
+    " Plug 'scrooloose/nerdcommenter'
+    " Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-commentary'
     Plug 'rking/ag.vim'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'alvan/vim-closetag'
+    " Plug 'alvan/vim-closetag'
 
     " Figure out how to use these
     Plug 'tpope/vim-abolish'
@@ -167,8 +167,8 @@ set wildmenu
 
     Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
     Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    Plug 'tpope/vim-unimpaired'           " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
-    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    " Plug 'tpope/vim-unimpaired'           " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
+    " Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
@@ -176,6 +176,9 @@ set wildmenu
 
     " Time tracking
     Plug 'git-time-metric/gtm-vim-plugin'
+
+    " Documentation search
+    Plug 'rizzatti/dash.vim'
 
     " TODO: Add following plugins
     " - https://github.com/tpope/vim-eunuch
@@ -224,6 +227,9 @@ set wildmenu
        nmap <C-g> :GoDeclsDir<cr>
        imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
+    " Dash
+    nmap <silent> <leader>d <Plug>DashSearch
+
     " Ag.vim
        " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
@@ -250,13 +256,6 @@ set wildmenu
         nnoremap <leader>b  : Buffers<cr>
         nnoremap <leader>c  : Colors<cr>
 
-    " Nerd tree toggle
-        nnoremap \ :NERDTreeToggle<CR>
-        nnoremap <leader>nf :NERDTreeFind<CR>
-        let g:NERDTreeShowBookmarks=1
-        let g:NERDTreeChDirMode=2 " Change the NERDTree directory to the root
-        let g:NERDTreeHijackNetrw=0
-
     " Commentary.vim
         let g:commentary_map_backslash = 0
         nmap <Leader>ci <Plug>CommentaryLine
@@ -281,6 +280,8 @@ set wildmenu
         let g:airline#extensions#hunks#enabled=0
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts = 1
+        let g:airline_extensions = []
+        let g:airline_highlighting_cache = 1
         "if !exists('g:airline_symbols')
         "  let g:airline_symbols = {}
         "endif
@@ -292,40 +293,6 @@ set wildmenu
         "    let g:airline_symbols.whitespace = 'Ξ'
         "    let g:airline_section_b = '%{strftime("%c")}'
             " set ambiwidth=double "The statusline wraps
-
-    " Vim-closetag
-        " filenames like *.xml, *.html, *.xhtml, ...
-        " These are the file extensions where this plugin is enabled.
-        "
-        let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-
-        " filenames like *.xml, *.xhtml, ...
-        " This will make the list of non-closing tags self-closing in the specified files.
-        "
-        let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-
-        " filetypes like xml, html, xhtml, ...
-        " These are the file types where this plugin is enabled.
-        "
-        let g:closetag_filetypes = 'html,xhtml,phtml'
-
-        " filetypes like xml, xhtml, ...
-        " This will make the list of non-closing tags self-closing in the specified files.
-        "
-        let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-        " integer value [0|1]
-        " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-        "
-        let g:closetag_emptyTags_caseSensitive = 1
-
-        " Shortcut for closing tags, default is '>'
-        "
-        let g:closetag_shortcut = '>'
-
-        " Add > at current position without closing the current tag, default is ''
-        "
-        let g:closetag_close_shortcut = '<leader>>'
 
     " Cscope
         if has("cscope")
