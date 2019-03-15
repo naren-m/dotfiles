@@ -148,7 +148,7 @@ set wildmenu
 
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
-    Plug 'alvan/vim-closetag'
+    " Plug 'alvan/vim-closetag'
 
     " Figure out how to use these
     Plug 'tpope/vim-abolish'
@@ -167,7 +167,7 @@ set wildmenu
 
     Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
     Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    " Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
@@ -177,6 +177,9 @@ set wildmenu
     " Time tracking
     Plug 'git-time-metric/gtm-vim-plugin'
 
+    " Documentation search
+    Plug 'rizzatti/dash.vim'
+
     " TODO: Add following plugins
     " - https://github.com/tpope/vim-eunuch
     " - https://github.com/tpope/vim-surround
@@ -185,14 +188,6 @@ set wildmenu
     " - https://github.com/garbas/vim-snipmate
     " - https://github.com/xolox/vim-notes
 
-    " Code auto complete. Not working Fix this. Till then using Ctrl+n
-    " if has('nvim')
-    "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    " else
-    "   Plug 'Shougo/deoplete.nvim'
-    "   Plug 'roxma/nvim-yarp'
-    "   Plug 'roxma/vim-hug-neovim-rpc'
-    " endif
 
     call plug#end()
 
@@ -209,7 +204,7 @@ set wildmenu
         nmap ga <Plug>(EasyAlign)
 
     " Ag.vim
-       let g:ag_prg="/users/nmudivar/software/bin/ag --column"
+       " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
 
@@ -234,13 +229,6 @@ set wildmenu
         nnoremap <leader>b  : Buffers<cr>
         nnoremap <leader>c  : Colors<cr>
 
-    " Nerd tree toggle
-        nnoremap \ :NERDTreeToggle<CR>
-        nnoremap <leader>nf :NERDTreeFind<CR>
-        let g:NERDTreeShowBookmarks=1
-        let g:NERDTreeChDirMode=2 " Change the NERDTree directory to the root
-        let g:NERDTreeHijackNetrw=0
-
     " Commentary.vim
         let g:commentary_map_backslash = 0
         nmap <Leader>ci <Plug>CommentaryLine
@@ -259,6 +247,8 @@ set wildmenu
         let g:airline#extensions#hunks#enabled=0
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts = 1
+        let g:airline_extensions = []
+        let g:airline_highlighting_cache = 1
 
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
