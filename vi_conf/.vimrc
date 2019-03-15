@@ -8,6 +8,21 @@ set nocompatible
 set background=dark
 colorscheme hybrid
 
+" Find files using find commad
+" :find test<tab>
+set path+=**
+
+" Display all matching files when we tab complete
+" :b lets you autocomplete any open buffer
+set wildmenu
+
+" Mappings.
+" write file on enter
+" nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
+
+" Enable mouse
+    set mouse=a
+
 " Copy to clipboard
     set clipboard=unnamed
 " Make it obvious where 80 characters is
@@ -15,6 +30,7 @@ colorscheme hybrid
     set colorcolumn=+1
     let &colorcolumn=join(range(81,999),",")  "for having shadedline after 80
     highlight ColorColumn ctermbg=235 guibg=#2c2d27
+    highlight LineNr ctermfg=grey
     let &colorcolumn="80,".join(range(999,999),",")
 
 " Numbering settings
@@ -32,8 +48,12 @@ colorscheme hybrid
     map <C-r> :call ToggleRelativeOn()<CR>
 
 " Indentation settings for using 4 spaces instead of tabs.
+    " when indenting with '>', use 4 spaces width
     set shiftwidth=4
     set softtabstop=4
+    " show existing tab with 4 spaces width
+    set tabstop=4
+    " On pressing tab, insert 4 spaces
     set expandtab
     set autoindent                        " the same indent as the line you're currently on.
 
@@ -112,49 +132,66 @@ colorscheme hybrid
     " Vim-plug
     call plug#begin('~/.vim/plugged')
 
+    " Utility
     Plug 'junegunn/vim-easy-align'
     Plug 'honza/vim-snippets'
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-    Plug 'fatih/vim-go', { 'tag': '*' }
-    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'majutsushi/tagbar'
+    " Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-commentary'
-    Plug 'terryma/vim-multiple-cursors'
     Plug 'rking/ag.vim'
+
+    Plug 'gilsondev/searchtasks.vim'
+
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
 
+    " True Sublime Text style multiple selections for Vim
+    Plug 'terryma/vim-multiple-cursors'
+    " Plug 'alvan/vim-closetag'
+
+    " Figure out how to use these
+    Plug 'tpope/vim-abolish'
+    Plug 'gilsondev/searchtasks.vim'
+    Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
+    Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
+
+    " Language helpers
+    Plug 'jiangmiao/auto-pairs'
+
+    " Colors schemes
     Plug 'dolio/vim-hybrid'
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
     Plug 'mhartington/oceanic-next'
 
+    Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
+    Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
+    Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
+    Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
+    " Plug 'ervandew/supertab'
 
-    " Functions to toggle the [Location List] and the [Quickfix List] windows.
-    Plug 'milkypostman/vim-togglelist'
 
-    " True Sublime Text style multiple selections for Vim
-    Plug 'terryma/vim-multiple-cursors'
+    " Time tracking
+    Plug 'git-time-metric/gtm-vim-plugin'
 
-    " The ultimate undo history visualizer for VIM
-    Plug 'mbbill/undotree'
+    " Documentation search
+    Plug 'rizzatti/dash.vim'
 
-    " enable repeating supported plugin maps with '.'
-    Plug 'tpope/vim-repeat'
+    " TODO: Add following plugins
+    " - https://github.com/tpope/vim-eunuch
+    " - https://github.com/tpope/vim-surround
+    " - https://github.com/w0rp/ale
+    " - https://github.com/mhinz/vim-startify
+    " - https://github.com/garbas/vim-snipmate
+    " - https://github.com/xolox/vim-notes
 
-    " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    Plug 'tpope/vim-sleuth'
-
-    " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
-    Plug 'tpope/vim-unimpaired'
-
-    " comment stuff out (via leader-/)
-    Plug 'tomtom/tcomment_vim'
 
     call plug#end()
+
+    let g:gtm_plugin_status_enabled = 1
 
     " Mappings
     "
@@ -164,22 +201,6 @@ colorscheme hybrid
 
         " Start interactive EasyAlign for a motion/text object (e.g. gaip)
         nmap ga <Plug>(EasyAlign)
-
-    " Go plugin
-       " vim-go
-       let g:go_fmt_command             = "goimports"
-       let g:go_autodetect_gopath       = 1
-       let g:go_list_type               = "quickfix"
-       let g:go_highlight_types         = 1
-       let g:go_highlight_fields        = 1
-       let g:go_highlight_functions     = 1
-       let g:go_highlight_methods       = 1
-       let g:go_highlight_extra_types   = 1
-       let g:go_highlight_generate_tags = 1
-
-       " " Open :GoDeclsDir with ctrl-g
-       nmap <C-g> :GoDeclsDir<cr>
-       imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
     " Ag.vim
        " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
@@ -202,18 +223,10 @@ colorscheme hybrid
         nnoremap <leader>f  : Files<cr>
         nnoremap <leader>h  : History<cr>
         nnoremap <leader>bt : BTags<cr>
+        nnoremap <leader>bl : BLines<cr>
         nnoremap <leader>tt : Tags<cr>
-        nnoremap <leader>l  : BLines<cr>
         nnoremap <leader>b  : Buffers<cr>
         nnoremap <leader>c  : Colors<cr>
-
-    " Nerd tree toggle
-        nnoremap <leader>nn :NERDTreeToggle<CR>
-        nnoremap \ :NERDTreeToggle<CR>
-        nnoremap <leader>nf :NERDTreeFind<CR>
-        let g:NERDTreeShowBookmarks=1
-        let g:NERDTreeChDirMode=2 " Change the NERDTree directory to the root
-        let g:NERDTreeHijackNetrw=0
 
     " Commentary.vim
         let g:commentary_map_backslash = 0
@@ -226,19 +239,16 @@ colorscheme hybrid
     " CtrlP for fuzzy file search
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-    " Tagbar
-        nmap <leader>t :TagbarToggle<CR>
-        nmap <leader>tf :TagbarOpen fj<CR>
-
     " Vim-airline
         set laststatus=2
         set ttimeoutlen=10
         let g:airline#extensions#tabline#enabled = 1
-        " let g:airline_theme = 'powerlineish'
-        " let g:airline_theme='simple'
         let g:airline#extensions#hunks#enabled=0
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts = 1
+        let g:airline_extensions = []
+        let g:airline_highlighting_cache = 1
+
         if !exists('g:airline_symbols')
           let g:airline_symbols = {}
         endif
@@ -248,8 +258,6 @@ colorscheme hybrid
             let g:airline_symbols.branch = '⎇'
             let g:airline_symbols.paste = 'Þ'
             let g:airline_symbols.whitespace = 'Ξ'
-            " let g:airline_section_b = '%{strftime("%c")}'
-            " set ambiwidth=double "The statusline wraps
 
     " Cscope
         if has("cscope")
