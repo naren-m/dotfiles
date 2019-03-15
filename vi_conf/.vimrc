@@ -193,7 +193,6 @@ set wildmenu
 
     let g:gtm_plugin_status_enabled = 1
 
-    let g:deoplete#enable_at_startup = 1
     " Mappings
     "
     " vim-easy-align
