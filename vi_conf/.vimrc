@@ -134,25 +134,19 @@ set wildmenu
     " Utility
     Plug 'junegunn/vim-easy-align'
     Plug 'honza/vim-snippets'
-    Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
-    Plug 'scrooloose/nerdcommenter'
-    Plug 'majutsushi/tagbar'
+    " Plug 'majutsushi/tagbar'
     Plug 'tpope/vim-commentary'
     Plug 'rking/ag.vim'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    " Plug 'vim-airline/vim-airline'
+    " Plug 'vim-airline/vim-airline-themes'
     Plug 'gilsondev/searchtasks.vim'
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
     Plug 'tpope/vim-abolish'
 
     " Language helpers
-    Plug 'fatih/vim-go', { 'tag': '*' }
-    Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
-    Plug 'alvan/vim-closetag'
-
     Plug 'jiangmiao/auto-pairs'
 
     " Colors schemes
@@ -165,20 +159,11 @@ set wildmenu
     Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
     Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
     Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    Plug 'tpope/vim-unimpaired'           " pairs of handy bracket mappings; e.g. [<Space> and ]<Space> add newlines before and after the cursor line
-    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    " Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
     " Plug 'ervandew/supertab'
-
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
 
     call plug#end()
 
@@ -192,22 +177,6 @@ set wildmenu
 
         " Start interactive EasyAlign for a motion/text object (e.g. gaip)
         nmap ga <Plug>(EasyAlign)
-
-    " Go plugin
-       " vim-go
-       let g:go_fmt_command             = "goimports"
-       let g:go_autodetect_gopath       = 1
-       let g:go_list_type               = "quickfix"
-       let g:go_highlight_types         = 1
-       let g:go_highlight_fields        = 1
-       let g:go_highlight_functions     = 1
-       let g:go_highlight_methods       = 1
-       let g:go_highlight_extra_types   = 1
-       let g:go_highlight_generate_tags = 1
-
-       " " Open :GoDeclsDir with ctrl-g
-       nmap <C-g> :GoDeclsDir<cr>
-       imap <C-g> <esc>:<C-u>GoDeclsDir<cr>
 
     " Ag.vim
        let g:ag_prg="/users/nmudivar/software/bin/ag --column"
@@ -253,16 +222,10 @@ set wildmenu
     " CtrlP for fuzzy file search
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 
-    " Tagbar
-        nmap <leader>t :TagbarToggle<CR>
-        nmap <leader>tf :TagbarOpen fj<CR>
-
     " Vim-airline
         set laststatus=2
         set ttimeoutlen=10
         let g:airline#extensions#tabline#enabled = 1
-        " let g:airline_theme = 'powerlineish'
-        " let g:airline_theme='simple'
         let g:airline#extensions#hunks#enabled=0
         let g:airline#extensions#branch#enabled=1
         let g:airline_powerline_fonts = 1
@@ -275,42 +238,7 @@ set wildmenu
             let g:airline_symbols.branch = '⎇'
             let g:airline_symbols.paste = 'Þ'
             let g:airline_symbols.whitespace = 'Ξ'
-            " let g:airline_section_b = '%{strftime("%c")}'
-            " set ambiwidth=double "The statusline wraps
 
-    " Vim-closetag
-        " filenames like *.xml, *.html, *.xhtml, ...
-        " These are the file extensions where this plugin is enabled.
-        "
-        let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-
-        " filenames like *.xml, *.xhtml, ...
-        " This will make the list of non-closing tags self-closing in the specified files.
-        "
-        let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-
-        " filetypes like xml, html, xhtml, ...
-        " These are the file types where this plugin is enabled.
-        "
-        let g:closetag_filetypes = 'html,xhtml,phtml'
-
-        " filetypes like xml, xhtml, ...
-        " This will make the list of non-closing tags self-closing in the specified files.
-        "
-        let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-
-        " integer value [0|1]
-        " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-        "
-        let g:closetag_emptyTags_caseSensitive = 1
-
-        " Shortcut for closing tags, default is '>'
-        "
-        let g:closetag_shortcut = '>'
-
-        " Add > at current position without closing the current tag, default is ''
-        "
-        let g:closetag_close_shortcut = '<leader>>'
 
     " Cscope
         if has("cscope")
