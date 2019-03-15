@@ -204,7 +204,7 @@ set wildmenu
         nmap ga <Plug>(EasyAlign)
 
     " Ag.vim
-       let g:ag_prg="/users/nmudivar/software/bin/ag --column"
+       " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
 
