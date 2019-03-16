@@ -9,6 +9,7 @@ function doIt() {
     mv ~/.bash_profile $PWD/backup/.bash_profile.orig 2>/dev/null
     mv ~/.bashrc $PWD/backup/.bashrc.orig 2>/dev/null
     mv ~/.vimrc $PWD/backup/.vimrc.orig 2>/dev/null
+    mv ~/.vimrc.plug $PWD/backup/.vimrc.plug.orig 2>/dev/null
     mv ~/.zshrc $PWD/backup/.zshrc.orig 2>/dev/null
 
     mv ~/.aliases $PWD/backup/.aliases.orig 2>/dev/null
@@ -42,8 +43,8 @@ function doIt() {
 
     # Vim setup
     ln -s $PWD/vi_conf/.vimrc ~/.vimrc
+    ln -s $PWD/vi_conf/vimrc.plug ~/.vimrc.plug
     cp -r $PWD/vi_conf/vim ~/.vim
-
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
