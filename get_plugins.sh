@@ -16,7 +16,7 @@ fi
 if [ ! -d z ]
 then
     echo "Cloning z"
-    git clone -b 'v1.11' https://github.com/rupa/z.git
+    git clone -b 'v1.11' https://github.com/naren-m/z.git
 fi
 
 if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]
@@ -31,3 +31,13 @@ then
     echo "Cloning fast-syntax-highlighting"
     git clone https://github.com/zdharma/fast-syntax-highlighting.git  ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fast-syntax-highlighting
 fi
+
+# Tmux plugins
+#
+#
+if [ ! -d ~/.tmux/plugins ]
+then
+    echo "Installing tmux pligin manager"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+    

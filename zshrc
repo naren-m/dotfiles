@@ -55,7 +55,7 @@ HIST_STAMPS="mm/dd/yyyy"
 # Add wisely, as too many plugins slow down shell startup.
 
 # zsh-autosuggestions not working on centos 6.0
-plugins=(git  zsh-autosuggestions  fast-syntax-highlighting tmux)
+plugins=(git fast-syntax-highlighting tmux)
 
 # User configuration
 
@@ -82,7 +82,7 @@ alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 # source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # setup z for quick navigation through folders
-. ~/dotfiles/z/z.sh
+# . ~/dotfiles/z/z.sh
 
 # zsh: Place this in .zshrc after "source /Users/georgen/.iterm2_shell_integration.zsh".
 setbadge() {
@@ -92,3 +92,4 @@ setbadge() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
+eval $(thefuck --alias)
