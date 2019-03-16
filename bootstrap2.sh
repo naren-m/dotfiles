@@ -42,6 +42,7 @@ function doIt() {
 
     # Vim setup
     ln -s $PWD/vi_conf/.vimrc ~/.vimrc
+    ln -s $PWD/vi_conf/vimrc.plug ~/.vimrc.plug
     cp -r $PWD/vi_conf/vim ~/.vim
 }
 
