@@ -13,12 +13,6 @@ then
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
-if [ ! -d z ]
-then
-    echo "Cloning z"
-    git clone -b 'v1.11' https://github.com/naren-m/z.git
-fi
-
 if [ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions ]
 then
     echo "Cloning zsh-autosuggestions"
@@ -40,4 +34,4 @@ then
     echo "Installing tmux pligin manager"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
-    
+
