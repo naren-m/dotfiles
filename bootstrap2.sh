@@ -42,9 +42,9 @@ function doIt() {
     fi
 
     # Vim setup
-    ln -s $PWD/vi_conf/.vimrc ~/.vimrc
-    ln -s $PWD/vi_conf/vimrc.plug ~/.vimrc.plug
-    cp -r $PWD/vi_conf/vim ~/.vim
+    ln -s $PWD/vimfiles/.vimrc ~/.vimrc
+    ln -s $PWD/vimfiles/vimrc.plug ~/.vimrc.plug
+    cp -r $PWD/vimfiles/vim ~/.vim
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
