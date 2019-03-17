@@ -12,7 +12,7 @@ function doIt() {
 
     mv ~/.vimrc $PWD/backup/.vimrc.orig 2>/dev/null
     mv ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
-    mv ~/.vimrc.plug $PWD/backup/.vimrc.plug.orig 2>/dev/null
+    mv ~/.plugins.vim $PWD/backup/.plugins.vim.orig 2>/dev/null
     mv ~/.basic.vim $PWD/backup/.basic.vim.orig 2>/dev/null
     mv ~/.mappings.vim $PWD/backup/.mappings.vim.orig 2>/dev/null
     
@@ -47,7 +47,7 @@ function doIt() {
 
     # Vim setup
     ln -s $PWD/vimfiles/.vimrc ~/.vimrc
-    ln -s $PWD/vimfiles/vimrc.plug ~/.vimrc.plug
+    ln -s $PWD/vimfiles/plugins.vim ~/.plugins.vim
     ln -s $PWD/vimfiles/basic.vim ~/.basic.vim
     ln -s $PWD/vimfiles/mappings.vim ~/.mappings.vim
     cp -r $PWD/vimfiles/vim ~/.vim
