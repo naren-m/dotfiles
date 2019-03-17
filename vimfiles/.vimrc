@@ -1,7 +1,7 @@
 
-    " Call the .vimrc.plug file
-    if filereadable(expand("~/.vimrc.plug"))
-        source ~/.vimrc.plug
+    " Call the .plugins.vim file
+    if filereadable(expand("~/.plugins.vim"))
+        source ~/.plugins.vim
     endif
 
   " source basic vim
@@ -14,9 +14,6 @@
     if filereadable(expand("~/.mappings.vim"))
         source ~/.mappings.vim
     endif
-
- 
-
 
 
     " Vim-airline
