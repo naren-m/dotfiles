@@ -8,9 +8,14 @@ function doIt() {
     # Backing up original files to backup folder in dotfiles
     mv ~/.bash_profile $PWD/backup/.bash_profile.orig 2>/dev/null
     mv ~/.bashrc $PWD/backup/.bashrc.orig 2>/dev/null
-    mv ~/.vimrc $PWD/backup/.vimrc.orig 2>/dev/null
-    mv ~/.vimrc.plug $PWD/backup/.vimrc.plug.orig 2>/dev/null
     mv ~/.zshrc $PWD/backup/.zshrc.orig 2>/dev/null
+
+    mv ~/.vimrc $PWD/backup/.vimrc.orig 2>/dev/null
+    mv ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
+    mv ~/.plugins.vim $PWD/backup/.plugins.vim.orig 2>/dev/null
+    mv ~/.basic.vim $PWD/backup/.basic.vim.orig 2>/dev/null
+    mv ~/.mappings.vim $PWD/backup/.mappings.vim.orig 2>/dev/null
+    
 
     mv ~/.aliases $PWD/backup/.aliases.orig 2>/dev/null
     mv ~/.aliases_work $PWD/backup/.aliases_work.orig 2>/dev/null
@@ -20,7 +25,6 @@ function doIt() {
 
     mv ~/.deep_learning $PWD/backup/.deep_learning.orig 2>/dev/null
     mv ~/.tmux.conf $PWD/backup/.tmux.conf.orig 2>/dev/null
-    mv ~/.vim/ $PWD/backup/.vim.orig 2>/dev/null
 
     # Create links for alias/sourcing files
     ln -s $PWD/zshrc ~/.zshrc
@@ -42,9 +46,11 @@ function doIt() {
     fi
 
     # Vim setup
-    ln -s $PWD/vi_conf/.vimrc ~/.vimrc
-    ln -s $PWD/vi_conf/vimrc.plug ~/.vimrc.plug
-    cp -r $PWD/vi_conf/vim ~/.vim
+    ln -s $PWD/vimfiles/.vimrc ~/.vimrc
+    ln -s $PWD/vimfiles/plugins.vim ~/.plugins.vim
+    ln -s $PWD/vimfiles/basic.vim ~/.basic.vim
+    ln -s $PWD/vimfiles/mappings.vim ~/.mappings.vim
+    cp -r $PWD/vimfiles/vim ~/.vim
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
