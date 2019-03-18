@@ -18,7 +18,7 @@ set wildmenu
 
 " Mappings.
 " write file on enter
-" nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
+nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 
 " Enable mouse
     set mouse=a
@@ -95,113 +95,11 @@ set wildmenu
     " Custom folding
     " Source http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
 
-" For GUI
-    if has("gui_running")
-      vmap <C-S-x> "+x
-      vmap <C-S-c> "+y
-      imap <C-S-v> <Esc>"+gP
-    endif
-
-
-
-" Mappings
-    " Toggle fold at current position.
-        nnoremap <s-tab> za
-
-    " Quicker window movement
-        nnoremap <C-j> <C-w>j
-        nnoremap <C-k> <C-w>k
-        nnoremap <C-h> <C-w>h
-        nnoremap <C-l> <C-w>l
-
-    " Cycle between buffers
-        nnoremap <Tab> :bnext<CR>
-        nnoremap <S-Tab> :bprevious<CR>
-
-    " Remapping leader
+   " Remapping leader
     let g:mapleader=','
     let g:maplocalleader = '-'
     "    let mapleader=","
 
-    " Window Splitting
-        nmap <silent> <leader>hs :split<CR>
-        nmap <silent> <leader>vs :vsplit<CR>
-        nmap <silent> <leader>sc :close<CR>
-
-    " Call the .vimrc.plug file
-    if filereadable(expand("~/.vimrc.plug"))
-        source ~/.vimrc.plug
-    endif
-
-    let g:gtm_plugin_status_enabled = 1
-
-    " Mappings
-    "
-    " vim-easy-align
-        " Start interactive EasyAlign in visual mode (e.g. vipga)
-        xmap ga <Plug>(EasyAlign)
-
-        " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-        nmap ga <Plug>(EasyAlign)
-
-    " Ag.vim
-       " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
-       nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
-
-
-    " fzf.vim
-        function! s:buflist()
-          redir => ls
-          silent ls
-          redir END
-          return split(ls, '\n')
-        endfunction
-
-        function! s:bufopen(e)
-          execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-        endfunction
-
-        nnoremap <C-p>      : Files<cr>
-        nnoremap <leader>f  : Files<cr>
-        nnoremap <leader>h  : History<cr>
-        nnoremap <leader>bt : BTags<cr>
-        nnoremap <leader>bl : BLines<cr>
-        nnoremap <leader>tt : Tags<cr>
-        nnoremap <leader>b  : Buffers<cr>
-        nnoremap <leader>c  : Colors<cr>
-
-    " Commentary.vim
-        let g:commentary_map_backslash = 0
-        nmap <Leader>ci <Plug>CommentaryLine
-        xmap <Leader>ci <Plug>Commentary
-
-        nmap <Leader>/ <Plug>CommentaryLine
-        xmap <Leader>/ <Plug>Commentary
 
     " CtrlP for fuzzy file search
         set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-
-    " Vim-airline
-        set laststatus=2
-        set ttimeoutlen=10
-        let g:airline#extensions#tabline#enabled = 1
-        let g:airline#extensions#hunks#enabled=0
-        let g:airline#extensions#branch#enabled=1
-        let g:airline_powerline_fonts = 1
-        let g:airline_extensions = []
-        let g:airline_highlighting_cache = 1
-
-        if !exists('g:airline_symbols')
-          let g:airline_symbols = {}
-        endif
-        " Symbols
-            let g:airline_symbols.space = "\ua0"
-            let g:airline_symbols.linenr = '¶'
-            let g:airline_symbols.branch = '⎇'
-            let g:airline_symbols.paste = 'Þ'
-            let g:airline_symbols.whitespace = 'Ξ'
-
-    " Cscope
-        if has("cscope")
-            source ~/.vim/bundle/cscope_plugin.vim
-        endif

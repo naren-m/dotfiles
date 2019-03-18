@@ -8,17 +8,16 @@
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     " Plug 'majutsushi/tagbar'
-    Plug 'tpope/vim-commentary'
+    " Plug 'tpope/vim-commentary'
     Plug 'rking/ag.vim'
 
     Plug 'gilsondev/searchtasks.vim'
 
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
+    Plug 'mengelbrecht/lightline-bufferline'
 
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
-    " Plug 'alvan/vim-closetag'
 
     " Figure out how to use these
     Plug 'tpope/vim-abolish'
@@ -34,7 +33,7 @@
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
     Plug 'mhartington/oceanic-next'
-        Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
+    Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
     Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
     Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
