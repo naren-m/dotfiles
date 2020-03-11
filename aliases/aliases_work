@@ -1,16 +1,13 @@
 # Utils for ssh to servers
-chat_app() { ssh -i /Users/nmudivar/Documents/ec2/ButterflyChatPair.pem naren@www.butterflychat.com;}
-ubuntu_chat_app() { ssh -i /Users/nmudivar/Documents/ec2/ButterflyChatPair.pem ubuntu@52.40.248.123;}
 
 #  Cisco Stuff start
     ssh_switch () { /Users/nmudivar/ssh_switch.sh;}
-    switch5 () { telnet 172.19.199.60 6037; echo "Telnet to 172.19.199.60 6037"; }
     # Cleaning line number in ssh known hosts
     ckh () {
         sed -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
         sed -i.bak -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
     }
-    vpn () { open -a MobilePASS; open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
+    vpn () { open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
     ads () { /Users/nmudivar/ads_connect.sh;}
 #  Cisco Stuff end
 

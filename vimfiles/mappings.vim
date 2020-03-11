@@ -45,6 +45,9 @@
        " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
+    " Task warrior
+        nnoremap <leader>t :tabnew <bar> :TW<CR>
+
     " fzf.vim
         function! s:buflist()
           redir => ls
