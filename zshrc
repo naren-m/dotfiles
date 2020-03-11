@@ -1,3 +1,4 @@
+zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -12,7 +13,7 @@ export ZSH=~/.oh-my-zsh
 # jbergantine  -> "➜  <DIR>"
 # wuffers      -> "{} <DIR>"
 # cloud        -> "☁  <DIR>"
-ZSH_THEME="naren"
+ZSH_THEME=powerlevel10k/powerlevel10k
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -90,3 +91,19 @@ setbadge() {
 
 source ~/.aliases
 eval $(thefuck --alias)
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+
+source ~/.autoenv/activate.sh
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+eval "$(pyenv init -)"
+
+# Set python virtual env
+#
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
+. /usr/local/bin/virtualenvwrapper.sh
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
