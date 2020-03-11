@@ -264,14 +264,3 @@
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
 
-# iTerm tab title setup
-# Make sure you have below two setups in iterm
-# 1- deselect all the options for window and tab titles in the
-#     iterm->preferences->appearance section
-# 2- set Profiles > Terminal > Terminal Emulation > Terminal may set
-#     tab/window title
-
-# Setting default tab name to CWD
-echo -ne "\e]1;${PWD##*/}\a";
-setTabTitle () { echo -ne "\e]1;$*\a"; }
-
