@@ -1,5 +1,10 @@
+# Set python virtual env
+#
+export VIRTUALENVWRAPPER_PYTHON=$(which python)
+. /usr/local/bin/virtualenvwrapper.sh
+
+
 # Anaconda environment
-    exp_conda2() { export PATH="/anaconda2/bin:$PATH" ;}
     exp_conda3() { export PATH="/anaconda3/bin:$PATH"; }
 
 #   cleanupDS:  Recursively delete .DS_Store files
@@ -74,9 +79,6 @@ trash () { command mv "$@" ~/.Trash ; }     # trash: Moves a file to the MacOS t
 #   spotlight: Search for a file using MacOS Spotlight's metadata
 #   -----------------------------------------------------------
     spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
-
-#   flutter
-export PATH=/Users/nmudivar/Desktop/flutter/bin:$PATH
 
 #   ctags
 alias ctags="`brew --prefix`/bin/ctags"
