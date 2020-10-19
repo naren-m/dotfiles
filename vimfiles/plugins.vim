@@ -16,11 +16,11 @@
 
     " Formatting
     "
-        " Caseing
-        Plug 'arthurxavierx/vim-caser'
+    " Caseing
+    Plug 'arthurxavierx/vim-caser'
 
-        " True Sublime Text style multiple selections for Vim
-        Plug 'terryma/vim-multiple-cursors'
+    " True Sublime Text style multiple selections for Vim
+    Plug 'terryma/vim-multiple-cursors'
 
     " Figure out how to use these
     Plug 'gilsondev/searchtasks.vim'
