@@ -13,7 +13,8 @@ export ZSH=~/.oh-my-zsh
 # jbergantine  -> "➜  <DIR>"
 # wuffers      -> "{} <DIR>"
 # cloud        -> "☁  <DIR>"
-ZSH_THEME=powerlevel10k/powerlevel10k
+# ZSH_THEME=powerlevel10k/powerlevel10k
+ZSH_THEME=cloud
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -39,6 +40,7 @@ DISABLE_AUTO_TITLE="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
+ZSH_DISABLE_COMPFIX="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -93,11 +95,6 @@ source ~/.aliases
 eval $(thefuck --alias)
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
-
-source ~/.autoenv/activate.sh
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-eval "$(pyenv init -)"
 
 # Set python virtual env
 #
