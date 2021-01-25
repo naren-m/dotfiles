@@ -47,13 +47,13 @@
 
 
     " Time tracking
-    Plug 'git-time-metric/gtm-vim-plugin'
+    " Plug 'git-time-metric/gtm-vim-plugin'
 
     " Documentation search
     Plug 'rizzatti/dash.vim'
 
     " Task warrior
-    Plug 'blindFS/vim-taskwarrior'
+    " Plug 'blindFS/vim-taskwarrior'
 
     " Yang model
     Plug 'nathanalderson/yang.vim'
