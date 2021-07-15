@@ -1,8 +1,9 @@
 # Set python virtual env
 #
-export VIRTUALENVWRAPPER_PYTHON=$(which python)
+export VIRTUALENVWRAPPER_PYTHON=$(which python4)
 . /usr/local/bin/virtualenvwrapper.sh
 
+alias python=python3
 
 # Anaconda environment
     exp_conda3() { export PATH="/anaconda3/bin:$PATH"; }
@@ -102,3 +103,7 @@ alias tadd='task add'
 alias taddpz='task add project:ztp '
 
 
+# zsh: Place this in .zshrc after "source /Users/georgen/.iterm2_shell_integration.zsh".
+setbadge() {
+    printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
+}

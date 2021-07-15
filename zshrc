@@ -4,8 +4,10 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-zmodload zsh/zprof
+# zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
@@ -99,14 +101,5 @@ setbadge() {
 
 source ~/.aliases
 eval $(thefuck --alias)
-export PATH="/usr/local/opt/openssl/bin:$PATH"
 
 
-# Set python virtual env
-#
-export VIRTUALENVWRAPPER_PYTHON=$(which python)
-. /usr/local/bin/virtualenvwrapper.sh
-
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
