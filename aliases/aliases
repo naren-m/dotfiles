@@ -1,13 +1,11 @@
 #   -------------------------------
 #   1.  ENVIRONMENT CONFIGURATION
 #   -------------------------------
-# Go paths
-    export GOPATH=~/go
-    export GOBIN=$GOPATH/bin
+
 
 # Export paths
     export WORKON_HOME=~/.virtualenvs
-    export PATH="/usr/local/bin/:$GOBIN:$PATH"
+    export PATH="/usr/local/bin/:$PATH"
 
 #   Google project aliases
 #   ------------------------------------------------------------
@@ -224,10 +222,15 @@
         source ~/.aliases_work
     fi
 
-    if [ -f ~/.aliases_kubectl ]
+    if [ -f ~/.aliases_cisco ]
     then
-        source ~/.aliases_kubectl
+        source ~/.aliases_cisco
     fi
+
+    # if [ -f ~/.aliases_kubectl ]
+    # then
+        # source ~/.aliases_kubectl
+    # fi
 
     if [ -f ~/.aliases_docker ]
     then
@@ -270,8 +273,3 @@
 #     iterm->preferences->appearance section
 # 2- set Profiles > Terminal > Terminal Emulation > Terminal may set
 #     tab/window title
-
-# Setting default tab name to CWD
-echo -ne "\e]1;${PWD##*/}\a";
-setTabTitle () { echo -ne "\e]1;$*\a"; }
-

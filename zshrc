@@ -12,8 +12,9 @@ export ZSH=~/.oh-my-zsh
 # jbergantine  -> "➜  <DIR>"
 # wuffers      -> "{} <DIR>"
 # cloud        -> "☁  <DIR>"
-ZSH_THEME="naren"
+# ZSH_THEME="naren"
 
+ZSH_THEME=powerlevel10k/powerlevel10k
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -81,12 +82,6 @@ alias ohmyzsh="vi ~/$ZSH/.oh-my-zsh.sh"
 # For syntax highlighting.
 # source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# zsh: Place this in .zshrc after "source /Users/georgen/.iterm2_shell_integration.zsh".
-setbadge() {
-    printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
-}
-
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
-eval $(thefuck --alias)
