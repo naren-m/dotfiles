@@ -1,4 +1,4 @@
-#Exit if the shell is not interactive!!!
+# Exit if the shell is not interactive!!!
 if [ -f ~/.aliases ]; then
     . ~/.aliases
 fi

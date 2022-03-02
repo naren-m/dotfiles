@@ -3,15 +3,13 @@
     call plug#begin('~/.vim/plugged')
 
     " Utility
-    Plug 'junegunn/vim-easy-align'
-    Plug 'honza/vim-snippets'
+    " Plug 'junegunn/vim-easy-align'
+    " Plug 'honza/vim-snippets'
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
     " Plug 'majutsushi/tagbar'
     " Plug 'tpope/vim-commentary'
     Plug 'rking/ag.vim'
-
-    Plug 'gilsondev/searchtasks.vim'
 
     Plug 'itchyny/lightline.vim'
     Plug 'mengelbrecht/lightline-bufferline'
@@ -21,12 +19,21 @@
 
     " Figure out how to use these
     Plug 'tpope/vim-abolish'
-    Plug 'gilsondev/searchtasks.vim'
-    Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
-    Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
+    " Plug 'gilsondev/searchtasks.vim'
+    " Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
+    " Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
 
     " Language helpers
     Plug 'jiangmiao/auto-pairs'
+
+    " Bookmarks
+    Plug 'MattesGroeger/vim-bookmarks'
+
+    " Tree
+    Plug 'preservim/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
+
+
 
     " Colors schemes
     Plug 'dolio/vim-hybrid'
@@ -34,19 +41,18 @@
     Plug 'chriskempson/base16-vim'
     Plug 'mhartington/oceanic-next'
     Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
-    Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+    " Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
     Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
     Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
     " Plug 'ervandew/supertab'
 
-
     " Time tracking
-    Plug 'git-time-metric/gtm-vim-plugin'
+    " Plug 'git-time-metric/gtm-vim-plugin'
 
     " Documentation search
-    Plug 'rizzatti/dash.vim'
+    " Plug 'rizzatti/dash.vim'
 
     " TODO: Add following plugins
     " - https://github.com/tpope/vim-eunuch
