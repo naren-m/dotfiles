@@ -18,7 +18,10 @@
         nmap <silent> <leader>vs :vsplit<CR>
         nmap <silent> <leader>sc :close<CR>
 
-
+    " Nerd tree
+    nnoremap <leader>n :NERDTreeFocus<CR>
+    nnoremap <leader>t :NERDTreeToggle<CR>
+    nnoremap <leader>f :NERDTreeFind<CR>
 
     let g:gtm_plugin_status_enabled = 1
 
@@ -42,7 +45,7 @@
         nmap ga <Plug>(EasyAlign)
 
     " Ag.vim
-       " let g:ag_prg="/users/nmudivar/software/bin/ag --column"
+       let g:ag_prg="/ws/nmudivar-sjc/software/bin/ag --column"
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
     " fzf.vim
