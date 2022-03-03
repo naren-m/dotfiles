@@ -1,5 +1,9 @@
+# Set python virtual env
+#
+export VIRTUALENVWRAPPER_PYTHON=$(which python4)
+. /usr/local/bin/virtualenvwrapper.sh
+
 # Anaconda environment
-    exp_conda2() { export PATH="/anaconda2/bin:$PATH" ;}
     exp_conda3() { export PATH="/anaconda3/bin:$PATH"; }
 
 #   cleanupDS:  Recursively delete .DS_Store files
@@ -75,8 +79,29 @@ trash () { command mv "$@" ~/.Trash ; }     # trash: Moves a file to the MacOS t
 #   -----------------------------------------------------------
     spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
 
-#   flutter
-export PATH=/Users/nmudivar/Desktop/flutter/bin:$PATH
-
 #   ctags
 alias ctags="`brew --prefix`/bin/ctags"
+
+#   ---------------------------------------
+#   11. 
+#   ---------------------------------------
+    cview() { pygmentize -g "$1" }
+
+
+#   Task warrior: aliases
+#   -----------------------------------------------------------
+alias -g T='$(task list | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$1}")'
+alias -g TP='$(task list | fzf-tmux --header-lines=1 --reverse --multi --cycle | awk "{print \$3}")'
+
+alias tdone='task done T'
+alias tmod='task T modify'
+alias tlist='task list'
+alias tsrch='task list | fzf'
+alias tadd='task add'
+alias taddpz='task add project:ztp '
+
+
+# zsh: Place this in .zshrc after "source /Users/georgen/.iterm2_shell_integration.zsh".
+setbadge() {
+    printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
+}
