@@ -1,10 +1,15 @@
-# Cleaning line number in ssh known hosts
-ckh () {
-    sed -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
-    sed -i.bak -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
-}
-vpn () { open -a MobilePASS; open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
-ads () { /Users/nmudivar/ads_connect.sh;}
+# Utils for ssh to servers
+
+#  Cisco Stuff start
+    ssh_switch () { /Users/nmudivar/ssh_switch.sh;}
+    # Cleaning line number in ssh known hosts
+    ckh () {
+        sed -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
+        sed -i.bak -e "$1d" /Users/nmudivar/.ssh/known_hosts > /dev/null
+    }
+    vpn () { open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
+    ads () { /Users/nmudivar/ads_connect.sh;}
+#  Cisco Stuff end
 
 
 # Generate tags using cscope and ctags from cwd
