@@ -17,6 +17,8 @@
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
 
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
+        
     " Figure out how to use these
     Plug 'tpope/vim-abolish'
     " Plug 'gilsondev/searchtasks.vim'

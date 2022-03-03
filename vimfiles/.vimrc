@@ -33,6 +33,7 @@
 
     let g:lightline#bufferline#show_number = 1
 
+     let g:go_version_warning = 0
 
   " Nerd Tree  
 	" Exit Vim if NERDTree is the only window remaining in the only tab.
