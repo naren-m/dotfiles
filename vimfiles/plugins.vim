@@ -42,10 +42,12 @@
 
 
     " Colors schemes
-    Plug 'dolio/vim-hybrid'
-    Plug 'morhetz/gruvbox'
-    Plug 'chriskempson/base16-vim'
-    Plug 'mhartington/oceanic-next'
+    " Plug 'tomasiser/vim-code-dark'
+    " Plug 'dolio/vim-hybrid'
+    " Plug 'morhetz/gruvbox'
+    " Plug 'chriskempson/base16-vim'
+    " Plug 'mhartington/oceanic-next'
+    Plug 'sonph/onehalf', { 'rtp': 'vim'  }
 
     Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
     " Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
