@@ -20,7 +20,6 @@
     " True Sublime Text style multiple selections for Vim
     Plug 'terryma/vim-multiple-cursors'
 
-    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
     " Figure out how to use these
     Plug 'tpope/vim-abolish'
@@ -31,6 +30,7 @@
     " Language helpers
     Plug 'jiangmiao/auto-pairs'
     Plug 'dense-analysis/ale'
+    Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'  }
 
     " Bookmarks
     Plug 'MattesGroeger/vim-bookmarks'
@@ -40,6 +40,9 @@
     Plug 'ryanoasis/vim-devicons'
 
 
+    " Markdown
+    Plug 'godlygeek/tabular'
+    Plug 'preservim/vim-markdown'
 
     " Colors schemes
     " Plug 'tomasiser/vim-code-dark'
@@ -49,19 +52,21 @@
     " Plug 'mhartington/oceanic-next'
     Plug 'sonph/onehalf', { 'rtp': 'vim'  }
 
+
+    " Tmux
+    Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
+
     Plug 'milkypostman/vim-togglelist'    " Functions to toggle the [Location List] and the [Quickfix List] windows.
-    " Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
-    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
+    Plug 'tpope/vim-sleuth'               " automatically adjusts 'shiftwidth' and 'expandtab' heuristically based on the current file
+
+    " Git Stuff
     Plug 'mhinz/vim-signify'              " Show a diff via Vim sign column.
     Plug 'tpope/vim-fugitive'             " a Git wrapper so awesome, it should be illegal; :Gblame, etc
-    Plug 'christoomey/vim-tmux-navigator' " Tmux navigator
-    " Plug 'ervandew/supertab'
 
-    " Time tracking
-    " Plug 'git-time-metric/gtm-vim-plugin'
+    Plug 'ervandew/supertab'
 
     " Documentation search
-    " Plug 'rizzatti/dash.vim'
+    Plug 'rizzatti/dash.vim'
 
     " Task warrior
     " Plug 'blindFS/vim-taskwarrior'
@@ -73,6 +78,7 @@
     " Not using
     " Plug 'tpope/vim-abolish'
     " Plug 'tpope/vim-commentary'
+    Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
     " Plug 'majutsushi/tagbar'
 
     " TODO: Add following plugins
@@ -83,11 +89,11 @@
     " - https://github.com/garbas/vim-snipmate
     " - https://github.com/xolox/vim-notes
 
-	Plug 'lervag/vimtex'
-	let g:tex_flavor='latex'
-	let g:vimtex_view_method='zathura'
-	let g:vimtex_quickfix_mode=0
-	set conceallevel=1
-	let g:tex_conceal='abdmg'
+"	Plug 'lervag/vimtex'
+"	let g:tex_flavor='latex'
+"	let g:vimtex_view_method='zathura'
+"	let g:vimtex_quickfix_mode=0
+"	set conceallevel=1
+"	let g:tex_conceal='abdmg'
 
     call plug#end()
