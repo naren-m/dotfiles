@@ -1,8 +1,7 @@
 # Set python virtual env
 #
-export VIRTUALENVWRAPPER_PYTHON=$(which python)
+export VIRTUALENVWRAPPER_PYTHON=$(which python4)
 . /usr/local/bin/virtualenvwrapper.sh
-
 
 # Anaconda environment
     exp_conda3() { export PATH="/anaconda3/bin:$PATH"; }
