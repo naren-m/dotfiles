@@ -98,15 +98,22 @@ setbadge() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
-eval $(thefuck --alias)
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
-
+alias python=$(which python3)
 # Set python virtual env
 #
-export VIRTUALENVWRAPPER_PYTHON=$(which python)
-. /usr/local/bin/virtualenvwrapper.sh
+# export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+# . /usr/local/bin/virtualenvwrapper.sh
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+fixZsh() {
+	for f in $(compaudit)
+	do 
+		sudo chown -R $(whoami):staff $f
+		sudo chmod -R 755 $f
+	done
+}
