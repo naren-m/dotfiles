@@ -102,3 +102,7 @@ alias tadd='task add'
 alias taddpz='task add project:ztp '
 
 
+if [ -f ~/.aliases_mac_m1 ]
+then
+        source ~/.aliases_mac_m1
+fi

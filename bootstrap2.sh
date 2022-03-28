@@ -31,6 +31,7 @@ function doIt() {
     ln -s $PWD/aliases/aliases ~/.aliases
     ln -s $PWD/aliases/aliases_work ~/.aliases_work
     ln -s $PWD/aliases/aliases_mac ~/.aliases_mac
+    ln -s $PWD/aliases/aliases_mac_m1 ~/.aliases_mac_m1
     ln -s $PWD/aliases/aliases_docker ~/.aliases_docker
     ln -s $PWD/aliases/aliases_kubectl ~/.aliases_kubectl
 
