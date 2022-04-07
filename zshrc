@@ -1,12 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 # zmodload zsh/zprof
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -24,6 +15,7 @@ export ZSH=~/.oh-my-zsh
 # cloud        -> "☁  <DIR>"
 ZSH_THEME=powerlevel10k/powerlevel10k
 
+ZSH_THEME=powerlevel10k/powerlevel10k
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -97,8 +89,36 @@ setbadge() {
     printf "\e]1337;SetBadgeFormat=%s\a" $(echo -n $1 | base64)
 }
 
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+
+alias python=$(which python3)
+# Set python virtual env
+#
+# export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+# . /usr/local/bin/virtualenvwrapper.sh
+
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+fixZsh() {
+	for f in $(compaudit)
+	do 
+		sudo chown -R $(whoami):staff $f
+		sudo chmod -R 755 $f
+	done
+}
 
 

@@ -5,8 +5,14 @@ set nocompatible
 " Vim Settings
 " Source https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.vim/plugin/settings.vim
 
-set background=dark
-colorscheme hybrid
+" set background=dark
+
+set t_Co=256
+set cursorline
+colorscheme onehalfdark
+
+" lightline
+let g:lightline = { 'colorscheme': 'onehalfdark'  }"
 
 " Find files using find commad
 " :find test<tab>
