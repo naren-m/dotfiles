@@ -100,6 +100,5 @@ setbadge() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
-eval $(thefuck --alias)
 
 
