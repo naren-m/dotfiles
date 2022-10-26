@@ -1,0 +1,92 @@
+# Bash aliases and functions for work
+alias fmake='GMAKE_DEPENDENCY_LEVEL=0 gmake'
+
+alias al='acme lschangeset'
+
+# Custom software
+# export PATH=$PATH:/users/nmudivar/software/bin
+alias ag='/ws/nmudivar-sjc/software/bin/ag'
+# source files
+# Babu's shortcut aliases Dont need this now
+# source /auto/ios_comp/cmi/tools/bin/qset.sh
+
+# cd aliases
+alias diffs='cd /ws/nmudivar-sjc/diffs'
+alias ws='cd /nobackup/nmudivar/ && clear && ls '
+alias wsn='cd /ws/nmudivar-sjc/'
+
+# Vim Editor override for version 7.3 from /usr/cisco/bin/vim
+alias vim=/usr/cisco/bin/vim
+
+#Static Analysis stuffs
+export PC_JOBS="-j24"
+
+# SPI stuffs
+export PATH=/router/bin:/usr/cisco/bin/:$PATH:/auto/smartdev/bin
+export ACME_DIFF_OPTS="-p -U 2"
+export ACME_DISABLE_COPYRIGHT=1
+export ACME_USE_SSH=1
+
+
+#General
+export MANPATH=/usr/man:/usr/atria/doc/man
+
+### START-Keychain ###
+# Let  re-use ssh-agent and/or gpg-agent between logins
+keychain -q ~/.ssh/id_rsa
+# . ~/.ssh-agent-${HOSTNAME}
+### End-Keychain ###
+#
+# Utils for ssh to servers
+alias slurm='/auto/vxr/slurm_launch/slurm'
+
+alias vi='/usr/cisco/bin/vim'
+
+
+alias efr='/auto/iox/bin/xr_my_ws_efr'
+
+# Sim setup
+alias source_sim="source /auto/vxr/vxr2_user/latest/setup.csh"
+
+# Golang Settings
+#
+export GOROOT=/sw/packages/xr/go/1.17.1
+export GOPATH=/nobackup/nmudivar/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOROOT
+export PATH=$PATH:$GOBIN
+
+
+alias sim_connect='/ws/nmudivar-sjc/sim_connect.py'
+
+sim_start() {
+    /auto/vxr/pyvxr/latest/vxr.py  start config.yaml
+}
+
+sim_clean() {
+    /auto/vxr/pyvxr/latest/vxr.py  stop && /auto/vxr/pyvxr/latest/vxr.py  clean
+}
+
+sim_reset() {
+    sim_clean
+    sim_start
+}
+
+# Wit commands
+alias wit_list='wit space list | grep "Space Name"'
+
+wit_delete () {
+    echo "Deletng space_nmudivar_$1"
+    wit space delete -space "space_nmudivar_$1"
+}
+
+# Podmand to docker
+alias docker='sudo /ecs/utils/container/stage/bin/supodman'
+
+alias notes='cd /ws/nmudivar-sjc/notes'
+alias wsroot='cd /nobackup/nmudivar/ws_sf/iosxr'
+alias mdt='cd /nobackup/nmudivar/ws_sf/iosxr/manageability/yfed/mdt'
+alias mdtut='cd /nobackup/nmudivar/ws_sf/iosxr/manageability/yfed/mdt/lib/test/ut/'
+alias mdtit='cd /nobackup/nmudivar/ws_sf/iosxr/manageability/yfed/mdt/lib/test/it/'
+alias offbox='/nobackup/nmudivar/ws_sf/iosxr/manageability/yfed/mdt/lib/test/ut/offbox/src'
+alias ems='cd /nobackup/nmudivar/ws_sf/iosxr/manageability/ems/gosrc'
