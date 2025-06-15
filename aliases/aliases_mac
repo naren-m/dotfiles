@@ -105,3 +105,6 @@ if [ -f ~/.aliases_mac_m1 ]
 then
         source ~/.aliases_mac_m1
 fi
+
+
+export PATH="/Users/nmudivar/go/bin:$PATH"

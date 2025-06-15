@@ -267,3 +267,10 @@
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
 
+# FZF
+#
+    preview() {fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"}
+
+    batdiff() {
+        git diff --name-only --relative --diff-filter=d | xargs bat --diff
+    }
