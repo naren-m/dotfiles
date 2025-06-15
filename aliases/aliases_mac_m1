@@ -1,3 +1,2 @@
 export PATH="/opt/homebrew/opt/tcl-tk/bin:$PATH"
 export PATH="/opt/homebrew/opt/sqlite/bin:$PATH"
-alias code='code-insiders'

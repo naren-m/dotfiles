@@ -15,7 +15,6 @@ export ZSH=~/.oh-my-zsh
 # cloud        -> "☁  <DIR>"
 ZSH_THEME=powerlevel10k/powerlevel10k
 
-ZSH_THEME=powerlevel10k/powerlevel10k
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -52,13 +51,31 @@ ZSH_DISABLE_COMPFIX="true"
 # The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 HIST_STAMPS="mm/dd/yyyy"
 
+HISTSIZE=1000000
+SAVEHIST=1000000
+HISTFILE=~/.zsh_history
+
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_FIND_NO_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_BEEP
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+
+# History search functions
+h() { if [ -z "$1"  ]; then history; else history | grep "$@"; fi  }
+hg() { history | fzf  }
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 
 # zsh-autosuggestions not working on centos 6.0
-plugins=(git fast-syntax-highlighting tmux)
+plugins=(git zsh-syntax-highlighting tmux fzf-tab)
 
 # User configuration
 
@@ -101,7 +118,7 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+export PATH="/Users/nmudivar/.claude/local:/usr/local/opt/openssl/bin:$PATH"
 
 alias python=$(which python3)
 # Set python virtual env
@@ -122,3 +139,4 @@ fixZsh() {
 }
 
 
+alias claude="/Users/nmudivar/.claude/local/claude"
