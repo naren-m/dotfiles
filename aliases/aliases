@@ -267,3 +267,57 @@
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
 
+# FZF
+#
+    preview() {fzf --preview "bat --color=always --style=numbers --line-range=:500 {}"}
+
+    batdiff() {
+        git diff --name-only --relative --diff-filter=d | xargs bat --diff
+    }
+
+#   ---------------------------------------
+#   11. Alias Help and Cheatsheet
+#   ---------------------------------------
+
+# Searchable alias cheatsheet using fzf
+alias_help() {
+    local cheatsheet_file="$HOME/dotfiles/aliases/alias_cheatsheet.txt"
+    if [[ -f "$cheatsheet_file" ]]; then
+        grep -v '^#' "$cheatsheet_file" | grep -v '^$' | fzf --preview 'echo {}' --preview-window=right:50% --prompt="Search aliases: " --header="Use / to search, Enter to copy command" --bind 'enter:execute(echo {} | awk "{print \$1}" | pbcopy)+abort'
+    else
+        echo "Cheat sheet not found at $cheatsheet_file"
+        echo "Available alias files in dotfiles/aliases/:"
+        ls -la ~/dotfiles/aliases/
+    fi
+}
+
+# Short alias for the help function
+alias acheat='alias_help'
+
+# Show all aliases with descriptions
+show_all_aliases() {
+    local cheatsheet_file="$HOME/dotfiles/aliases/alias_cheatsheet.txt"
+    if [[ -f "$cheatsheet_file" ]]; then
+        cat "$cheatsheet_file" | grep -v '^#' | grep -v '^$' | sort
+    else
+        echo "Cheat sheet not found. Falling back to basic alias listing:"
+        alias | sort
+    fi
+}
+
+# Search for specific alias
+search_alias() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: search_alias <search_term>"
+        return 1
+    fi
+    
+    local cheatsheet_file="$HOME/dotfiles/aliases/alias_cheatsheet.txt"
+    if [[ -f "$cheatsheet_file" ]]; then
+        grep -i "$1" "$cheatsheet_file"
+    else
+        alias | grep -i "$1"
+    fi
+}
+
+alias salias='search_alias'
