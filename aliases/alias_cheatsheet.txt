@@ -1,0 +1,242 @@
+# Alias Cheatsheet - Searchable with fzf
+# Usage: alias_help or acheat to search through aliases
+
+# GENERAL ALIASES
+cp              # Copy files with confirmation and verbose output
+mv              # Move files with confirmation and verbose output
+mkdir           # Create directories with parent directories and verbose output
+ll              # List files in detailed format with colors
+less            # Enhanced less with better options
+show_options    # Display bash options settings
+fix_stty        # Restore terminal settings when corrupted
+cls             # Clear screen, show pwd, and list files
+path            # Show all executable paths (one per line)
+cic             # Make tab-completion case-insensitive
+DT              # Pipe content to file on Desktop
+tailDT          # Tail the Desktop output file
+showDT          # Cat the Desktop output file with colors
+git_repo        # Show git remote origin URL
+grep            # Enhanced grep with colors and line numbers
+q               # Quick exit
+h               # Show command history
+ipy             # Start IPython notebook
+
+# NAVIGATION ALIASES
+wpy             # Go to work scripts directory
+ppy             # Go to personal python code directory
+pyutils         # Go to python utilities directory
+dwnlds          # Go to Downloads directory
+desk            # Go to Desktop directory
+docs            # Go to Documents directory
+gdrive          # Go to Google Drive directory
+proj            # Go to Projects directory
+..              # Go back 1 directory level
+.2              # Go back 2 directory levels
+.3              # Go back 3 directory levels
+.4              # Go back 4 directory levels
+cd..            # Go back 1 directory level (typo-friendly)
+~               # Go to home directory
+mcd             # Create directory and cd into it (function)
+cdbn            # Go back N directories (function)
+books           # Go to Books directory and open in Finder
+
+# CLEANUP ALIASES
+clean_folder    # Clean folder using python script
+image_rename    # Rename images using python script
+
+# SSH ALIASES
+raspi           # SSH to Raspberry Pi
+narenuday       # SSH to narenuday PC
+ckh             # Clear SSH known hosts entry (function)
+
+# FILE MANAGEMENT ALIASES
+lr              # Full recursive directory listing
+zipf            # Create ZIP archive of folder (function)
+nf              # Count non-hidden files in current directory
+extract         # Extract various archive formats (function)
+
+# SEARCH ALIASES
+qfind           # Quickly search for file by name
+ff              # Find file under current directory (function)
+ffs             # Find file whose name starts with string (function)
+ffe             # Find file whose name ends with string (function)
+
+# PROCESS MANAGEMENT ALIASES
+findPid         # Find process ID by name (function)
+memHogsTop      # Show memory hogs using top
+memHogsPs       # Show memory hogs using ps
+cpu_hogs        # Show CPU hogs
+topForever      # Continuous top listing
+ttop            # Optimized top command
+my_ps           # List processes owned by current user (function)
+
+# NETWORKING ALIASES
+myip            # Show public IP address
+netCons         # Show all open TCP/IP sockets
+flushDNS        # Flush DNS cache
+lsock           # Display open sockets
+lsockU          # Display only open UDP sockets
+lsockT          # Display only open TCP sockets
+ipInfo0         # Get connection info for en0
+ipInfo1         # Get connection info for en1
+openPorts       # Show all listening connections
+showBlocked     # Show all firewall rules
+ii              # Display useful host information (function)
+
+# NOTE TAKING ALIASES
+note            # Create/edit note file (function)
+n               # View note file with markdown viewer (function)
+nls             # List note files matching pattern (function)
+gonote          # Go to Notes directory
+todo            # Create/edit todo file (function)
+tls             # List todo files (function)
+ctodo           # View todo file with markdown viewer (function)
+
+# CODE UTILITIES
+replace         # Replace text across files using ag (function)
+cview           # View file with syntax highlighting (function)
+preview         # Preview files with fzf and bat (function)
+batdiff         # Show git diff with bat
+
+# DOCKER ALIASES
+di              # Show all docker images
+drmi            # Remove docker image
+drmiall         # Remove all docker images
+drminone        # Remove unnamed docker images
+drm             # Remove docker container
+drmall          # Remove all containers
+drmexi          # Remove exited containers
+dps             # Show running containers
+dpsexi          # Show exited containers
+dpsrun          # Show running containers
+
+# KUBERNETES ALIASES
+k               # kubectl shorthand
+kg              # kubectl get
+kgp             # kubectl get pods
+kgps            # kubectl get pods in kube-system
+kgs             # kubectl get services
+ke              # kubectl exec
+kgns            # kubectl get namespaces
+kgall           # kubectl get ingress, service, deployment, pod
+kdp             # kubectl describe pods
+kuc             # kubectl use-context
+ksc             # kubectl set-context
+kns             # kubectl set namespace
+kpf             # kubectl port-forward
+kp              # kubectl proxy
+P               # FZF selector for pod names
+POD             # FZF selector for pod names
+DEPLOY          # FZF selector for deployment names
+RS              # FZF selector for replica set names
+SVC             # FZF selector for service names
+ING             # FZF selector for ingress names
+
+# MAC-SPECIFIC ALIASES
+cleanupDS       # Delete .DS_Store files recursively
+cleanupIcon     # Delete Icon files recursively
+countIcon       # Count Icon files
+finderShowHidden # Show hidden files in Finder
+finderHideHidden # Hide hidden files in Finder
+hide_icons      # Hide desktop icons
+show_icons      # Show desktop icons
+cleanupLS       # Clean up LaunchServices
+screensaverDesktop # Run screensaver on desktop
+f               # Open current directory in Finder
+cdf             # CD to frontmost Finder window (function)
+safari          # Open Safari browser
+chr             # Open Google in default browser
+inbox           # Open Gmail inbox
+edit            # Open file in Sublime Text
+sublime         # Open file in Sublime Text
+spotlight       # Search using Spotlight (function)
+ctags           # Use Homebrew ctags
+ql              # Quick Look file preview (function)
+trash           # Move file to Trash (function)
+
+# TASKWARRIOR ALIASES
+T               # FZF selector for task IDs
+TP              # FZF selector for task projects
+tdone           # Mark task as done
+tmod            # Modify task
+tlist           # List tasks
+tsrch           # Search tasks with fzf
+tadd            # Add new task
+taddpz          # Add task to ztp project
+
+# WORK-SPECIFIC ALIASES (Cisco)
+fmake           # Fast make with no dependency level
+al              # Acme list changeset
+ag              # Silver searcher binary
+diffs           # Go to diffs directory
+ws              # Go to workspace and list
+wsn             # Go to workspace
+vim             # Use Cisco vim
+slurm           # Slurm launch
+vi              # Use Cisco vim
+efr             # XR workspace efr
+source_sim      # Source simulation setup
+sim_connect     # Connect to simulation
+sim_start       # Start simulation (function)
+sim_clean       # Clean simulation (function)
+sim_reset       # Reset simulation (function)
+wit_list        # List wit spaces
+wit_delete      # Delete wit space (function)
+docker          # Use supodman as docker
+notes           # Go to notes directory
+wsroot          # Go to workspace root
+mdt             # Go to MDT directory
+mdtut           # Go to MDT unit tests
+mdtit           # Go to MDT integration tests
+offbox          # Go to offbox source
+ems             # Go to EMS gosrc
+
+# CISCO-SPECIFIC ALIASES
+ssh_switch      # SSH switch script (function)
+ckh             # Clear SSH known hosts (function)
+vpn             # Open Cisco AnyConnect VPN
+ads             # ADS connect script (function)
+gentags         # Generate ctags for current directory (function)
+
+# PYTHON ENVIRONMENT
+src_py_vir_env  # Source Python virtual environment (function)
+exp_conda3      # Export Anaconda3 to PATH (function)
+google_creds    # Set Google credentials environment variable
+
+# DEEP LEARNING
+torch_setup     # Setup Torch environment (function)
+
+# FUNCTIONS (not aliases but important utilities)
+# mcd <dir>        - Create directory and cd into it
+# cdbn <n>         - Go back n directories
+# extract <file>   - Extract various archive formats
+# findPid <name>   - Find process ID by name
+# ff <pattern>     - Find files matching pattern
+# ffs <pattern>    - Find files starting with pattern
+# ffe <pattern>    - Find files ending with pattern
+# my_ps            - Show processes owned by current user
+# ii               - Show detailed host information
+# note <name>      - Create/edit note
+# n <name>         - View note
+# nls <pattern>    - List notes matching pattern
+# todo <name>      - Create/edit todo
+# tls <pattern>    - List todos matching pattern
+# ctodo <name>     - View todo
+# replace <old> <new> - Replace text across files
+# cview <file>     - View file with syntax highlighting
+# preview          - Preview files with fzf
+# batdiff          - Show git diff with bat
+# cdf              - CD to frontmost Finder window
+# spotlight <term> - Search using Spotlight
+# ql <file>        - Quick Look preview
+# trash <file>     - Move to Trash
+# sim_start        - Start simulation
+# sim_clean        - Clean simulation
+# sim_reset        - Reset simulation
+# wit_delete <name> - Delete wit space
+# ssh_switch       - SSH switch utility
+# ads              - ADS connect
+# gentags          - Generate ctags
+# src_py_vir_env   - Source Python virtual environment
+# exp_conda3       - Export Anaconda3 to PATH
+# torch_setup      - Setup Torch environment
