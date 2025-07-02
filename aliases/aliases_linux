@@ -1,0 +1,6 @@
+# Linux-specific aliases and configurations
+
+# Claude AI CLI alias
+alias claude="/home/naren/.claude/local/claude"
+
+# Linux-specific aliases can be added here

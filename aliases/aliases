@@ -242,6 +242,11 @@
         source ~/.aliases_mac
     fi
 
+    if [[ ${machine} == "Linux" ]]
+    then
+        source ~/.aliases_linux
+    fi
+
 #   ---------------------------------------
 #   8. Note taking and todo utils
 #   ---------------------------------------
@@ -291,8 +296,10 @@ alias_help() {
     fi
 }
 
-# Short alias for the help function
+# Short aliases for the help function
 alias acheat='alias_help'
+alias ac='alias_help'
+alias ah='alias_help'
 
 # Show all aliases with descriptions
 show_all_aliases() {

@@ -107,4 +107,7 @@ then
 fi
 
 
+# Claude AI CLI path
+export PATH="/Users/nmudivar/.claude/local:/usr/local/opt/openssl/bin:$PATH"
+
 export PATH="/Users/nmudivar/go/bin:$PATH"

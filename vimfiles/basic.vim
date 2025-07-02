@@ -9,7 +9,11 @@ set nocompatible
 
 set t_Co=256
 set cursorline
-colorscheme onehalfdark
+try
+    colorscheme onehalfdark
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme default
+endtry
 
 " lightline
 let g:lightline = { 'colorscheme': 'onehalfdark'  }"

@@ -1,5 +1,13 @@
 # Alias Cheatsheet - Searchable with fzf
-# Usage: alias_help or acheat to search through aliases
+# Usage: alias_help, acheat, ac, or ah to search through aliases
+
+# ALIAS SEARCH SHORTCUTS
+acheat          # Interactive fuzzy search through all aliases
+ac              # Short version of acheat
+ah              # Short version of acheat
+salias          # Search for specific alias by keyword
+search_alias    # Search for specific alias by keyword
+show_all_aliases # Display all aliases with descriptions
 
 # GENERAL ALIASES
 cp              # Copy files with confirmation and verbose output
@@ -147,6 +155,10 @@ cdf             # CD to frontmost Finder window (function)
 safari          # Open Safari browser
 chr             # Open Google in default browser
 inbox           # Open Gmail inbox
+claude          # Claude AI CLI (macOS path)
+
+# LINUX-SPECIFIC ALIASES
+claude          # Claude AI CLI (Linux path)
 edit            # Open file in Sublime Text
 sublime         # Open file in Sublime Text
 spotlight       # Search using Spotlight (function)
