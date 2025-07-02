@@ -22,6 +22,7 @@ function doIt() {
     mv ~/.aliases_mac $PWD/backup/.aliases_mac.orig 2>/dev/null
     mv ~/.aliases_docker $PWD/backup/.aliases_docker.orig 2>/dev/null
     mv ~/.aliases_kubectl $PWD/backup/.aliases_kubectl.orig 2>/dev/null
+    mv ~/.aliases_linux $PWD/backup/.aliases_linux.orig 2>/dev/null
 
     mv ~/.deep_learning $PWD/backup/.deep_learning.orig 2>/dev/null
     mv ~/.tmux.conf $PWD/backup/.tmux.conf.orig 2>/dev/null
@@ -34,6 +35,7 @@ function doIt() {
     ln -s $PWD/aliases/aliases_mac_m1 ~/.aliases_mac_m1
     ln -s $PWD/aliases/aliases_docker ~/.aliases_docker
     ln -s $PWD/aliases/aliases_kubectl ~/.aliases_kubectl
+    ln -s $PWD/aliases/aliases_linux ~/.aliases_linux
 
     ln -s $PWD/aliases/deep_learning ~/.deep_learning
 
