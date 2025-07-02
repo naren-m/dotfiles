@@ -118,7 +118,6 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source ~/.aliases
-export PATH="/Users/nmudivar/.claude/local:/usr/local/opt/openssl/bin:$PATH"
 
 alias python=$(which python3)
 # Set python virtual env
@@ -139,4 +138,4 @@ fixZsh() {
 }
 
 
-alias claude="/Users/nmudivar/.claude/local/claude"
+# Platform-specific aliases are now handled via conditional loading in ~/.aliases
