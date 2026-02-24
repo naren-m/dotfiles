@@ -7,6 +7,13 @@
     export WORKON_HOME=~/.virtualenvs
     export PATH="/usr/local/bin/:$PATH"
 
+# Set vim as default editor
+    export EDITOR=vim
+    export VISUAL=vim
+
+# Vim file opening aliases
+    alias vimopen="$HOME/dotfiles/scripts/open-with-vim.sh"
+
 #   Google project aliases
 #   ------------------------------------------------------------
     alias google_creds='export GOOGLE_APPLICATION_CREDENTIALS=/Users/$USER/GDrive/python_code/personal/google/google_credentials/Home_assistant-a3e1f38abac0.json'
@@ -17,12 +24,17 @@
     alias cp='cp -iv'                                   # Preferred 'cp' implementation
     alias mv='mv -iv'                                   # Preferred 'mv' implementation
     alias mkdir='mkdir -pv'                             # Preferred 'mkdir' implementation
-    alias ll='ls -FGlAhp'                               # Preferred 'ls' implementation
+# eza: modern ls replacement
+    alias ls='eza --icons --grid --group-directories-first'  # Replace ls with eza (grid)
+    alias ll='eza --icons -gla --group-directories-first --octal-permissions' # Detailed list
+    alias la='eza --icons -la --group-directories-first'   # List all
+    alias l='eza --icons -la --group-directories-first'    # List all (short)
+    alias lt='eza --icons --tree --level=2 --group-directories-first' # Tree view
     alias less='less -FSRXc'                            # Preferred 'less' implementation
     alias show_options='shopt'                          # show_options: Display bash options settings
     alias fix_stty='stty sane'                          # fix_stty: Restore terminal settings when screwed up
 
-    alias cls='clear && pwd && ls'                      # cls: Clear terminal display and ls
+    alias cls='clear && pwd && eza --icons --group-directories-first' # cls: Clear terminal display and ls
     alias path='echo -e ${PATH//:/\\n}'                 # path: Echo all executable Paths
     alias cic='set completion-ignore-case On'           # cic: Make tab-completion case-insensitive
     alias DT='tee ~/Desktop/terminalOut.txt'            # DT: Pipe content to file on Desktop
@@ -34,6 +46,7 @@
     alias q='exit'
     alias h='history'
 
+    alias lsdir='ls *(/)' # lsdir: List directories only
 # Utils for python
     alias ipy='ipython notebook'
 
@@ -71,6 +84,7 @@
         echo "Backed $@ folders"
     }
     books () { cd /Users/$USER/GDrive/Books; open -a Finder ./; }
+
 
 
 # Aliases for cleanup s
@@ -262,6 +276,33 @@
     tls()  { ls -c ~/Documents/Todos | egrep -i "$*".me ;}
     ctodo() { mdv ~/Documents/Todos/"$*".me; }
 
+# Copy notes to literature-notes
+    cp2lit() {
+        local notes_dir="$HOME/Projects/notes"
+        local lit_dir="$HOME/Projects/literature-notes"
+
+        if [ -z "$1" ]; then
+            echo "Usage: cp2lit <filename>"
+            echo "Example: cp2lit my-note.md"
+            return 1
+        fi
+
+        if [ ! -d "$lit_dir" ]; then
+            echo "Creating literature-notes directory..."
+            mkdir -p "$lit_dir"
+        fi
+
+        local source_file="$notes_dir/$1"
+
+        if [ ! -f "$source_file" ]; then
+            echo "Error: File not found at $source_file"
+            return 1
+        fi
+
+        cp -iv "$source_file" "$lit_dir/"
+        echo "✅ Copied to literature notes: $1"
+    }
+
 #   ---------------------------------------
 #   9. ag utils
 #   ---------------------------------------
@@ -328,3 +369,4 @@ search_alias() {
 }
 
 alias salias='search_alias'
+alias ghv="gh repo view --web"
