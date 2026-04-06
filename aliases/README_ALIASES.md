@@ -5,7 +5,6 @@ This directory contains a comprehensive alias management system with searchable 
 ## Files Overview
 
 - `aliases` - Main alias file with general purpose aliases and functions
-- `aliases_cisco` - Cisco/work-specific aliases 
 - `aliases_docker` - Docker container management aliases
 - `aliases_kubectl` - Kubernetes management aliases  
 - `aliases_mac` - macOS-specific aliases and utilities

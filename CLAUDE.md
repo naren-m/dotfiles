@@ -18,13 +18,12 @@ This is a personal dotfiles repository containing shell configuration, Vim setti
 ```
 ├── aliases/                    # Alias management system
 │   ├── aliases                # Main aliases file (sources platform-specific files)
-│   ├── aliases_cisco          # Cisco work environment aliases
 │   ├── aliases_docker         # Docker-specific aliases
 │   ├── aliases_kubectl        # Kubernetes aliases with fzf integration
 │   ├── aliases_linux          # Linux-specific aliases
 │   ├── aliases_mac            # macOS-specific aliases
 │   ├── aliases_mac_m1         # Apple Silicon Mac path configs
-│   ├── aliases_work           # Work environment aliases (sources aliases_cisco)
+│   ├── aliases_work           # Work environment aliases
 │   ├── deep_learning          # ML/AI environment setup
 │   ├── alias_cheatsheet.txt   # Searchable alias documentation
 │   └── README_ALIASES.md      # Alias system documentation
