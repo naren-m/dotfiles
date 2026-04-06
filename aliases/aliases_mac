@@ -1,6 +1,6 @@
 # Set python virtual env
 #
-export VIRTUALENVWRAPPER_PYTHON=$(which python4)
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && . /usr/local/bin/virtualenvwrapper.sh
 export PATH="~/.local/bin:$PATH"
 
@@ -78,15 +78,10 @@ trash () { command mv "$@" ~/.Trash ; }     # trash: Moves a file to the MacOS t
 
 #   spotlight: Search for a file using MacOS Spotlight's metadata
 #   -----------------------------------------------------------
-    spotlight () { mdfind "kMDItemDisplayName == '$@'wc"; }
+    spotlight () { mdfind "kMDItemDisplayName == '$@'"; }
 
 #   ctags
 alias ctags="`brew --prefix`/bin/ctags"
-
-#   ---------------------------------------
-#   11. 
-#   ---------------------------------------
-    cview() { pygmentize -g "$1" }
 
 
 #   Task warrior: aliases
@@ -104,8 +99,8 @@ alias taddpz='task add project:ztp '
 
 #   AutoMaker: AI development studio aliases
 #   -----------------------------------------------------------
-alias automaker='cd /Users/nmudivar/Projects/ai/automaker && npm run dev:electron'
-alias automaker-web='cd /Users/nmudivar/Projects/ai/automaker && npm run dev:web'
+alias automaker='cd $HOME/Projects/ai/automaker && npm run dev:electron'
+alias automaker-web='cd $HOME/Projects/ai/automaker && npm run dev:web'
 alias automaker-stop='pkill -f "vite"; pkill -f "tsx watch"; pkill -f "Electron.*automaker"; echo "✓ AutoMaker stopped"'
 alias automaker-status='curl -s http://localhost:3008/api/health 2>/dev/null && echo "\n✓ AutoMaker is running" || echo "✗ AutoMaker is not running"'
 
@@ -117,6 +112,6 @@ fi
 
 
 # Claude AI CLI path
-export PATH="/Users/nmudivar/.claude/local:/usr/local/opt/openssl/bin:$PATH"
+export PATH="$HOME/.claude/local:/usr/local/opt/openssl/bin:$PATH"
 
-export PATH="/Users/nmudivar/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"

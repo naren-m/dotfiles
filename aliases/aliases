@@ -12,7 +12,8 @@
     export VISUAL=vim
 
 # Vim file opening aliases
-    alias vimopen="$HOME/dotfiles/scripts/open-with-vim.sh"
+# TODO: Re-enable when scripts/open-with-vim.sh is added to the repo
+#   alias vimopen="$HOME/dotfiles/scripts/open-with-vim.sh"
 
 #   Google project aliases
 #   ------------------------------------------------------------
@@ -92,13 +93,13 @@
     alias image_rename='python /Users/$USER/GDrive/python_code/personal/sys_utils/image_rename.py'
 
 # Utils for ssh to servers
-    alias raspi='ssh pi@raspberrypi.local' # password for user:pi is raspberry
+    alias raspi='ssh pi@raspberrypi.local'
     narenuday () {  ssh narenuday@narenuday-pc.local; }
 
-     ckh ()    # ckh: Clear Know Hosts, delete entry from ssh known hosts
+     ckh ()    # ckh: Clear Known Hosts, delete entry from ssh known hosts
      {
-         sed -e "$1d" /users/$USER/.ssh/known_hosts > /dev/null
-         sed -i.bak -e "$1d" /users/$USER/.ssh/known_hosts > /dev/null
+         sed -e "$1d" "$HOME/.ssh/known_hosts" > /dev/null
+         sed -i.bak -e "$1d" "$HOME/.ssh/known_hosts" > /dev/null
       }
 
 #   lr:  Full Recursive Directory Listing
@@ -236,10 +237,7 @@
         source ~/.aliases_work
     fi
 
-    if [ -f ~/.aliases_cisco ]
-    then
-        source ~/.aliases_cisco
-    fi
+    # aliases_cisco is sourced from aliases_work to avoid double-loading
 
     # if [ -f ~/.aliases_kubectl ]
     # then

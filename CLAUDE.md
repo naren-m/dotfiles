@@ -17,20 +17,29 @@ This is a personal dotfiles repository containing shell configuration, Vim setti
 
 ```
 ├── aliases/                    # Alias management system
-│   ├── aliases                # Main aliases file
+│   ├── aliases                # Main aliases file (sources platform-specific files)
+│   ├── aliases_cisco          # Cisco work environment aliases
 │   ├── aliases_docker         # Docker-specific aliases
 │   ├── aliases_kubectl        # Kubernetes aliases with fzf integration
-│   ├── aliases_mac*           # macOS-specific aliases
-│   ├── aliases_work           # Work environment aliases
+│   ├── aliases_linux          # Linux-specific aliases
+│   ├── aliases_mac            # macOS-specific aliases
+│   ├── aliases_mac_m1         # Apple Silicon Mac path configs
+│   ├── aliases_work           # Work environment aliases (sources aliases_cisco)
 │   ├── deep_learning          # ML/AI environment setup
-│   └── alias_cheatsheet.txt   # Searchable alias documentation
+│   ├── alias_cheatsheet.txt   # Searchable alias documentation
+│   └── README_ALIASES.md      # Alias system documentation
 ├── vimfiles/                  # Vim configuration
+│   ├── .vimrc                 # Main vimrc (sources below files)
 │   ├── basic.vim              # Core Vim settings
 │   ├── mappings.vim           # Key mappings
-│   ├── plugins.vim            # Plugin configurations
+│   ├── plugins.vim            # Plugin configurations (vim-plug)
 │   └── vim/                   # Vim runtime files
 ├── zsh_themes/                # Custom Zsh themes
-└── zsh-autosuggestions/       # Zsh plugin (local copy)
+│   └── naren.zsh-theme       # Custom prompt theme
+├── backup/                    # Backup of original configs (created by bootstrap)
+├── bootstrap2.sh             # Symlink installer script
+├── get_plugins.sh            # Oh-my-zsh and plugin installer
+└── zshrc                     # Main Zsh configuration
 ```
 
 ## Common Commands

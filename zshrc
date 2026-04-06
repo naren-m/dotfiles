@@ -75,7 +75,7 @@ hg() { history | fzf  }
 # Add wisely, as too many plugins slow down shell startup.
 
 # zsh-autosuggestions not working on centos 6.0
-plugins=(git zsh-syntax-highlighting tmux fzf-tab)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions tmux fzf-tab)
 
 # User configuration
 
@@ -117,6 +117,9 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Set up Homebrew/Linuxbrew environment (must be before aliases that depend on brew-installed tools)
+eval "$(/data/hdd/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 source ~/.aliases
 
 alias python=$(which python3)
@@ -125,9 +128,6 @@ alias python=$(which python3)
 # export VIRTUALENVWRAPPER_PYTHON=$(which python3)
 # . /usr/local/bin/virtualenvwrapper.sh
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 fixZsh() {
 	for f in $(compaudit)
@@ -139,3 +139,6 @@ fixZsh() {
 
 
 # Platform-specific aliases are now handled via conditional loading in ~/.aliases
+
+# Cursor Agent CLI
+export PATH="$HOME/.local/bin:$PATH"
