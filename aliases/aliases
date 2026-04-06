@@ -237,8 +237,6 @@
         source ~/.aliases_work
     fi
 
-    # aliases_cisco is sourced from aliases_work to avoid double-loading
-
     # if [ -f ~/.aliases_kubectl ]
     # then
         # source ~/.aliases_kubectl
