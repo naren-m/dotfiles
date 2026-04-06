@@ -45,7 +45,9 @@
         nmap ga <Plug>(EasyAlign)
 
     " Ag.vim
-       let g:ag_prg="/ws/nmudivar-sjc/software/bin/ag --column"
+       if isdirectory("/ws/nmudivar-sjc/software/bin")
+           let g:ag_prg="/ws/nmudivar-sjc/software/bin/ag --column"
+       endif
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
 
     " Task warrior
