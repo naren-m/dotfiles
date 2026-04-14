@@ -28,7 +28,7 @@ set wildmenu
 
 " Mappings.
 " write file on enter
-nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
+nnoremap <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 
 " Enable mouse
     set mouse=a

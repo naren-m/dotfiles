@@ -18,9 +18,12 @@
         nmap <silent> <leader>vs :vsplit<CR>
         nmap <silent> <leader>sc :close<CR>
 
+    " Remove trailing whitespace
+    nnoremap <leader>w :%s/\s\+$//g<CR>:nohlsearch<CR>
+
     " Nerd tree
     nnoremap <leader>n :NERDTreeFocus<CR>
-    nnoremap <leader>t :NERDTreeToggle<CR>
+    nnoremap <leader>nt :NERDTreeToggle<CR>
     nnoremap <leader>f :NERDTreeFind<CR>
 
     let g:gtm_plugin_status_enabled = 1

@@ -139,3 +139,10 @@ fixZsh() {
 
 
 # Platform-specific aliases are now handled via conditional loading in ~/.aliases
+
+# Added by Windsurf
+export PATH="/Users/nmudivar/.codeium/windsurf/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+export PATH="$PATH:/Users/nmudivar/Projects/work/llm/bin"
+
+. "$HOME/.local/bin/env"
