@@ -21,11 +21,10 @@
     Plug 'terryma/vim-multiple-cursors'
 
 
-    " Figure out how to use these
-    Plug 'tpope/vim-abolish'
-    " Plug 'gilsondev/searchtasks.vim'
-    " Plug 'mbbill/undotree'                " The ultimate undo history visualizer for VIM
-    " Plug 'tpope/vim-repeat'               " enable repeating supported plugin maps with '.'
+    Plug 'tpope/vim-abolish'               " Case-preserving search/replace (:S/foo/bar/g)
+    Plug 'tpope/vim-surround'              " Change/add/delete surrounding chars (cs'\" ds\" ysiw])
+    Plug 'tpope/vim-repeat'                " Enable . repeat for plugin actions (surround, etc.)
+    Plug 'mbbill/undotree'                 " Visual undo history tree
 
     " Language helpers
     Plug 'jiangmiao/auto-pairs'
@@ -43,13 +42,12 @@
     " Markdown
     Plug 'godlygeek/tabular'
     Plug 'preservim/vim-markdown'
+    Plug 'dhruvasagar/vim-table-mode'
 
-    " Colors schemes
-    " Plug 'tomasiser/vim-code-dark'
-    " Plug 'dolio/vim-hybrid'
-    " Plug 'morhetz/gruvbox'
-    " Plug 'chriskempson/base16-vim'
-    " Plug 'mhartington/oceanic-next'
+    " Color schemes
+    Plug 'tomasiser/vim-code-dark'
+    Plug 'embark-theme/vim', { 'as': 'embark' }
+    Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'sonph/onehalf', { 'rtp': 'vim'  }
 
 
@@ -75,25 +73,9 @@
     Plug 'nathanalderson/yang.vim'
 
 
-    " Not using
-    " Plug 'tpope/vim-abolish'
-    " Plug 'tpope/vim-commentary'
     Plug 'tomtom/tcomment_vim'            " comment stuff out (via leader-/)
-    " Plug 'majutsushi/tagbar'
-
-    " TODO: Add following plugins
-    " - https://github.com/tpope/vim-eunuch
-    " - https://github.com/tpope/vim-surround
-    " - https://github.com/w0rp/ale
-    " - https://github.com/mhinz/vim-startify
-    " - https://github.com/garbas/vim-snipmate
-    " - https://github.com/xolox/vim-notes
-
-"	Plug 'lervag/vimtex'
-"	let g:tex_flavor='latex'
-"	let g:vimtex_view_method='zathura'
-"	let g:vimtex_quickfix_mode=0
-"	set conceallevel=1
-"	let g:tex_conceal='abdmg'
+    Plug 'tpope/vim-eunuch'               " Unix helpers (:Rename, :Delete, :Move, :Chmod, :SudoWrite)
+    Plug 'mhinz/vim-startify'             " Start screen with recent files and sessions
+    Plug 'preservim/tagbar'               " Code outline sidebar (functions, structs, methods)
 
     call plug#end()
