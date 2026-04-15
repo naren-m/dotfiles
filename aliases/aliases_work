@@ -7,6 +7,15 @@
     ads () { $HOME/ads_connect.sh;}
 #  Cisco Stuff end
 
+# Source Cisco credentials (tokens, API keys — chmod 600)
+if [ -f ~/.credentials_cisco ]; then
+    source ~/.credentials_cisco
+fi
+
+# Source Cisco-specific env (Go, proxy, ND utils) if present
+if [ -f ~/.aliases_cisco ]; then
+    source ~/.aliases_cisco
+fi
 
 # Generate tags using cscope and ctags from cwd
 #

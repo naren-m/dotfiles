@@ -1,6 +1,6 @@
 
     set laststatus=2
-    set ttimeoutlen=10
+    set ttimeoutlen=50
     set showtabline=2
     set encoding=UTF-8
 
@@ -25,15 +25,32 @@
     let g:bookmark_save_per_working_dir = 1
     let g:bookmark_auto_save = 1
 
-    let g:lightline = {}
-    let g:lightline.colorscheme = "jellybeans"
-    let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}
-    let g:lightline.component_expand = {'buffers': 'lightline#bufferline#buffers'}
-    let g:lightline.component_type   = {'buffers': 'tabsel'}
+    let g:lightline = {
+        \ 'colorscheme': 'embark',
+        \ 'active': {
+        \   'left':  [['mode', 'paste'], ['gitbranch', 'readonly', 'filename', 'modified']],
+        \   'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding', 'filetype']]
+        \ },
+        \ 'component_function': {
+        \   'gitbranch': 'FugitiveHead'
+        \ },
+        \ 'tabline':          {'left': [['buffers']], 'right': [['close']]},
+        \ 'component_expand': {'buffers': 'lightline#bufferline#buffers'},
+        \ 'component_type':   {'buffers': 'tabsel'},
+        \ }
 
     let g:lightline#bufferline#show_number = 1
+    let g:lightline#bufferline#unnamed = '[No Name]'
 
-     let g:go_version_warning = 0
+    let g:go_version_warning = 0
+
+  " Markdown settings
+    let g:vim_markdown_conceal = 1
+    let g:vim_markdown_conceal_code_blocks = 0
+    let g:vim_markdown_folding_disabled = 1
+    let g:vim_markdown_no_extensions_in_markdown = 1
+    set conceallevel=2
+    autocmd FileType markdown setlocal conceallevel=2
 
   " Nerd Tree
 	" Exit Vim if NERDTree is the only window remaining in the only tab.

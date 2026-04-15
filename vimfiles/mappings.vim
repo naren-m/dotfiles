@@ -10,7 +10,7 @@
 
     " Cycle between buffers
         nnoremap <Tab> :bnext<CR>
-        nnoremap <S-Tab> :bprevious<CR>
+        nnoremap <leader>bp :bprevious<CR>
 
 
     " Window Splitting
@@ -21,7 +21,7 @@
     " Nerd tree
     nnoremap <leader>n :NERDTreeFocus<CR>
     nnoremap <leader>t :NERDTreeToggle<CR>
-    nnoremap <leader>f :NERDTreeFind<CR>
+    nnoremap <leader>nf :NERDTreeFind<CR>
 
     let g:gtm_plugin_status_enabled = 1
 
@@ -49,9 +49,6 @@
            let g:ag_prg="/ws/nmudivar-sjc/software/bin/ag --column"
        endif
        nnoremap <leader>k :exe 'Ag!' expand('<cword>')<cr>
-
-    " Task warrior
-        nnoremap <leader>t :tabnew <bar> :TW<CR>
 
     " fzf.vim
         function! s:buflist()
@@ -81,6 +78,73 @@
 
         nmap <Leader>/ <Plug>CommentaryLine
         xmap <Leader>/ <Plug>Commentary
+
+    " Undotree
+        nnoremap <leader>u :UndotreeToggle<CR>
+
+    " Tagbar - code outline
+        nnoremap <leader>o :TagbarToggle<CR>
+
+    " Fuzzy search in current buffer
+        nnoremap <leader>s :BLines<CR>
+
+    " Fuzzy grep across project with preview
+        nnoremap <leader>rg :Rg<CR>
+
+    " Preview current markdown file with glow in a terminal split
+        nnoremap <leader>md :!glow -p %<CR>
+
+    " vim-table-mode: use markdown-compatible tables (| separators)
+        let g:table_mode_corner='|'
+
+    " Format markdown table under cursor using Tabularize
+        nnoremap <leader>tf :Tabularize /\|<CR>
+        vnoremap <leader>tf :Tabularize /\|<CR>
+
+    " Show all custom keybindings (,? to open)
+        function! s:show_mappings()
+            let l:mappings = [
+                \ ',?        Show this help',
+                \ ',s        Fuzzy search in current buffer',
+                \ ',f        Fuzzy find files',
+                \ ',rg       Fuzzy grep across project',
+                \ ',b        Fuzzy switch buffer',
+                \ ',h        File history',
+                \ ',bt       Buffer tags (functions/structs)',
+                \ ',bl       Buffer lines',
+                \ ',tt       All tags',
+                \ ',c        Switch colorscheme',
+                \ ',k        Ag search word under cursor',
+                \ ',t        Toggle NERDTree',
+                \ ',n        Focus NERDTree',
+                \ ',nf       Find current file in NERDTree',
+                \ ',o        Toggle code outline (tagbar)',
+                \ ',u        Toggle undo tree',
+                \ ',tm       Toggle table mode (auto-format as you type)',
+                \ ',tf       Format markdown table under cursor',
+                \ ',/        Toggle comment',
+                \ ',ci       Toggle comment',
+                \ ',hs       Horizontal split',
+                \ ',vs       Vertical split',
+                \ ',sc       Close split',
+                \ ',bp       Previous buffer',
+                \ ',1-9      Jump to buffer N',
+                \ 'Tab       Next buffer',
+                \ 'S-Tab     Toggle fold',
+                \ 'Ctrl-p    Fuzzy find files',
+                \ 'Ctrl-hjkl Move between splits',
+                \ 'cs"''     Change surround " to ''',
+                \ 'ds"       Delete surrounding "',
+                \ 'ysiw]     Surround word with []',
+                \ ]
+            return l:mappings
+        endfunction
+
+        command! ShowMappings call fzf#run(fzf#wrap({
+            \ 'source': s:show_mappings(),
+            \ 'options': '--prompt="Keybindings> " --header="Leader is comma (,)"'
+            \ }))
+        nnoremap <leader>? :ShowMappings<CR>
 
     " lightline-bufferline
         nmap <Leader>1 <Plug>lightline#bufferline#go(1)
