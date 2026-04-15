@@ -257,6 +257,8 @@
         source ~/.aliases_linux
     fi
 
+    # ~/.aliases_cisco is sourced from ~/.aliases_work (not duplicated here)
+
 #   ---------------------------------------
 #   8. Note taking and todo utils
 #   ---------------------------------------
@@ -308,6 +310,7 @@
 #   10. Code view utils
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
+    md() { glow -p "$1" }
 
 # FZF
 #
