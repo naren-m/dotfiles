@@ -119,7 +119,6 @@ fi
 
 source ~/.aliases
 
-alias python=$(which python3)
 # Set python virtual env
 #
 # export VIRTUALENVWRAPPER_PYTHON=$(which python3)
@@ -139,3 +138,31 @@ fixZsh() {
 
 
 # Platform-specific aliases are now handled via conditional loading in ~/.aliases
+
+# Added by LM Studio CLI (lms)
+export PATH="$PATH:/Users/narenmudivarthy/.lmstudio/bin"
+# End of LM Studio CLI section
+
+# Claude Code alias
+
+
+# GitHub Token for Claude MCP
+export GITHUB_TOKEN="***REMOVED***"
+
+# Added by Antigravity
+export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"
+export OLLAMA_HOST=0.0.0.0:11434
+
+# bun completions
+[ -s "/Users/narenmudivarthy/.bun/_bun" ] && source "/Users/narenmudivarthy/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# Added by Antigravity
+export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"

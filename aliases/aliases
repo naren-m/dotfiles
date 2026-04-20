@@ -40,9 +40,6 @@
 # Sourcing Envs
 # -------------------------
 
-#  Python3 virtual environment
-    src_py_vir_env () { source /usr/local/bin/virtualenvwrapper.sh; }
-
 #  Utils for cd
     alias wpy='cd /Users/$USER/Documents/work_script'
     alias ppy='cd /Users/$USER/GDrive/python_code/personal'
@@ -227,10 +224,10 @@
         source ~/.aliases_cisco
     fi
 
-    # if [ -f ~/.aliases_kubectl ]
-    # then
-        # source ~/.aliases_kubectl
-    # fi
+    if [ -f ~/.aliases_kubectl ]
+    then
+        source ~/.aliases_kubectl
+    fi
 
     if [ -f ~/.aliases_docker ]
     then
