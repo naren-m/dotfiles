@@ -34,7 +34,7 @@ fi
 
 if [ ! -d ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/fzf-tab ]
 then
-    echo "Cloning powerlevel10k"
+    echo "Cloning fzf-tab"
     git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
 fi
 
@@ -45,7 +45,7 @@ fi
 #
 if [ ! -d ~/.tmux/plugins ]
 then
-    echo "Installing tmux pligin manager"
+    echo "Installing tmux plugin manager"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 

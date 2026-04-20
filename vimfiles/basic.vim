@@ -9,14 +9,11 @@ set nocompatible
 
 set t_Co=256
 set cursorline
-try
-    colorscheme onehalfdark
-catch /^Vim\%((\a\+)\)\=:E185/
-    colorscheme default
-endtry
+set background=dark
+set termguicolors
+colorscheme embark
 
-" lightline
-let g:lightline = { 'colorscheme': 'onehalfdark'  }"
+" lightline colorscheme is configured in .vimrc
 
 " Find files using find commad
 " :find test<tab>
@@ -35,13 +32,7 @@ nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 
 " Copy to clipboard
     set clipboard=unnamed
-" Make it obvious where 80 characters is
-    set textwidth=80
-    set colorcolumn=+1
-    let &colorcolumn=join(range(81,999),",")  "for having shadedline after 80
-    highlight ColorColumn ctermbg=235 guibg=#2c2d27
     highlight LineNr ctermfg=grey
-    let &colorcolumn="80,".join(range(999,999),",")
 
 " Numbering settings
     set number
@@ -75,8 +66,7 @@ nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
 " Show whitespaces settings
     set list                              " show whitespace
     set listchars=nbsp:⦸                  " CIRCLED REVERSE SOLIDUS (U+29B8, UTF-8: E2 A6 B8)
-    set listchars+=tab:➝\                 " WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7)
-                                          " + BOX DRAWINGS HEAVY TRIPLE DASH HORIZONTAL (U+2505, UTF-8: E2 94 85)
+    set listchars+=tab:\ \                " show tabs as spaces
     set listchars+=extends:»              " RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00BB, UTF-8: C2 BB)
     set listchars+=precedes:«             " LEFT-POINTING DOUBLE ANGLE QUOTATION MARK (U+00AB, UTF-8: C2 AB)
     set listchars+=trail:•                " BULLET (U+2022, UTF-8: E2 80 A2)
@@ -104,6 +94,11 @@ nnoremap <unique> <expr> <CR> empty(&buftype) ? ':w<CR>' : '<CR>'
     endif
     " Custom folding
     " Source http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
+
+" Per-split filename bar (neovim only)
+    if has('nvim')
+        set winbar=%f\ %m
+    endif
 
    " Remapping leader
     let g:mapleader=','
