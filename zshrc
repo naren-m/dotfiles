@@ -146,9 +146,6 @@ export PATH="$PATH:/Users/narenmudivarthy/.lmstudio/bin"
 # Claude Code alias
 
 
-# GitHub Token for Claude MCP
-export GITHUB_TOKEN="***REMOVED***"
-
 # Added by Antigravity
 export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"
 
