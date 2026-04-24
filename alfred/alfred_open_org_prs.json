@@ -1,0 +1,11 @@
+{
+  "accounts": {
+    "github.com": "nmudivar_cisco"
+  },
+  "aliases": {
+    "nd": "github.com/nd-org-git"
+  },
+  "scopes": [
+    "nd"
+  ]
+}
