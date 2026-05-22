@@ -307,7 +307,7 @@
 #   10. Code view utils
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
-    md() { glow -p "$1" }
+    function md { glow -p "$1" }
 
 # FZF
 #
@@ -366,3 +366,56 @@ search_alias() {
 
 alias salias='search_alias'
 alias ghv="gh repo view --web"
+
+# ---------------------------------------------------------------------------
+# Claude Code background-agent killer
+#   crm                  -> opens an fzf picker, kills the selected session
+#   crm <id> [<id>...]   -> passes through to `claude rm`
+#   crm <TAB>            -> fzf-tab renders the completion list via fzf
+# Data source: ~/.claude/jobs/<short-id>/state.json
+# ---------------------------------------------------------------------------
+crm() {
+    if (( $# )); then
+        command claude rm "$@"
+        return
+    fi
+
+    local jobs_dir="$HOME/.claude/jobs"
+    [[ -d $jobs_dir ]] || { echo "No Claude jobs dir at $jobs_dir"; return 1; }
+
+    local selected
+    selected=$(
+        for state_file in "$jobs_dir"/*/state.json(N); do
+            jq -r '[.daemonShort, .state, (.name // "-"),
+                    (.intent // "-" | gsub("\n";" ") | .[0:60])] | @tsv' \
+                "$state_file" 2>/dev/null
+        done \
+        | column -t -s $'\t' \
+        | fzf --height=60% --reverse \
+              --header='enter: kill   esc: cancel' \
+              --preview="jq . $jobs_dir/{1}/state.json" \
+              --preview-window=right:55%:wrap
+    )
+
+    [[ -n $selected ]] || return 0
+    local id="${selected%% *}"
+    echo "Killing session $id ..."
+    command claude rm "$id"
+}
+
+# Zsh completion -- fzf-tab will render this through fzf automatically.
+_crm() {
+    local -a ids descs
+    local state_file id state name intent
+    for state_file in ~/.claude/jobs/*/state.json(N); do
+        id=$(jq -r '.daemonShort // empty' "$state_file" 2>/dev/null)
+        [[ -n $id ]] || continue
+        state=$(jq -r '.state // "?"' "$state_file" 2>/dev/null)
+        name=$(jq -r '.name // "-"' "$state_file" 2>/dev/null)
+        intent=$(jq -r '.intent // "-" | gsub("\n";" ") | .[0:60]' "$state_file" 2>/dev/null)
+        ids+=("$id")
+        descs+=("$id  [$state]  $name  -- $intent")
+    done
+    compadd -d descs -a ids
+}
+compdef _crm crm
