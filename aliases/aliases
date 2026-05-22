@@ -307,7 +307,7 @@
 #   10. Code view utils
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
-    function md { glow -p "$1" }
+    md() { glow -p "$1" }
 
 # FZF
 #

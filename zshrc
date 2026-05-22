@@ -143,12 +143,6 @@ fixZsh() {
 export PATH="$PATH:/Users/narenmudivarthy/.lmstudio/bin"
 # End of LM Studio CLI section
 
-# Claude Code alias
-
-
-# Added by Antigravity
-export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"
-
 # Added by Antigravity
 export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"
 export OLLAMA_HOST=0.0.0.0:11434
@@ -161,7 +155,5 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-# Added by Antigravity
-export PATH="/Users/narenmudivarthy/.antigravity/antigravity/bin:$PATH"
 # Cursor Agent CLI
 export PATH="$HOME/.local/bin:$PATH"
