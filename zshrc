@@ -84,7 +84,11 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions tmux fzf-tab)
 
 source $ZSH/oh-my-zsh.sh
 
-autoload -U compinit && compinit
+# NOTE: oh-my-zsh already runs `compinit` against
+# ~/.zcompdump-${SHORT_HOST}-${ZSH_VERSION}. Calling `compinit` again here
+# (without -d) makes it read the default ~/.zcompdump, which can drift out
+# of sync and causes `compinit:482: bad math expression` on every shell
+# start when the dump's header line is missing/corrupt.
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
@@ -122,7 +126,8 @@ eval "$(/data/hdd/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 source ~/.aliases
 
-alias python=$(which python3)
+# Removed `alias python=$(which python3)` so an activated venv's
+# `python` binary takes precedence on PATH instead of being shadowed.
 # Set python virtual env
 #
 # export VIRTUALENVWRAPPER_PYTHON=$(which python3)

@@ -103,6 +103,7 @@ ctodo           # View todo file with markdown viewer (function)
 # CODE UTILITIES
 replace         # Replace text across files using ag (function)
 cview           # View file with syntax highlighting (function)
+mdview          # Render a markdown file with glow (function)
 preview         # Preview files with fzf and bat (function)
 batdiff         # Show git diff with bat
 
@@ -204,11 +205,16 @@ offbox          # Go to offbox source
 ems             # Go to EMS gosrc
 
 # CISCO-SPECIFIC ALIASES
-ssh_switch      # SSH switch script (function)
 ckh             # Clear SSH known hosts (function)
 vpn             # Open Cisco AnyConnect VPN
-ads             # ADS connect script (function)
 gentags         # Generate ctags for current directory (function)
+
+# GRAPHIFY (CURSOR KNOWLEDGE GRAPH)
+gfy             # Wire graphify into the current repo (cursor rule + git hooks)
+gfy-status      # Show current graphify wiring (no changes)
+gfy-uninit      # Remove graphify cursor rule and git hooks
+gfy-update      # Refresh the in-tree graph from code (no LLM)
+gfy-report      # Open graphify-out/GRAPH_REPORT.md with less
 
 # PYTHON ENVIRONMENT
 src_py_vir_env  # Source Python virtual environment (function)
@@ -246,8 +252,6 @@ torch_setup     # Setup Torch environment (function)
 # sim_clean        - Clean simulation
 # sim_reset        - Reset simulation
 # wit_delete <name> - Delete wit space
-# ssh_switch       - SSH switch utility
-# ads              - ADS connect
 # gentags          - Generate ctags
 # src_py_vir_env   - Source Python virtual environment
 # exp_conda3       - Export Anaconda3 to PATH
