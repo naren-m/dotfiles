@@ -310,7 +310,11 @@
 #   10. Code view utils
 #   ---------------------------------------
     cview() { pygmentize -g "$1" }
-    md() { glow -p "$1" }
+    # NOTE: Named `mdview` (not `md`) to avoid colliding with zsh's default
+    # `md='mkdir -p'` alias. Defining `md()` would trigger alias expansion
+    # at function-definition time and produce a parse error that silently
+    # aborts loading the rest of this file.
+    mdview() { glow -p "$1" }
 
 # FZF
 #
@@ -358,7 +362,6 @@ search_alias() {
         echo "Usage: search_alias <search_term>"
         return 1
     fi
-    
     local cheatsheet_file="$HOME/dotfiles/aliases/alias_cheatsheet.txt"
     if [[ -f "$cheatsheet_file" ]]; then
         grep -i "$1" "$cheatsheet_file"
@@ -369,3 +372,16 @@ search_alias() {
 
 alias salias='search_alias'
 alias ghv="gh repo view --web"
+
+#   ---------------------------------------
+#   12. Graphify (knowledge-graph for Cursor)
+#   ---------------------------------------
+#   Helper script lives at ~/dotfiles/bin/graphify-init (symlinked from
+#   ~/.local/bin/graphify-init). init writes the Cursor rule and git
+#   hooks only; graphify-out/ is created in-tree by `/graphify .` in
+#   Cursor.
+    alias gfy='graphify-init'                   # gfy:        wire graphify into current repo
+    alias gfy-status='graphify-init --status'   # gfy-status: show current wiring (no changes)
+    alias gfy-uninit='graphify-init --uninit'   # gfy-uninit: remove cursor rule + git hooks
+    alias gfy-update='graphify update .'        # gfy-update: refresh graph from code (no LLM)
+    alias gfy-report='less graphify-out/GRAPH_REPORT.md'  # gfy-report: read the graph summary

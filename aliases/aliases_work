@@ -1,11 +1,8 @@
 # Utils for ssh to servers
 
 #  Cisco Stuff start
-    ssh_switch () { $HOME/ssh_switch.sh;}
     # ckh is defined in aliases/aliases — not duplicated here
     vpn () { open -a Cisco\ AnyConnect\ Secure\ Mobility\ Client; }
-    ads () { $HOME/ads_connect.sh;}
-#  Cisco Stuff end
 
 # Source Cisco credentials (tokens, API keys — chmod 600)
 if [ -f ~/.credentials_cisco ]; then
