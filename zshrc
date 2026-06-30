@@ -147,3 +147,6 @@ fixZsh() {
 
 # Cursor Agent CLI
 export PATH="$HOME/.local/bin:$PATH"
+
+# headroom proxy + token-saving wrappers (codex/cursor agent)
+[ -f ~/.token_savers ] && source ~/.token_savers
