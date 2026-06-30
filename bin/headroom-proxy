@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+# headroom-proxy: start | stop | status | logs
+# Runs `headroom proxy` detached. Survives shell exit.
+set -euo pipefail
+
+PORT="${HEADROOM_PORT:-8787}"
+MEM_DB="${HEADROOM_MEMORY_DB_PATH:-/data/hdd/memory/memory.db}"
+DIR="$HOME/.headroom"
+PID="$DIR/proxy.pid"
+LOG="$DIR/proxy.log"
+mkdir -p "$DIR"
+
+alive() { [[ -f "$PID" ]] && kill -0 "$(cat "$PID")" 2>/dev/null; }
+
+case "${1:-status}" in
+  start)
+    if alive; then echo "already running (pid $(cat "$PID")) on :$PORT"; exit 0; fi
+    setsid nohup headroom proxy --port "$PORT" \
+      --memory --memory-db-path "$MEM_DB" \
+      --no-telemetry \
+      >>"$LOG" 2>&1 < /dev/null &
+    echo $! > "$PID"
+    disown || true
+    for _ in 1 2 3 4 5 6 7 8 9 10; do
+      sleep 1
+      curl -fsS -m 2 "http://127.0.0.1:$PORT/livez" >/dev/null 2>&1 && break
+    done
+    if curl -fsS -m 2 "http://127.0.0.1:$PORT/livez" >/dev/null; then
+      echo "started pid $(cat "$PID") on :$PORT  log=$LOG"
+    else
+      echo "failed to come up; tail $LOG"; exit 1
+    fi
+    ;;
+  stop)
+    if alive; then kill "$(cat "$PID")"; rm -f "$PID"; echo "stopped"; else echo "not running"; fi
+    ;;
+  status)
+    if alive; then
+      curl -fsS -m 2 "http://127.0.0.1:$PORT/livez" || true
+      echo "  pid $(cat "$PID")"
+    else
+      echo "not running"
+    fi
+    ;;
+  logs) tail -n 50 -f "$LOG" ;;
+  *) echo "usage: $0 {start|stop|status|logs}"; exit 2 ;;
+esac
