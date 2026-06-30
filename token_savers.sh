@@ -9,11 +9,12 @@ case ":$PATH:" in *":$HOME/bin:"*) ;; *) export PATH="$HOME/bin:$PATH" ;; esac
 export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
 export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
 
-# Route all OpenAI-compatible clients (cursor agent, ad-hoc scripts) through the proxy.
-# Unset HEADROOM_NO_PROXY=1 in a shell to bypass for that shell.
-if [ -z "${HEADROOM_NO_PROXY:-}" ]; then
-  export OPENAI_BASE_URL="http://127.0.0.1:${HEADROOM_PORT:-8787}/v1"
-fi
+# NOTE: cursor agent talks to api2.cursor.sh / cursor.com, NOT to OpenAI directly.
+# Setting OPENAI_BASE_URL would not route cursor through the proxy and could
+# mis-route unrelated OpenAI-SDK scripts. Keep it unset by default. Tools that
+# DO honor OPENAI_BASE_URL (ad-hoc scripts, codex without its own config) can
+# opt in per-shell:
+#   export OPENAI_BASE_URL="http://127.0.0.1:8787/v1"
 
 # Auto-start proxy if not running. Idempotent; no-op when already up.
 if command -v headroom-proxy >/dev/null 2>&1; then
@@ -25,10 +26,9 @@ fi
 unalias hcodex 2>/dev/null || true
 hcodex() { codex "$@"; }
 
+# hagent kept as a thin pass-through; cursor agent cannot be routed via OPENAI_BASE_URL.
 unalias hagent 2>/dev/null || true
-hagent() {
-  OPENAI_BASE_URL="http://127.0.0.1:${HEADROOM_PORT:-8787}/v1" cursor agent "$@"
-}
+hagent() { cursor agent "$@"; }
 
 # Quick stats peeks.
 alias hr-stats='curl -sS "http://127.0.0.1:${HEADROOM_PORT:-8787}/stats" | jq .summary'
