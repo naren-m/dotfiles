@@ -78,4 +78,8 @@
     Plug 'mhinz/vim-startify'             " Start screen with recent files and sessions
     Plug 'preservim/tagbar'               " Code outline sidebar (functions, structs, methods)
 
+    if has('nvim')
+        Plug 'neovim/nvim-lspconfig'
+    endif
+
     call plug#end()
