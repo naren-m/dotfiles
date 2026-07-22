@@ -15,6 +15,9 @@ function doIt() {
     mv ~/.plugins.vim $PWD/backup/.plugins.vim.orig 2>/dev/null
     mv ~/.basic.vim $PWD/backup/.basic.vim.orig 2>/dev/null
     mv ~/.mappings.vim $PWD/backup/.mappings.vim.orig 2>/dev/null
+    if [ ! -L ~/.config/nvim/init.vim ]; then
+        mv ~/.config/nvim/init.vim $PWD/backup/nvim-init.vim.orig 2>/dev/null
+    fi
     
 
     mv ~/.aliases $PWD/backup/.aliases.orig 2>/dev/null
@@ -52,6 +55,8 @@ function doIt() {
     ln -s $PWD/vimfiles/basic.vim ~/.basic.vim
     ln -s $PWD/vimfiles/mappings.vim ~/.mappings.vim
     cp -r $PWD/vimfiles/vim ~/.vim
+    mkdir -p ~/.config/nvim
+    ln -sfn $PWD/vimfiles/nvim/init.vim ~/.config/nvim/init.vim
 }
 
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
