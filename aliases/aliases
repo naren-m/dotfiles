@@ -370,6 +370,16 @@ search_alias() {
 alias salias='search_alias'
 alias ghv="gh repo view --web"
 
+#   ---------------------------------------
+#   12. Claude / AI utils
+#   ---------------------------------------
+# hc: Launch Claude Code routed through Headroom compression proxy.
+# Headroom starts the proxy automatically and kills it when Claude exits.
+# ~60-92% fewer tokens on large tool outputs (file searches, logs, etc.)
+# Use bare `claude` when you want no proxy overhead (e.g. quick questions).
+export HEADROOM_TELEMETRY=off
+alias hc='headroom wrap claude --dangerously-skip-permissions '
+
 # ---------------------------------------------------------------------------
 # Claude Code background-agent killer
 #   crm                  -> opens an fzf picker, kills the selected session
