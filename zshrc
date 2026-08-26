@@ -122,7 +122,19 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Set up Homebrew/Linuxbrew environment (must be before aliases that depend on brew-installed tools)
-eval "$(/data/hdd/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# Prefix differs per platform: /opt/homebrew (Apple Silicon), /usr/local
+# (Intel mac), /home/linuxbrew/.linuxbrew (stock Linuxbrew), and the custom
+# /data/hdd prefix on the work box. Take the first one that exists so a single
+# zshrc stays correct on all of them instead of erroring on every shell start.
+for __brew in /opt/homebrew/bin/brew /usr/local/bin/brew \
+              /home/linuxbrew/.linuxbrew/bin/brew \
+              /data/hdd/linuxbrew/.linuxbrew/bin/brew; do
+    if [ -x "$__brew" ]; then
+        eval "$("$__brew" shellenv)"
+        break
+    fi
+done
+unset __brew
 
 source ~/.aliases
 
