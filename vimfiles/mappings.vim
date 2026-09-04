@@ -96,6 +96,7 @@
 
     " vim-table-mode: use markdown-compatible tables (| separators)
         let g:table_mode_corner='|'
+        let g:table_mode_disable_tableize_mappings = 1
 
     " Format markdown table under cursor using Tabularize
         nnoremap <leader>tf :Tabularize /\|<CR>

@@ -24,12 +24,12 @@ fi
 # Wrappers: proxy is always-on, so no per-call startup needed.
 # codex reads ~/.codex/config.toml which already points at the proxy.
 unalias hcodex 2>/dev/null || true
-hcodex() { codex "$@"; }
+hcodex() { HEADROOM_PROJECT="${HEADROOM_PROJECT:-${PWD:t}}" codex "$@"; }
 
 # hagent kept as a thin pass-through; cursor agent cannot be routed via OPENAI_BASE_URL.
 unalias hagent 2>/dev/null || true
-hagent() { cursor agent "$@"; }
+hagent() { HEADROOM_PROJECT="${HEADROOM_PROJECT:-${PWD:t}}" cursor agent "$@"; }
 
 # Quick stats peeks.
-alias hr-stats='curl -sS "http://127.0.0.1:${HEADROOM_PORT:-8787}/stats" | jq .summary'
-alias hr-savings='curl -sS "http://127.0.0.1:${HEADROOM_PORT:-8787}/stats" | jq .savings.per_project'
+hr-stats() { curl -sS "http://127.0.0.1:${HEADROOM_PORT:-8787}/stats" | jq .summary; }
+hr-savings() { curl -sS "http://127.0.0.1:${HEADROOM_PORT:-8787}/stats" | jq "{session: .display_session, total_tokens_saved: .savings.total_tokens, per_project: .savings.per_project}"; }

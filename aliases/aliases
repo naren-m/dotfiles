@@ -237,10 +237,10 @@
         source ~/.aliases_work
     fi
 
-    # if [ -f ~/.aliases_kubectl ]
-    # then
-        # source ~/.aliases_kubectl
-    # fi
+    if [ -f ~/.aliases_kubectl ]
+    then
+        source ~/.aliases_kubectl
+    fi
 
     if [ -f ~/.aliases_docker ]
     then

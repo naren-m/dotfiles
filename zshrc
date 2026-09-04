@@ -2,6 +2,13 @@
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 
+# Keep accidental parent env from disabling prompt/tool colors.
+unset NO_COLOR
+
+# Perl on this host warns on inherited C.UTF-8; use generated locale.
+unset LC_ALL LC_CTYPE
+export LANG=en_US.UTF-8
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to 'random', it'll load a random theme each
@@ -75,7 +82,7 @@ hg() { history | fzf  }
 # Add wisely, as too many plugins slow down shell startup.
 
 # zsh-autosuggestions not working on centos 6.0
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions tmux fzf-tab)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions tmux fzf-tab kubectl )
 
 # User configuration
 

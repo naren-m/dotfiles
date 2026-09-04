@@ -33,7 +33,9 @@ alias kdp='kubectl describe pods'
 #Configuration commands
 alias kuc='kubectl config use-context'
 alias ksc='kubectl config set-context "$(kubectl config current-context)"'
-alias kns='ksc --namespace'
+alias kns='kubectl get ns -o name | fzf | cut -d/ -f2 | xargs kubectl config set-context --current --namespace'
+
+alias ksh='kubectl get pods | fzf | awk "{print \$1}" | xargs -I {} kubectl exec -it {} -- /bin/bash'
 
 # Networking
 alias kpf='kubectl port-forward'
